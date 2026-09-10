@@ -613,8 +613,8 @@
                 ],
                 interpret: function(score) {
                     if (score <= 1) return { level: "low", text: "Nguy cơ thấp", advice: "Xác suất PE ~3.6%. Có thể loại trừ bằng D-dimer hoặc PERC." };
-                    if (score <= 6) return { level: "mid", text: "Nguy cơ trung bình", advice: "Xác suất PE ~20.5%. Cần D-dimer, nếu dương → CT肺动脉." };
-                    return { level: "high", text: "Nguy cơ cao", advice: "Xác suất PE ~66.7%. CT肺动脉 ngay, cân nhắc kháng đông." };
+                    if (score <= 6) return { level: "mid", text: "Nguy cơ trung bình", advice: "Xác suất PE ~20.5%. Cần D-dimer, nếu dương → CTPA." };
+                    return { level: "high", text: "Nguy cơ cao", advice: "Xác suất PE ~66.7%. CTPA ngay, cân nhắc kháng đông." };
                 },
                 ref: [
                     { range: "≤1", verdict: "Thấp", level: "low", note: "Xác suất PE ~3.6%" },
@@ -749,7 +749,7 @@
                     
                     // Công thức Adrogué-Madias: ΔNa+ = (Na+ dịch - Na+ máu) / (TBW + 1)
                     // Nhưng khi truyền 1L dịch:
-                    var deltaPer Liter = (na_f - na_c) / (tbw + 1);
+                    var deltaPerLiter = (na_f - na_c) / (tbw + 1);
                     // Tốc độ thay đổi Na+ mỗi giờ:
                     var deltaPerHour = deltaPerLiter * (rate / 1000);
                     
