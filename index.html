@@ -4,768 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedTools - BS Võ Thành Nhân</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root {
-            --bg-color: #f4f7f9;
-            --surface-color: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --radius-md: 12px;
-            --radius-lg: 16px;
-        }
-        body.dark-mode {
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --primary-color: #3b82f6;
-            --primary-hover: #60a5fa;
-            --border-color: #334155;
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.5;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-height: 100vh;
-        }
-        .app {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 32px;
-        }
-        .brand { display: flex; align-items: center; gap: 16px; cursor: pointer; }
-        .brand-icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
-            color: white;
-            border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px;
-            box-shadow: var(--shadow-md);
-        }
-        .brand-text h1 {
-            font-size: 24px; font-weight: 800;
-            color: var(--text-primary); line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-        .brand-text p { font-size: 14px; color: var(--text-secondary); }
-        .header-right { display: flex; align-items: center; }
-        .author-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-right: 12px;
-        }
-        .author-badge i { font-size: 14px; }
-        .theme-btn {
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            font-size: 18px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-sm);
-        }
-        .theme-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            transform: translateY(-2px) rotate(15deg);
-        }
-        .main-content { flex: 1; }
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-        .category-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), #60a5fa);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        .category-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-        .category-card:hover::before { transform: scaleX(1); }
-        .category-icon {
-            width: 64px; height: 64px;
-            border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .category-card h2 {
-            font-size: 22px; font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        .category-card > p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-        .sub-count {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 4px 12px;
-            background-color: rgba(37, 99, 235, 0.1);
-            border-radius: 50px;
-        }
-        .bg-blue { background-color: #dbeafe; color: #2563eb; }
-        .bg-red { background-color: #fee2e2; color: #dc2626; }
-        .bg-green { background-color: #dcfce7; color: #16a34a; }
-        .bg-purple { background-color: #f3e8ff; color: #9333ea; }
-        .bg-orange { background-color: #ffedd5; color: #ea580c; }
-        body.dark-mode .bg-blue { background-color: rgba(37, 99, 235, 0.2); }
-        body.dark-mode .bg-red { background-color: rgba(220, 38, 38, 0.2); }
-        body.dark-mode .bg-green { background-color: rgba(22, 163, 74, 0.2); }
-        body.dark-mode .bg-purple { background-color: rgba(147, 51, 234, 0.2); }
-        body.dark-mode .bg-orange { background-color: rgba(234, 88, 12, 0.2); }
-        .page { display: none; }
-        .page.active { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-        .breadcrumb a {
-            color: var(--primary-color);
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .breadcrumb a:hover { opacity: 0.7; }
-        .page-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        .page-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            font-size: 15px;
-        }
-        .sub-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-        .sub-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .sub-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .sub-card-icon {
-            width: 42px; height: 42px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        .sub-card span {
-            font-weight: 600;
-            font-size: 15px;
-            color: var(--text-primary);
-        }
-        .search-container {
-            position: relative;
-            max-width: 100%;
-            margin-bottom: 24px;
-        }
-        .search-icon {
-            position: absolute;
-            left: 20px; top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-            pointer-events: none;
-        }
-        .search-container input {
-            width: 100%;
-            padding: 16px 20px 16px 52px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            font-size: 16px;
-            font-family: inherit;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            outline: none;
-        }
-        .search-container input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-        }
-        .results-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .result-item {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            transition: all 0.25s ease;
-        }
-        .result-item:hover {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-md);
-        }
-        .result-item.has-tool { border-left: 4px solid var(--primary-color); }
-        .result-item h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 6px;
-        }
-        .result-item > p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        .result-item .tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 2px 10px;
-            border-radius: 50px;
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .open-tool-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 12px;
-            padding: 9px 18px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .open-tool-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-1px);
-        }
-        .toggle-detail-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 12px;
-            margin-left: 8px;
-            padding: 8px 16px;
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .toggle-detail-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        .result-detail {
-            margin-top: 14px;
-            padding: 18px;
-            background-color: var(--bg-color);
-            border-radius: var(--radius-md);
-            border-left: 3px solid var(--primary-color);
-            display: none;
-        }
-        .result-detail.show { display: block; animation: fadeIn 0.3s ease; }
-        .detail-row {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-        .detail-row:last-child { margin-bottom: 0; }
-        .detail-label {
-            font-weight: 700;
-            color: var(--primary-color);
-            flex-shrink: 0;
-            min-width: 160px;
-        }
-        .detail-value {
-            color: var(--text-primary);
-            flex: 1;
-        }
-        .detail-value.warn {
-            color: #dc2626;
-            font-weight: 600;
-            background-color: rgba(220, 38, 38, 0.08);
-            padding: 8px 12px;
-            border-radius: 8px;
-            display: block;
-        }
-        .detail-value.target {
-            color: #16a34a;
-            font-weight: 600;
-            background-color: rgba(22, 163, 74, 0.08);
-            padding: 8px 12px;
-            border-radius: 8px;
-            display: block;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-secondary);
-        }
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 16px;
-            opacity: 0.4;
-        }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 50px;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.2s ease;
-        }
-        .back-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        /* ============ CÔNG CỤ TÍNH TOÁN ============ */
-        .calc-tool {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-sm);
-        }
-        .calc-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .calc-header-icon {
-            width: 48px; height: 48px;
-            border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-        .calc-header-text h3 {
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-        .calc-header-text p {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-        .calc-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        .calc-field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .calc-field label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .calc-field input, .calc-field select {
-            padding: 12px 14px;
-            border-radius: var(--radius-md);
-            border: 1.5px solid var(--border-color);
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-        .calc-field input:focus, .calc-field select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
-        .calc-btn {
-            padding: 12px 28px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .calc-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .calc-result-box {
-            margin-top: 20px;
-            padding: 24px;
-            border-radius: var(--radius-md);
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.08));
-            border: 2px solid rgba(37, 99, 235, 0.2);
-            display: none;
-        }
-        .calc-result-box.show { display: block; animation: fadeIn 0.4s ease; }
-        .calc-big-number {
-            font-size: 52px;
-            font-weight: 800;
-            color: var(--primary-color);
-            line-height: 1;
-        }
-        .calc-unit {
-            font-size: 20px;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-        .calc-interpret {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            color: white;
-            margin-top: 10px;
-        }
-        .calc-note {
-            font-size: 13px;
-            color: var(--text-primary);
-            line-height: 1.7;
-            padding: 14px 16px;
-            background-color: var(--surface-color);
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--primary-color);
-            margin-top: 16px;
-        }
-        /* ============ CÔNG CỤ ĐÁNH GIÁ (Thang điểm tương tác) ============ */
-        .assess-tool {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-sm);
-        }
-        .assess-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .assess-header-icon {
-            width: 48px; height: 48px;
-            border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-        .assess-header-text h3 { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
-        .assess-header-text p { font-size: 13px; color: var(--text-secondary); }
-        .assess-question {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .assess-question:last-of-type { border-bottom: none; }
-        .assess-q-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-        .assess-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .assess-opt {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 14px;
-            border: 2px solid var(--border-color);
-            border-radius: 50px;
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: inherit;
-        }
-        .assess-opt:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-1px);
-        }
-        .assess-opt.selected {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-        .opt-point {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 22px;
-            height: 20px;
-            padding: 0 6px;
-            border-radius: 50px;
-            background-color: rgba(37, 99, 235, 0.15);
-            color: var(--primary-color);
-            font-size: 11px;
-            font-weight: 700;
-        }
-        .assess-opt.selected .opt-point {
-            background-color: rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-        .assess-result {
-            margin-top: 24px;
-            padding: 24px;
-            border-radius: var(--radius-md);
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.08));
-            border: 2px solid rgba(37, 99, 235, 0.2);
-            display: none;
-        }
-        .assess-result.show { display: block; animation: fadeIn 0.4s ease; }
-        .assess-score-row {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-        .assess-score-big {
-            font-size: 52px;
-            font-weight: 800;
-            color: var(--primary-color);
-            line-height: 1;
-        }
-        .assess-score-info { flex: 1; }
-        .assess-score-info .label {
-            font-size: 13px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        .assess-verdict {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            color: white;
-            margin-top: 6px;
-        }
-        .verdict-low { background-color: #16a34a; }
-        .verdict-mid { background-color: #ea580c; }
-        .verdict-high { background-color: #dc2626; }
-        .assess-advice {
-            font-size: 14px;
-            color: var(--text-primary);
-            line-height: 1.7;
-            padding: 14px 16px;
-            background-color: var(--surface-color);
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--primary-color);
-        }
-        .ref-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin: 28px 0 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
-        }
-        .ref-title i { color: var(--primary-color); }
-        .ref-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            background-color: var(--surface-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-        .ref-table th {
-            background-color: rgba(37, 99, 235, 0.08);
-            color: var(--primary-color);
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .ref-table td {
-            padding: 12px 16px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-        .ref-table tr:hover td { background-color: rgba(37, 99, 235, 0.04); }
-        .ref-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-            color: white;
-        }
-        .badge-low { background-color: #16a34a; }
-        .badge-mid { background-color: #ea580c; }
-        .badge-high { background-color: #dc2626; }
-        /* ================= FOOTER ================= */
-        .footer {
-            text-align: center;
-            padding: 32px 0;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-        .footer-author {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            background-color: rgba(37, 99, 235, 0.08);
-            border-radius: 50px;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-top: 8px;
-        }
-        .footer-author i { font-size: 12px; }
-        @media (max-width: 700px) {
-            .categories-grid { grid-template-columns: 1fr; }
-            .brand-text h1 { font-size: 20px; }
-            .brand-text p { font-size: 12px; }
-            .brand-icon { width: 40px; height: 40px; font-size: 20px; }
-            .page-title { font-size: 22px; }
-            .category-card { padding: 24px; }
-            .author-badge span { display: none; }
-            .author-badge { padding: 8px 10px; }
-            .assess-score-big { font-size: 40px; }
-            .calc-big-number { font-size: 40px; }
-            .detail-label { min-width: 100%; }
-            .detail-row { flex-direction: column; gap: 4px; }
-            .calc-form { grid-template-columns: 1fr; }
-        }
+        :root{--bg-color:#f4f7f9;--surface-color:#ffffff;--text-primary:#1e293b;--text-secondary:#64748b;--primary-color:#2563eb;--primary-hover:#1d4ed8;--border-color:#e2e8f0;--shadow-sm:0 1px 2px 0 rgb(0 0 0/0.05);--shadow-md:0 4px 6px -1px rgb(0 0 0/0.1);--shadow-lg:0 10px 15px -3px rgb(0 0 0/0.1);--radius-md:12px;--radius-lg:16px}
+        body.dark-mode{--bg-color:#0f172a;--surface-color:#1e293b;--text-primary:#f8fafc;--text-secondary:#94a3b8;--primary-color:#3b82f6;--primary-hover:#60a5fa;--border-color:#334155;--shadow-lg:0 10px 15px -3px rgb(0 0 0/0.5)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background-color:var(--bg-color);color:var(--text-primary);line-height:1.5;transition:background-color .3s ease,color .3s ease;min-height:100vh}
+        .app{max-width:1200px;margin:0 auto;padding:0 20px;min-height:100vh;display:flex;flex-direction:column}
+        .top-header{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--border-color);margin-bottom:32px}
+        .brand{display:flex;align-items:center;gap:16px;cursor:pointer}
+        .brand-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--primary-color),#60a5fa);color:#fff;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:var(--shadow-md)}
+        .brand-text h1{font-size:24px;font-weight:800;color:var(--text-primary);line-height:1.2;letter-spacing:-.5px}
+        .brand-text p{font-size:14px;color:var(--text-secondary)}
+        .header-right{display:flex;align-items:center}
+        .author-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(96,165,250,.1));border:1px solid rgba(37,99,235,.2);border-radius:50px;font-size:13px;font-weight:600;color:var(--primary-color);margin-right:12px}
+        .author-badge i{font-size:14px}
+        .theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;box-shadow:var(--shadow-sm)}
+        .theme-btn:hover{background-color:var(--primary-color);color:#fff;border-color:var(--primary-color);transform:translateY(-2px) rotate(15deg)}
+        .main-content{flex:1}
+        .categories-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+        .category-card{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:32px;transition:all .3s ease;cursor:pointer;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+        .category-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--primary-color),#60a5fa);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+        .category-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--primary-color)}
+        .category-card:hover::before{transform:scaleX(1)}
+        .category-icon{width:64px;height:64px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
+        .category-card h2{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+        .category-card>p{font-size:14px;color:var(--text-secondary);margin-bottom:16px}
+        .sub-count{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--primary-color);font-weight:600;padding:4px 12px;background-color:rgba(37,99,235,.1);border-radius:50px}
+        .bg-blue{background-color:#dbeafe;color:#2563eb}.bg-red{background-color:#fee2e2;color:#dc2626}.bg-green{background-color:#dcfce7;color:#16a34a}.bg-purple{background-color:#f3e8ff;color:#9333ea}.bg-orange{background-color:#ffedd5;color:#ea580c}
+        body.dark-mode .bg-blue{background-color:rgba(37,99,235,.2)}body.dark-mode .bg-red{background-color:rgba(220,38,38,.2)}body.dark-mode .bg-green{background-color:rgba(22,163,74,.2)}body.dark-mode .bg-purple{background-color:rgba(147,51,234,.2)}body.dark-mode .bg-orange{background-color:rgba(234,88,12,.2)}
+        .page{display:none}.page.active{display:block;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .breadcrumb{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-secondary);margin-bottom:24px;flex-wrap:wrap}
+        .breadcrumb a{color:var(--primary-color);text-decoration:none;cursor:pointer;transition:opacity .2s}
+        .breadcrumb a:hover{opacity:.7}
+        .page-title{font-size:28px;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
+        .page-subtitle{color:var(--text-secondary);margin-bottom:32px;font-size:15px}
+        .sub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+        .sub-card{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;cursor:pointer;transition:all .25s ease;display:flex;align-items:center;gap:14px}
+        .sub-card:hover{border-color:var(--primary-color);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+        .sub-card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+        .sub-card span{font-weight:600;font-size:15px;color:var(--text-primary)}
+        .search-container{position:relative;max-width:100%;margin-bottom:24px}
+        .search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text-secondary);pointer-events:none}
+        .search-container input{width:100%;padding:16px 20px 16px 52px;border-radius:50px;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);font-size:16px;font-family:inherit;box-shadow:var(--shadow-sm);transition:all .3s ease;outline:none}
+        .search-container input:focus{border-color:var(--primary-color);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
+        .results-list{display:flex;flex-direction:column;gap:12px}
+        .result-item{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;transition:all .25s ease}
+        .result-item:hover{border-color:var(--primary-color);box-shadow:var(--shadow-md)}
+        .result-item.has-tool{border-left:4px solid var(--primary-color)}
+        .result-item h4{font-size:16px;font-weight:700;color:var(--primary-color);margin-bottom:6px}
+        .result-item>p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+        .result-item .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:50px;background-color:rgba(37,99,235,.1);color:var(--primary-color);margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
+        .open-tool-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:9px 18px;background-color:var(--primary-color);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s ease}
+        .open-tool-btn:hover{background-color:var(--primary-hover);transform:translateY(-1px)}
+        .toggle-detail-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;margin-left:8px;padding:8px 16px;background-color:transparent;color:var(--primary-color);border:1px solid var(--primary-color);border-radius:50px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s ease}
+        .toggle-detail-btn:hover{background-color:var(--primary-color);color:#fff}
+        .result-detail{margin-top:14px;padding:18px;background-color:var(--bg-color);border-radius:var(--radius-md);border-left:3px solid var(--primary-color);display:none}
+        .result-detail.show{display:block;animation:fadeIn .3s ease}
+        .detail-row{display:flex;gap:12px;margin-bottom:12px;font-size:13px;line-height:1.6}
+        .detail-row:last-child{margin-bottom:0}
+        .detail-label{font-weight:700;color:var(--primary-color);flex-shrink:0;min-width:160px}
+        .detail-value{color:var(--text-primary);flex:1}
+        .detail-value.warn{color:#dc2626;font-weight:600;background-color:rgba(220,38,38,.08);padding:8px 12px;border-radius:8px;display:block}
+        .empty-state{text-align:center;padding:60px 20px;color:var(--text-secondary)}
+        .empty-state i{font-size:48px;margin-bottom:16px;opacity:.4}
+        .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:50px;color:var(--text-primary);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:20px;transition:all .2s ease}
+        .back-btn:hover{background-color:var(--primary-color);color:#fff;border-color:var(--primary-color)}
+        .calc-tool{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:28px;margin-bottom:24px;box-shadow:var(--shadow-sm)}
+        .calc-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border-color)}
+        .calc-header-icon{width:48px;height:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+        .calc-header-text h3{font-size:17px;font-weight:700;margin-bottom:2px}
+        .calc-header-text p{font-size:13px;color:var(--text-secondary)}
+        .calc-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-bottom:20px}
+        .calc-field{display:flex;flex-direction:column;gap:6px}
+        .calc-field label{font-size:13px;font-weight:600;color:var(--text-primary)}
+        .calc-field input,.calc-field select{padding:12px 14px;border-radius:var(--radius-md);border:1.5px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);font-family:inherit;font-size:14px;transition:all .2s ease;outline:none}
+        .calc-field input:focus,.calc-field select:focus{border-color:var(--primary-color);box-shadow:0 0 0 4px rgba(37,99,235,.1)}
+        .unit-convert{display:flex;gap:6px;align-items:center;margin-top:4px;font-size:11px;color:var(--text-secondary)}
+        .unit-convert button{padding:4px 10px;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-secondary);border-radius:50px;font-family:inherit;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s ease}
+        .unit-convert button.active{background-color:var(--primary-color);color:#fff;border-color:var(--primary-color)}
+        .unit-convert button:hover{border-color:var(--primary-color);color:var(--primary-color)}
+        .calc-field-hint{font-size:11px;color:var(--text-secondary);font-style:italic;margin-top:2px}
+        .calc-btn{padding:12px 28px;background-color:var(--primary-color);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s ease}
+        .calc-btn:hover{background-color:var(--primary-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+        .calc-result-box{margin-top:20px;padding:24px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(96,165,250,.08));border:2px solid rgba(37,99,235,.2);display:none}
+        .calc-result-box.show{display:block;animation:fadeIn .4s ease}
+        .calc-big-number{font-size:52px;font-weight:800;color:var(--primary-color);line-height:1}
+        .calc-unit{font-size:20px;color:var(--text-secondary);font-weight:600}
+        .calc-interpret{display:inline-block;padding:6px 16px;border-radius:50px;font-size:14px;font-weight:700;color:#fff;margin-top:10px}
+        .calc-note{font-size:13px;color:var(--text-primary);line-height:1.7;padding:14px 16px;background-color:var(--surface-color);border-radius:var(--radius-md);border-left:4px solid var(--primary-color);margin-top:16px}
+        .assess-tool{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:28px;margin-bottom:24px;box-shadow:var(--shadow-sm)}
+        .assess-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border-color)}
+        .assess-header-icon{width:48px;height:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+        .assess-header-text h3{font-size:17px;font-weight:700;margin-bottom:2px}
+        .assess-header-text p{font-size:13px;color:var(--text-secondary)}
+        .assess-question{padding:16px 0;border-bottom:1px solid var(--border-color)}
+        .assess-question:last-of-type{border-bottom:none}
+        .assess-q-title{font-size:14px;font-weight:600;margin-bottom:10px;color:var(--text-primary)}
+        .assess-options{display:flex;flex-wrap:wrap;gap:8px}
+        .assess-opt{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:2px solid var(--border-color);border-radius:50px;background-color:var(--surface-color);color:var(--text-primary);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s ease;font-family:inherit}
+        .assess-opt:hover{border-color:var(--primary-color);transform:translateY(-1px)}
+        .assess-opt.selected{background-color:var(--primary-color);border-color:var(--primary-color);color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.3)}
+        .opt-point{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:20px;padding:0 6px;border-radius:50px;background-color:rgba(37,99,235,.15);color:var(--primary-color);font-size:11px;font-weight:700}
+        .assess-opt.selected .opt-point{background-color:rgba(255,255,255,.3);color:#fff}
+        .assess-result{margin-top:24px;padding:24px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(96,165,250,.08));border:2px solid rgba(37,99,235,.2);display:none}
+        .assess-result.show{display:block;animation:fadeIn .4s ease}
+        .assess-score-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+        .assess-score-big{font-size:52px;font-weight:800;color:var(--primary-color);line-height:1}
+        .assess-score-info{flex:1}
+        .assess-score-info .label{font-size:13px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+        .assess-verdict{display:inline-block;padding:6px 16px;border-radius:50px;font-size:14px;font-weight:700;color:#fff;margin-top:6px}
+        .verdict-low{background-color:#16a34a}.verdict-mid{background-color:#ea580c}.verdict-high{background-color:#dc2626}
+        .assess-advice{font-size:14px;color:var(--text-primary);line-height:1.7;padding:14px 16px;background-color:var(--surface-color);border-radius:var(--radius-md);border-left:4px solid var(--primary-color)}
+        .ref-title{font-size:14px;font-weight:700;margin:28px 0 12px 0;display:flex;align-items:center;gap:8px;color:var(--text-primary)}
+        .ref-title i{color:var(--primary-color)}
+        .ref-table{width:100%;border-collapse:collapse;font-size:13px;background-color:var(--surface-color);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-color)}
+        .ref-table th{background-color:rgba(37,99,235,.08);color:var(--primary-color);padding:12px 16px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+        .ref-table td{padding:12px 16px;border-top:1px solid var(--border-color);color:var(--text-primary)}
+        .ref-table tr:hover td{background-color:rgba(37,99,235,.04)}
+        .ref-badge{display:inline-block;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700;color:#fff}
+        .badge-low{background-color:#16a34a}.badge-mid{background-color:#ea580c}.badge-high{background-color:#dc2626}
+        .footer{text-align:center;padding:32px 0;margin-top:40px;border-top:1px solid var(--border-color);color:var(--text-secondary);font-size:14px}
+        .footer-author{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background-color:rgba(37,99,235,.08);border-radius:50px;color:var(--primary-color);font-weight:600;margin-top:8px}
+        .footer-author i{font-size:12px}
+        @media (max-width:700px){.categories-grid{grid-template-columns:1fr}.brand-text h1{font-size:20px}.brand-text p{font-size:12px}.brand-icon{width:40px;height:40px;font-size:20px}.page-title{font-size:22px}.category-card{padding:24px}.author-badge span{display:none}.author-badge{padding:8px 10px}.assess-score-big{font-size:40px}.calc-big-number{font-size:40px}.detail-label{min-width:100%}.detail-row{flex-direction:column;gap:4px}.calc-form{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
@@ -773,22 +139,13 @@
         <header class="top-header">
             <div class="brand" onclick="goHome()">
                 <div class="brand-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                <div class="brand-text">
-                    <h1>MedTools</h1>
-                    <p>Công cụ hỗ trợ lâm sàng</p>
-                </div>
+                <div class="brand-text"><h1>MedTools</h1><p>Công cụ hỗ trợ lâm sàng</p></div>
             </div>
             <div class="header-right">
-                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân">
-                    <i class="fa-solid fa-user-doctor"></i>
-                    <span>BS Võ Thành Nhân</span>
-                </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
+                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân"><i class="fa-solid fa-user-doctor"></i><span>BS Võ Thành Nhân</span></div>
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện"><i class="fa-solid fa-moon"></i></button>
             </div>
         </header>
-
         <main class="main-content">
             <div id="page-home" class="page active">
                 <div class="categories-grid">
@@ -796,13 +153,13 @@
                         <div class="category-icon bg-blue"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
                         <h2>Y lệnh thuốc</h2>
                         <p>Tra cứu y lệnh thuốc theo chuyên khoa</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 5 chuyên khoa</span>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 6 chuyên khoa</span>
                     </div>
                     <div class="category-card" onclick="openCategory('thangdiem')">
                         <div class="category-icon bg-red"><i class="fa-solid fa-chart-line"></i></div>
                         <h2>Thang điểm</h2>
                         <p>Các thang điểm đánh giá lâm sàng</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 6 chuyên khoa</span>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 7 chuyên khoa</span>
                     </div>
                     <div class="category-card" onclick="openCategory('phacdo')">
                         <div class="category-icon bg-green"><i class="fa-solid fa-notes-medical"></i></div>
@@ -813,102 +170,45 @@
                     <div class="category-card" onclick="openCategory('khac')">
                         <div class="category-icon bg-purple"><i class="fa-solid fa-calculator"></i></div>
                         <h2>Máy tính lâm sàng</h2>
-                        <p>BMI, eGFR, CrCl và các công cụ khác</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 3 công cụ</span>
+                        <p>BMI, eGFR, CrCl, bù Natri</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 4 công cụ</span>
                     </div>
                 </div>
             </div>
             <div id="page-sub" class="page">
-                <button class="back-btn" onclick="goHome()">
-                    <i class="fa-solid fa-arrow-left"></i> Quay lại
-                </button>
-                <div class="breadcrumb">
-                    <a onclick="goHome()">Trang chủ</a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <span id="breadcrumb-current"></span>
-                </div>
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <div class="breadcrumb"><a onclick="goHome()">Trang chủ</a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><span id="breadcrumb-current"></span></div>
                 <h2 class="page-title" id="sub-title"></h2>
                 <p class="page-subtitle" id="sub-subtitle"></p>
                 <div class="sub-grid" id="sub-grid"></div>
             </div>
             <div id="page-search" class="page">
-                <button class="back-btn" onclick="goBack()">
-                    <i class="fa-solid fa-arrow-left"></i> Quay lại
-                </button>
-                <div class="breadcrumb">
-                    <a onclick="goHome()">Trang chủ</a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <a id="bc-parent" onclick="goBack()"></a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <span id="bc-current"></span>
-                </div>
+                <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <div class="breadcrumb"><a onclick="goHome()">Trang chủ</a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><a id="bc-parent" onclick="goBack()"></a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><span id="bc-current"></span></div>
                 <h2 class="page-title" id="search-title"></h2>
                 <p class="page-subtitle" id="search-subtitle"></p>
-                <div class="search-container">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="search-input" placeholder="Tìm kiếm nội dung..." oninput="handleSearch()">
-                </div>
+                <div class="search-container"><i class="fa-solid fa-magnifying-glass search-icon"></i><input type="text" id="search-input" placeholder="Tìm kiếm nội dung..." oninput="handleSearch()"></div>
                 <div class="results-list" id="results-list"></div>
             </div>
             <div id="page-tool" class="page">
-                <button class="back-btn" onclick="goBack()">
-                    <i class="fa-solid fa-arrow-left"></i> Quay lại
-                </button>
-                <div class="breadcrumb">
-                    <a onclick="goHome()">Trang chủ</a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <a id="tool-bc-parent" onclick="goBack()"></a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <span id="tool-bc-current"></span>
-                </div>
+                <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <div class="breadcrumb"><a onclick="goHome()">Trang chủ</a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><a id="tool-bc-parent" onclick="goBack()"></a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><span id="tool-bc-current"></span></div>
                 <h2 class="page-title" id="tool-title"></h2>
                 <p class="page-subtitle" id="tool-subtitle"></p>
                 <div class="assess-tool">
-                    <div class="assess-header">
-                        <div class="assess-header-icon bg-red"><i class="fa-solid fa-clipboard-check"></i></div>
-                        <div class="assess-header-text">
-                            <h3>Chọn đáp án cho từng mục</h3>
-                            <p>Điểm sẽ tự động cập nhật khi bạn chọn</p>
-                        </div>
-                    </div>
+                    <div class="assess-header"><div class="assess-header-icon bg-red"><i class="fa-solid fa-clipboard-check"></i></div><div class="assess-header-text"><h3>Chọn đáp án cho từng mục</h3><p>Điểm sẽ tự động cập nhật khi bạn chọn</p></div></div>
                     <div id="assess-questions"></div>
                 </div>
                 <div class="assess-result" id="assess-result">
-                    <div class="assess-score-row">
-                        <div class="assess-score-big" id="assess-score">0</div>
-                        <div class="assess-score-info">
-                            <div class="label">Tổng điểm</div>
-                            <span class="assess-verdict verdict-low" id="assess-verdict">Chưa đủ dữ liệu</span>
-                        </div>
-                    </div>
+                    <div class="assess-score-row"><div class="assess-score-big" id="assess-score">0</div><div class="assess-score-info"><div class="label">Tổng điểm</div><span class="assess-verdict verdict-low" id="assess-verdict">Chưa đủ dữ liệu</span></div></div>
                     <div class="assess-advice" id="assess-advice">Hãy chọn đáp án cho tất cả các mục để xem kết quả.</div>
                 </div>
-                <div class="ref-title">
-                    <i class="fa-solid fa-table-list"></i> Bảng tham chiếu
-                </div>
-                <table class="ref-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 130px;">Điểm</th>
-                            <th style="width: 130px;">Mức độ</th>
-                            <th>Ý nghĩa lâm sàng</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ref-tbody"></tbody>
-                </table>
+                <div class="ref-title"><i class="fa-solid fa-table-list"></i> Bảng tham chiếu</div>
+                <table class="ref-table"><thead><tr><th style="width:130px">Điểm</th><th style="width:130px">Mức độ</th><th>Ý nghĩa lâm sàng</th></tr></thead><tbody id="ref-tbody"></tbody></table>
             </div>
-            <!-- TRANG MÁY TÍNH LÂM SÀNG -->
             <div id="page-calc" class="page">
-                <button class="back-btn" onclick="goBack()">
-                    <i class="fa-solid fa-arrow-left"></i> Quay lại
-                </button>
-                <div class="breadcrumb">
-                    <a onclick="goHome()">Trang chủ</a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <a id="calc-bc-parent" onclick="goBack()"></a>
-                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
-                    <span id="calc-bc-current"></span>
-                </div>
+                <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <div class="breadcrumb"><a onclick="goHome()">Trang chủ</a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><a id="calc-bc-parent" onclick="goBack()"></a><i class="fa-solid fa-chevron-right" style="font-size:10px"></i><span id="calc-bc-current"></span></div>
                 <h2 class="page-title" id="calc-title"></h2>
                 <p class="page-subtitle" id="calc-subtitle"></p>
                 <div class="calc-tool" id="calc-content"></div>
@@ -916,10 +216,7 @@
         </main>
         <footer class="footer">
             <p>&copy; 2026 MedTools. Bảo lưu mọi quyền.</p>
-            <div class="footer-author">
-                <i class="fa-solid fa-user-doctor"></i>
-                Phát triển bởi BS Võ Thành Nhân
-            </div>
+            <div class="footer-author"><i class="fa-solid fa-user-doctor"></i> Phát triển bởi BS Võ Thành Nhân</div>
         </footer>
     </div>    <script>
         const DATA = {
@@ -932,97 +229,20 @@
                         name: "Kháng sinh",
                         icon: "fa-bacteria",
                         items: [
-                            { 
-                                title: "Curam 1000mg (Amoxicillin + Clavulanic acid)", 
-                                desc: "1 viên x 2 lần/ngày, cách nhau 12 giờ. Uống cùng bữa ăn.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Nhiễm khuẩn hô hấp trên/dưới, viêm xoang, viêm tai giữa, nhiễm khuẩn tiết niệu, nhiễm khuẩn da và mô mềm, nhiễm khuẩn xương khớp.",
-                                    chongchidinh: "Dị ứng penicillin. Tiền sử vàng da / rối loạn chức năng gan do amoxicillin-clavulanate.",
-                                    dduochoc: "Hấp thu tốt qua đường uống, sinh khả dụng ~70-90%. Thải trừ chủ yếu qua thận. T1/2 ~1-1.5 giờ.",
-                                    lieu: "Người lớn: 1000mg x 2 lần/ngày. Trẻ em: 25-45 mg/kg/ngày chia 2 lần.",
-                                    lieutoida: "4000mg amoxicillin + 250mg clavulanic/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng, theo dõi chức năng gan."
-                                }
-                            },
-                            { 
-                                title: "Ceftibiotic 2000 (Ceftizoxim 2g)", 
-                                desc: "Pha với NaCl 0,9% 100ml, TTM XX giọt/phút, cách 12 giờ.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Nhiễm khuẩn nặng: viêm phổi, viêm màng não, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm.",
-                                    chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.",
-                                    dduochoc: "Tiêm TM, phân bố rộng khắp cơ thể, qua được hàng rào máu não. Thải trừ qua thận dạng nguyên vẹn. T1/2 ~1.5-2 giờ.",
-                                    lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 6-8 giờ.",
-                                    lieutoida: "12g/ngày (chia 3-4 lần).",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều."
-                                }
-                            },
-                            { 
-                                title: "Levogolds (Levofloxacin 750mg/150ml)", 
-                                desc: "1 túi TTM XXX giọt/phút, cách ngày 1 lần.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt, nhiễm khuẩn da/mô mềm.",
-                                    chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai / cho con bú. Tiền sử viêm gân do quinolone.",
-                                    dduochoc: "Sinh khả dụng TM ~99%, phân bố rộng, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.",
-                                    lieu: "Người lớn: 750mg mỗi 24 giờ. Trẻ em: KHÔNG dùng (<18 tuổi).",
-                                    lieutoida: "750mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT."
-                                }
-                            },
-                            { 
-                                title: "Bacqure 500mg (Imipenem 500mg + Cilastatin 500mg)", 
-                                desc: "1 lọ pha với NaCl 0,9% 100ml, TTM XX giọt/phút.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng có biến chứng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp.",
-                                    chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.",
-                                    dduochoc: "Phân bố rộng, thải trừ qua thận. T1/2 ~1 giờ.",
-                                    lieu: "Người lớn: 500mg mỗi 6 giờ. Trẻ em: 15-25 mg/kg mỗi 6 giờ.",
-                                    lieutoida: "4g/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <70 mL/phút. ⚠️ Nguy cơ co giật."
-                                }
-                            },
-                            { 
-                                title: "Tenafotin 2000 (Cefepim 2g)", 
-                                desc: "1 lọ pha với NaCl 0,9% 100ml, TTM XXX giọt/phút, cách 12 giờ.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Viêm phổi cộng đồng/bệnh viện, nhiễm khuẩn tiết niệu, da/mô mềm, ổ bụng, sốt giảm bạch cầu trung tính.",
-                                    chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.",
-                                    dduochoc: "Cephalosporin thế hệ 4, phổ rộng, ổn định với beta-lactamase. Thải trừ qua thận. T1/2 ~2 giờ.",
-                                    lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 12 giờ.",
-                                    lieutoida: "6g/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <60 mL/phút."
-                                }
-                            },
-                            { 
-                                title: "Cefoperazone 2g", 
-                                desc: "1 lọ TMC trong 5 phút, cách nhau 12 giờ.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.",
-                                    chongchidinh: "Dị ứng cephalosporin. Suy gan nặng.",
-                                    dduochoc: "Cephalosporin thế hệ 3, thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.",
-                                    lieu: "Người lớn: 2-4g mỗi 12 giờ. Trẻ em: 50-100 mg/kg/ngày.",
-                                    lieutoida: "12g/ngày.",
-                                    luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ chảy máu."
-                                }
-                            },
-                            { 
-                                title: "Quinrox (Levofloxacin 400mg/40ml)", 
-                                desc: "1 lọ pha với NaCl 0,9% 500ml (lấy 360ml), TTM XX giọt/phút.",
-                                tag: "Kháng sinh",
-                                detail: {
-                                    chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.",
-                                    chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai / cho con bú.",
-                                    dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.",
-                                    lieu: "Người lớn: 400mg mỗi 24 giờ.",
-                                    lieutoida: "400mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT."
-                                }
-                            }
+                            { title: "Curam 1000mg (Amoxicillin + Clavulanic acid)", desc: "1 viên x 2 lần/ngày, cách nhau 12 giờ. Uống cùng bữa ăn.", tag: "Kháng sinh",
+                              detail: { chidinh: "Nhiễm khuẩn hô hấp trên/dưới, viêm xoang, viêm tai giữa, nhiễm khuẩn tiết niệu, nhiễm khuẩn da và mô mềm, nhiễm khuẩn xương khớp.", chongchidinh: "Dị ứng penicillin. Tiền sử vàng da / rối loạn chức năng gan do amoxicillin-clavulanate.", dduochoc: "Hấp thu tốt qua đường uống, sinh khả dụng ~70-90%. Thải trừ chủ yếu qua thận. T1/2 ~1-1.5 giờ.", lieu: "Người lớn: 1000mg x 2 lần/ngày. Trẻ em: 25-45 mg/kg/ngày chia 2 lần.", lieutoida: "4000mg amoxicillin + 250mg clavulanic/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng, theo dõi chức năng gan." }},
+                            { title: "Ceftibiotic 2000 (Ceftizoxim 2g)", desc: "Pha với NaCl 0,9% 100ml, TTM XX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
+                              detail: { chidinh: "Nhiễm khuẩn nặng: viêm phổi, viêm màng não, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM, phân bố rộng, qua được hàng rào máu não. Thải trừ qua thận. T1/2 ~1.5-2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 6-8 giờ.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều." }},
+                            { title: "Levogolds (Levofloxacin 750mg/150ml)", desc: "1 túi TTM XXX giọt/phút, cách ngày 1 lần.", tag: "Kháng sinh",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
+                            { title: "Bacqure 500mg (Imipenem + Cilastatin)", desc: "1 lọ pha với NaCl 0,9% 100ml, TTM XX giọt/phút.", tag: "Kháng sinh",
+                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Phân bố rộng, thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ. Trẻ em: 15-25 mg/kg mỗi 6 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <70 mL/phút. ⚠️ Nguy cơ co giật." }},
+                            { title: "Tenafotin 2000 (Cefepim 2g)", desc: "1 lọ pha NaCl 0,9% 100ml, TTM XXX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
+                              detail: { chidinh: "Viêm phổi cộng đồng/bệnh viện, nhiễm khuẩn tiết niệu, da/mô mềm, ổ bụng, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Cephalosporin thế hệ 4, phổ rộng. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 12 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <60 mL/phút." }},
+                            { title: "Cefoperazone 2g", desc: "1 lọ TMC trong 5 phút, cách nhau 12 giờ.", tag: "Kháng sinh",
+                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Suy gan nặng.", dduochoc: "Cephalosporin thế hệ 3, thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 2-4g mỗi 12 giờ. Trẻ em: 50-100 mg/kg/ngày.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ chảy máu." }},
+                            { title: "Quinrox (Levofloxacin 400mg/40ml)", desc: "1 lọ pha NaCl 0,9% 500ml (lấy 360ml), TTM XX giọt/phút.", tag: "Kháng sinh",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT." }}
                         ]
                     },
                     {
@@ -1039,207 +259,90 @@
                         name: "Tim mạch",
                         icon: "fa-heart-pulse",
                         items: [
-                            { 
-                                title: "Digoxin / Anfarm (0,5mg/2ml)", 
-                                desc: "½ ống pha loãng TMC 5 phút hoặc 1 ống pha loãng TMC 5 phút.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Suy tim có rung nhĩ tần số nhanh. Kiểm soát tần số thất trong rung nhĩ/nhịp nhanh trên thất. Suy tim EF thấp còn triệu chứng (NYHA II-IV).",
-                                    chongchidinh: "Block AV độ II-III. Hội chứng Wolff-Parkinson-White kèm rung nhĩ. Bệnh cơ tim phì đại tắc nghẽn. Hạ kali/magiê máu nặng. Nhồi máu cơ tim cấp.",
-                                    dduochoc: "Sinh khả dụng ~60-80%. Thải trừ chủ yếu qua thận dạng nguyên vẹn. T1/2 ~36-48 giờ (tăng ở người suy thận, người già). Khởi phát tác dụng TM: 5-30 phút.",
-                                    lieu: "Người lớn: Liều tấn công 0,5mg TM, sau đó 0,25mg mỗi 6h, tối đa 1-1,5mg trong 24h. Duy trì: 0,125-0,25mg/ngày. Trẻ em: 20-30 mcg/kg liều tấn công.",
-                                    lieutoida: "1,5mg/ngày (nếu dùng liều tấn công) - Duy trì: 0,25mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU rõ rệt (theo CrCl và nồng độ Digoxin máu 0,5-2 ng/mL). ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Hạ K+ làm tăng độc tính. ⚠️ Cách 6-8 giờ mới dùng lại liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Zodamid 5mg/1ml (Midazolam)", 
-                                desc: "1 ống pha loãng TMC 5 phút hoặc ½ ống pha loãng TMC 5 phút.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "An thần trước thủ thuật (đặc biệt trong khoa Tim mạch - chụp mạch vành, đặt stent, sốc điện chuyển nhịp). An thần bệnh nhân ICU thở máy. Cắt cơn co giật kéo dài.",
-                                    chongchidinh: "Dị ứng benzodiazepine. Nhược cơ nặng. Suy hô hấp nặng chưa được hỗ trợ. Suy gan nặng. Hội chứng ngưng thở khi ngủ do tắc nghẽn.",
-                                    dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~1,5-2,5 giờ (kéo dài ở người suy gan, người già). Chuyển hóa qua CYP3A4 ở gan, thải qua thận.",
-                                    lieu: "Người lớn: 1-2,5mg TM chậm, tối đa 5mg/lần. An thần ICU: 0,02-0,1 mg/kg/giờ truyền liên tục. Trẻ em: 0,05-0,1 mg/kg TM.",
-                                    lieutoida: "10mg/ngày (liều chia nhỏ).",
-                                    luuy: "⚠️ SUY THẬN: Thận trọng, có thể tích lũy. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp, có thể gây suy hô hấp. ⚠️ Cách 5-10 phút mới dùng lại liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Levonox 40mg/0,4ml (Enoxaparin)", 
-                                desc: "Y lệnh mẫu: Tiêm dưới da 40mg x 1 lần/ngày (dự phòng huyết khối). Với điều trị: 1mg/kg x 2 lần/ngày tiêm dưới da.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Dự phòng huyết khối tĩnh mạch sâu ở bệnh nhân phẫu thuật/ICU/nằm lâu. Điều trị huyết khối tĩnh mạch sâu, thuyên tắc phổi. Hội chứng vành cấp (NMCT ST chênh lên/không ST chênh lên). Rung nhĩ có nguy cơ huyết khối.",
-                                    chongchidinh: "Tiền sử giảm tiểu cầu do heparin (HIT). Chảy máu đang hoạt động. Loét dạ dày-tá tràng đang chảy máu. Đột quỵ xuất huyết. Suy thận nặng (CrCl <15 mL/phút). Tăng huyết áp nặng không kiểm soát.",
-                                    dduochoc: "Sinh khả dụng dưới da ~100%. Khởi phát tác dụng chống đông sau 2-4 giờ. T1/2 ~4,5 giờ (kéo dài ở suy thận). Thải trừ qua thận.",
-                                    lieu: "Dự phòng: 40mg tiêm dưới da 1 lần/ngày. Điều trị: 1mg/kg tiêm dưới da mỗi 12 giờ. Trẻ em: 0,5-1 mg/kg mỗi 12 giờ.",
-                                    lieutoida: "200mg/ngày (điều trị). Dự phòng: 40mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút (dự phòng 20mg/ngày, điều trị 1mg/kg/ngày). ⚠️ SUY GAN: Thận trọng, nguy cơ chảy máu. ⚠️ Theo dõi tiểu cầu, Anti-Xa. ⚠️ Cách 12 giờ mới dùng lại liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Takizd (Furosemide)", 
-                                desc: "1 ống hoặc 2 ống TMC mỗi 5 phút.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Phù phổi cấp. Suy tim sung huyết. Phù do xơ gan, hội chứng thận. Tăng huyết áp có phù. Tăng kali máu.",
-                                    chongchidinh: "Vô niệu. Hạ kali/natri máu nặng. Hôn mê gan. Dị ứng sulfonamide. Suy thận cấp chưa xử trí.",
-                                    dduochoc: "Khởi phát TM: 5 phút. T1/2 ~1-2 giờ. Thải trừ qua thận. Tác dụng lợi tiểu mạnh nhất 30 phút - 2 giờ đầu.",
-                                    lieu: "Người lớn: 20-40mg TM, có thể tăng đến 80-200mg. Truyền liên tục: 5-40 mg/giờ. Trẻ em: 0,5-2 mg/kg TM.",
-                                    lieutoida: "200mg/lần (TMC), 600mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU, theo dõi điện giải, Cr. ⚠️ SUY GAN: Thận trọng, nguy cơ hôn mê gan do hạ K+. ⚠️ Hạ K+, Na+, Mg2+, hạ HA, độc tai. ⚠️ Cách 2-6 giờ mới dùng lại liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Amlodipine 5mg", 
-                                desc: "Uống 1 viên x 1 lần/ngày, có thể tăng đến 10mg/ngày.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp (đơn trị hoặc phối hợp). Đau thắt ngực ổn định mạn tính. Đau thắt ngực do co thắt mạch vành (Prinzmetal).",
-                                    chongchidinh: "Dị ứng amlodipine. Hạ huyết áp nặng. Sốc. Hẹp động mạch chủ nặng. Suy tim chưa kiểm soát.",
-                                    dduochoc: "Sinh khả dụng ~64-90%. Khởi phát tác dụng 6-12 giờ. T1/2 ~30-50 giờ. Chuyển hóa qua gan CYP3A4.",
-                                    lieu: "Người lớn: 5mg x 1 lần/ngày, tăng đến 10mg/ngày. Người già, suy gan: khởi đầu 2,5mg/ngày.",
-                                    lieutoida: "10mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khởi đầu. ⚠️ Phù mắt cá chân, đỏ bừng mặt, nhức đầu. ⚠️ Cách 24 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Losartan (Lorsatan)", 
-                                desc: "Uống 50mg x 1 lần/ngày. Có thể tăng đến 100mg/ngày.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Bệnh thận do đái tháo đường type 2 (bảo vệ thận). Suy tim (khi không dung nạp ACEI). Phì đại thất trái.",
-                                    chongchidinh: "Phụ nữ có thai (3 tháng giữa và cuối). Dị ứng losartan. Hẹp động mạch thận 2 bên. Tăng kali máu nặng.",
-                                    dduochoc: "Sinh khả dụng ~33%. Khởi phát tác dụng 6 giờ. T1/2 ~2 giờ (chất chuyển hóa hoạt động 6-9 giờ). Thải trừ qua mật và thận.",
-                                    lieu: "Người lớn: 50mg x 1 lần/ngày, tăng đến 100mg/ngày. Suy gan: 25mg/ngày. Trẻ em ≥6 tuổi: 0,7 mg/kg tối đa 50mg.",
-                                    lieutoida: "100mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Theo dõi K+ và Cr, giảm liều nếu cần. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Ho khan (ít hơn ACEI), tăng K+, hạ HA. ⚠️ Cách 24 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Captopril (Captoril)", 
-                                desc: "Uống 25mg x 2-3 lần/ngày.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Suy tim sung huyết. Nhồi máu cơ tim sau 24 giờ (nếu huyết động ổn). Bệnh thận do đái tháo đường type 1.",
-                                    chongchidinh: "Phụ nữ có thai. Dị ứng ACEI. Tiền sử phù mạch do ACEI. Hẹp động mạch thận 2 bên. Tăng kali máu nặng.",
-                                    dduochoc: "Sinh khả dụng ~70%. Khởi phát 15-30 phút (uống). T1/2 ~2 giờ. Thải trừ chủ yếu qua thận.",
-                                    lieu: "Người lớn: 25mg x 2-3 lần/ngày, tối đa 150mg/ngày. Tăng huyết áp cấp: 25mg ngậm dưới lưỡi. Trẻ em: 0,3 mg/kg x 3 lần/ngày.",
-                                    lieutoida: "450mg/ngày (chia 3 lần).",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <40 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Ho khan, tăng K+, phù mạch, suy thận cấp. ⚠️ Cách 8 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Propranolol", 
-                                desc: "Uống 10-40mg x 2-4 lần/ngày tùy chỉ định.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Đau thắt ngực. Loạn nhịp tim (nhịp nhanh xoang, nhịp nhanh trên thất). Cường giáp (kiểm soát triệu chứng). Run vô căn. Dự phòng đau nửa đầu.",
-                                    chongchidinh: "Hen phế quản, COPD nặng. Block AV độ II-III. Suy tim chưa kiểm soát. Sốc tim. Hạ huyết áp nặng. Nhịp chậm <50 lần/phút. Bệnh động mạch ngoại biên nặng.",
-                                    dduochoc: "Sinh khả dụng ~30%. Khởi phát 30-60 phút (uống). T1/2 ~4 giờ. Chuyển hóa qua gan, thải qua thận.",
-                                    lieu: "Người lớn: 10-40mg x 2-4 lần/ngày, tối đa 320mg/ngày (tăng HA). Loạn nhịp: 10-30mg x 3-4 lần/ngày. Trẻ em: 0,5-1 mg/kg/ngày chia 2-4 lần.",
-                                    lieutoida: "640mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Không cần chỉnh liều thường, theo dõi. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nhịp chậm, hạ HA, mệt, co thắt phế quản. ⚠️ KHÔNG ngưng đột ngột (nguy cơ nhồi máu). ⚠️ Cách 6-8 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Bisoprolol", 
-                                desc: "Uống 2,5-10mg x 1 lần/ngày.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm). Đau thắt ngực ổn định. Loạn nhịp tim (kiểm soát tần số trong rung nhĩ).",
-                                    chongchidinh: "Suy tim cấp chưa ổn định. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng (HA tâm thu <90). Hen phế quản nặng.",
-                                    dduochoc: "Sinh khả dụng ~88%. Khởi phát 1-3 giờ. T1/2 ~10-12 giờ. Thải trừ qua thận và gan.",
-                                    lieu: "Người lớn: Tăng HA: 5mg/ngày, tăng đến 10-20mg/ngày. Suy tim: khởi đầu 1,25mg/ngày, tăng dần mỗi 2 tuần. Trẻ em: <12 tuổi không khuyến cáo.",
-                                    lieutoida: "20mg/ngày (tăng HA), 10mg/ngày (suy tim).",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <20 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nhịp chậm, mệt, hạ HA. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 24 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Metoprolol", 
-                                desc: "Uống 25-100mg x 1-2 lần/ngày tùy chỉ định.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Đau thắt ngực. Nhồi máu cơ tim (dự phòng thứ phát). Suy tim mạn ổn định. Loạn nhịp tim. Migraine dự phòng.",
-                                    chongchidinh: "Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng. Hen phế quản nặng.",
-                                    dduochoc: "Sinh khả dụng ~50%. Khởi phát 1-2 giờ (uống). T1/2 ~3-7 giờ. Chuyển hóa qua gan CYP2D6.",
-                                    lieu: "Người lớn: 25-100mg x 1-2 lần/ngày, tối đa 400mg/ngày. Nhồi máu cơ tim: 25-50mg x 2-3 lần/ngày. Trẻ em ≥6 tuổi: 1-2 mg/kg/ngày.",
-                                    lieutoida: "400mg/ngày.",
-                                    luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nhịp chậm, mệt, hạ HA, co thắt phế quản. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 12 giờ dùng liều tiếp theo."
-                                }
-                            },
-                            { 
-                                title: "Nebivolol", 
-                                desc: "Uống 5mg x 1 lần/ngày, có thể tăng đến 10mg/ngày.",
-                                tag: "Tim mạch",
-                                detail: {
-                                    chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm, người ≥70 tuổi). Đau thắt ngực. Ưu điểm: ít gây co thắt phế quản, ít ảnh hưởng chuyển hóa.",
-                                    chongchidinh: "Suy gan nặng. Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng.",
-                                    dduochoc: "Sinh khả dụng ~12-96% (tùy CYP2D6). Khởi phát 1-3 giờ. T1/2 ~10 giờ (chuyển hóa nhanh), 30-50 giờ (chuyển hóa chậm).",
-                                    lieu: "Người lớn: Tăng HA: 5mg/ngày. Suy tim: khởi đầu 1,25mg/ngày, tăng dần. Người ≥65 tuổi: 2,5mg/ngày. Trẻ em: không khuyến cáo.",
-                                    lieutoida: "10mg/ngày (tăng HA), 10mg/ngày (suy tim).",
-                                    luuy: "⚠️ SUY THẬN: GIẢM LIỀU khởi đầu 2,5mg/ngày khi CrCl <40. ⚠️ SUY GAN: CHỐNG CHỈ ĐỊNH nếu suy gan nặng. ⚠️ Nhịp chậm, mệt, chóng mặt. ⚠️ Cách 24 giờ dùng liều tiếp theo."
-                                }
-                            }
+                            { title: "Digoxin / Anfarm (0,5mg/2ml)", desc: "½ ống pha loãng TMC 5 phút hoặc 1 ống pha loãng TMC 5 phút.", tag: "Tim mạch",
+                              detail: { chidinh: "Suy tim có rung nhĩ tần số nhanh. Kiểm soát tần số thất trong rung nhĩ/nhịp nhanh trên thất. Suy tim EF thấp còn triệu chứng (NYHA II-IV).", chongchidinh: "Block AV độ II-III. Hội chứng WPW kèm rung nhĩ. Bệnh cơ tim phì đại tắc nghẽn. Hạ kali/magiê máu nặng. Nhồi máu cơ tim cấp.", dduochoc: "Sinh khả dụng ~60-80%. Thải trừ chủ yếu qua thận. T1/2 ~36-48 giờ. Khởi phát TM: 5-30 phút.", lieu: "Người lớn: Liều tấn công 0,5mg TM, sau đó 0,25mg mỗi 6h, tối đa 1-1,5mg/24h. Duy trì: 0,125-0,25mg/ngày.", lieutoida: "1,5mg/ngày (tấn công), 0,25mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU rõ rệt, theo dõi nồng độ Digoxin 0,5-2 ng/mL. ⚠️ Hạ K+ làm tăng độc tính. ⚠️ Cách 6-8 giờ mới dùng lại." }},
+                            { title: "Zodamid 5mg/1ml (Midazolam)", desc: "1 ống pha loãng TMC 5 phút hoặc ½ ống pha loãng TMC 5 phút.", tag: "Tim mạch",
+                              detail: { chidinh: "An thần trước thủ thuật (chụp mạch vành, đặt stent, sốc điện chuyển nhịp). An thần bệnh nhân ICU thở máy. Cắt cơn co giật kéo dài.", chongchidinh: "Dị ứng benzodiazepine. Nhược cơ nặng. Suy hô hấp nặng chưa hỗ trợ. Suy gan nặng. Ngưng thở khi ngủ do tắc nghẽn.", dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~1,5-2,5 giờ. Chuyển hóa qua CYP3A4 ở gan.", lieu: "Người lớn: 1-2,5mg TM chậm, tối đa 5mg/lần. An thần ICU: 0,02-0,1 mg/kg/giờ.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Thận trọng. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp. ⚠️ Cách 5-10 phút mới dùng lại." }},
+                            { title: "Levonox 40mg/0,4ml (Enoxaparin)", desc: "Y lệnh mẫu: Tiêm dưới da 40mg x 1 lần/ngày (dự phòng). Điều trị: 1mg/kg x 2 lần/ngày TDD.", tag: "Tim mạch",
+                              detail: { chidinh: "Dự phòng huyết khối tĩnh mạch sâu. Điều trị DVT, thuyên tắc phổi. Hội chứng vành cấp. Rung nhĩ có nguy cơ huyết khối.", chongchidinh: "Tiền sử HIT. Chảy máu đang hoạt động. Loét dạ dày-tá tràng đang chảy máu. Đột quỵ xuất huyết. Suy thận nặng (CrCl <15). THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng TDD ~100%. Khởi phát 2-4 giờ. T1/2 ~4,5 giờ.", lieu: "Dự phòng: 40mg TDD 1 lần/ngày. Điều trị: 1mg/kg TDD mỗi 12 giờ.", lieutoida: "200mg/ngày (điều trị). Dự phòng: 40mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (dự phòng 20mg/ngày). ⚠️ SUY GAN: Thận trọng. ⚠️ Theo dõi tiểu cầu, Anti-Xa. ⚠️ Cách 12 giờ mới dùng lại." }},
+                            { title: "Takizd (Furosemide)", desc: "1 ống hoặc 2 ống TMC mỗi 5 phút.", tag: "Tim mạch",
+                              detail: { chidinh: "Phù phổi cấp. Suy tim sung huyết. Phù do xơ gan, hội chứng thận. THA có phù. Tăng kali máu.", chongchidinh: "Vô niệu. Hạ kali/natri máu nặng. Hôn mê gan. Dị ứng sulfonamide.", dduochoc: "Khởi phát TM: 5 phút. T1/2 ~1-2 giờ. Tác dụng lợi tiểu mạnh nhất 30 phút - 2 giờ đầu.", lieu: "Người lớn: 20-40mg TM, có thể tăng đến 80-200mg. Truyền liên tục: 5-40 mg/giờ.", lieutoida: "200mg/lần, 600mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU, theo dõi điện giải. ⚠️ SUY GAN: Thận trọng, nguy cơ hôn mê gan do hạ K+. ⚠️ Hạ K+, Na+, Mg2+, hạ HA, độc tai. ⚠️ Cách 2-6 giờ mới dùng lại." }},
+                            { title: "Amlodipine 5mg", desc: "Uống 1 viên x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực ổn định mạn tính. Đau thắt ngực do co thắt mạch vành.", chongchidinh: "Dị ứng amlodipine. Hạ HA nặng. Sốc. Hẹp ĐM chủ nặng. Suy tim chưa kiểm soát.", dduochoc: "Sinh khả dụng ~64-90%. Khởi phát 6-12 giờ. T1/2 ~30-50 giờ. Chuyển hóa qua gan CYP3A4.", lieu: "Người lớn: 5mg x 1 lần/ngày, tăng đến 10mg/ngày. Người già, suy gan: khởi đầu 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khởi đầu. ⚠️ Phù mắt cá, đỏ bừng mặt, nhức đầu. ⚠️ Cách 24 giờ dùng liều tiếp." }},
+                            { title: "Losartan (Lorsatan)", desc: "Uống 50mg x 1 lần/ngày. Có thể tăng đến 100mg/ngày.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Bệnh thận do ĐTĐ type 2. Suy tim (khi không dung nạp ACEI). Phì đại thất trái.", chongchidinh: "Phụ nữ có thai (3 tháng giữa và cuối). Dị ứng losartan. Hẹp ĐM thận 2 bên. Tăng kali máu nặng.", dduochoc: "Sinh khả dụng ~33%. Khởi phát 6 giờ. T1/2 ~2 giờ (chất chuyển hóa 6-9 giờ).", lieu: "Người lớn: 50mg x 1 lần/ngày, tăng đến 100mg/ngày. Suy gan: 25mg/ngày.", lieutoida: "100mg/ngày.", luuy: "⚠️ SUY THẬN: Theo dõi K+ và Cr. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Ho khan, tăng K+, hạ HA. ⚠️ Cách 24 giờ dùng liều tiếp." }},
+                            { title: "Captopril (Captoril)", desc: "Uống 25mg x 2-3 lần/ngày.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Suy tim sung huyết. Nhồi máu cơ tim sau 24 giờ. Bệnh thận do ĐTĐ type 1.", chongchidinh: "Phụ nữ có thai. Dị ứng ACEI. Tiền sử phù mạch do ACEI. Hẹp ĐM thận 2 bên.", dduochoc: "Sinh khả dụng ~70%. Khởi phát 15-30 phút. T1/2 ~2 giờ. Thải trừ qua thận.", lieu: "Người lớn: 25mg x 2-3 lần/ngày, tối đa 150mg/ngày. THA cấp: 25mg ngậm dưới lưỡi.", lieutoida: "450mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <40 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Ho khan, tăng K+, phù mạch. ⚠️ Cách 8 giờ dùng liều tiếp." }},
+                            { title: "Propranolol", desc: "Uống 10-40mg x 2-4 lần/ngày tùy chỉ định.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Loạn nhịp tim. Cường giáp. Run vô căn. Dự phòng đau nửa đầu.", chongchidinh: "Hen phế quản, COPD nặng. Block AV độ II-III. Suy tim chưa kiểm soát. Sốc tim. Nhịp chậm <50 lần/phút.", dduochoc: "Sinh khả dụng ~30%. Khởi phát 30-60 phút. T1/2 ~4 giờ. Chuyển hóa qua gan.", lieu: "Người lớn: 10-40mg x 2-4 lần/ngày, tối đa 320mg/ngày (THA). Loạn nhịp: 10-30mg x 3-4 lần/ngày.", lieutoida: "640mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều thường. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 6-8 giờ dùng liều tiếp." }},
+                            { title: "Bisoprolol", desc: "Uống 2,5-10mg x 1 lần/ngày.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm). Đau thắt ngực ổn định. Loạn nhịp (kiểm soát tần số trong rung nhĩ).", chongchidinh: "Suy tim cấp chưa ổn định. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng (HA tâm thu <90). Hen nặng.", dduochoc: "Sinh khả dụng ~88%. Khởi phát 1-3 giờ. T1/2 ~10-12 giờ.", lieu: "Người lớn: THA 5mg/ngày, tăng đến 10-20mg. Suy tim: khởi đầu 1,25mg/ngày, tăng dần mỗi 2 tuần.", lieutoida: "20mg/ngày (THA), 10mg/ngày (suy tim).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <20 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 24 giờ dùng liều tiếp." }},
+                            { title: "Metoprolol", desc: "Uống 25-100mg x 1-2 lần/ngày tùy chỉ định.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Nhồi máu cơ tim (dự phòng thứ phát). Suy tim mạn ổn định. Loạn nhịp tim.", chongchidinh: "Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng. Hen nặng.", dduochoc: "Sinh khả dụng ~50%. Khởi phát 1-2 giờ. T1/2 ~3-7 giờ. Chuyển hóa qua CYP2D6.", lieu: "Người lớn: 25-100mg x 1-2 lần/ngày, tối đa 400mg/ngày. NMCT: 25-50mg x 2-3 lần/ngày.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 12 giờ dùng liều tiếp." }},
+                            { title: "Nebivolol", desc: "Uống 5mg x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
+                              detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm, người ≥70 tuổi). Đau thắt ngực. Ít gây co thắt phế quản.", chongchidinh: "Suy gan nặng. Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng.", dduochoc: "Sinh khả dụng ~12-96%. Khởi phát 1-3 giờ. T1/2 ~10 giờ (nhanh), 30-50 giờ (chậm).", lieu: "Người lớn: THA 5mg/ngày. Suy tim: khởi đầu 1,25mg/ngày. ≥65 tuổi: 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khởi đầu 2,5mg/ngày khi CrCl <40. ⚠️ SUY GAN: CHỐNG CHỈ ĐỊNH nếu suy gan nặng. ⚠️ Cách 24 giờ dùng liều tiếp." }}
                         ]
                     },
                     {
                         name: "Thuốc vận mạch",
                         icon: "fa-syringe",
                         items: [
-                            { 
-                                title: "Dobutamin", 
-                                desc: "Truyền TM liên tục qua bơm tiêm điện hoặc dịch truyền. Liều 2,5-20 mcg/kg/phút.",
-                                tag: "Vận mạch",
-                                detail: {
-                                    chidinh: "Suy tim cấp có cung lượng tim thấp, HA tâm thu >70 mmHg nhưng còn tưới máu. Sốc tim. Test gắng sức tim (Dobutamin stress test). Hỗ trợ sau phẫu thuật tim.",
-                                    chongchidinh: "Hẹp dưới van động mạch chủ nặng. Bệnh cơ tim phì đại tắc nghẽn. Nhồi máu cơ tim cấp chưa xử trí. Loạn nhịp nhanh chưa kiểm soát. Hạ kali máu chưa điều chỉnh.",
-                                    dduochoc: "Khởi phát tác dụng: 1-2 phút. Đạt đỉnh: 10 phút. T1/2: ~2 phút. Chuyển hóa qua gan và các mô khác.",
-                                    lieu: "Người lớn: 2,5-20 mcg/kg/phút truyền TM liên tục. Khởi đầu 2,5-5 mcg/kg/phút, tăng dần mỗi 5-10 phút. Trẻ em: 2-20 mcg/kg/phút.",
-                                    lieutoida: "20 mcg/kg/phút (liều tối đa khuyến cáo). Vượt quá làm tăng tác dụng phụ.",
-                                    luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu vẫn <90 mmHg, chưa cải thiện tưới máu (nước tiểu <0,5 mL/kg/h, lactate tăng, tri giác xấu). Tăng mỗi 2,5-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA tâm thu >100 mmHg ổn định, hết sốc, có thể chuyển sang thuốc uống. Ngưng từ từ, giảm 25-50% liều mỗi 30 phút. ⚠️ NGƯNG TẠM THỜI: Nếu xuất hiện loạn nhịp nhanh, HA tâm thu >180 mmHg, nhịp tim >140/phút. ⚠️ MỤC TIÊU HA: HA tâm thu 90-110 mmHg ở bệnh nhân sốc tim; 100-120 mmHg nếu có THA mạn. ⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Nhịp nhanh, loạn nhịp, đau ngực, đau đầu, khó thở."
-                                }
-                            },
-                            { 
-                                title: "Dopamin", 
-                                desc: "Truyền TM liên tục. Liều 2-20 mcg/kg/phút.",
-                                tag: "Vận mạch",
-                                detail: {
-                                    chidinh: "Sốc tim, sốc nhiễm khuẩn (ít dùng hơn Noradrenaline). Suy tim cấp có hạ HA. Hạ HA nặng có giảm tưới máu. Nhịp chậm có triệu chứng (liều thấp).",
-                                    chongchidinh: "U tủy thượng thận (pheochromocytoma). Nhịp nhanh thất chưa xử trí. Loạn nhịp nhanh. Suy tim sung huyết chưa kiểm soát. Hẹp van động mạch chủ nặng.",
-                                    dduochoc: "Khởi phát: 1-2 phút. Đạt đỉnh: 10 phút. T1/2: ~2 phút. Chuyển hóa qua MAO và COMT ở gan và thận.",
-                                    lieu: "Liều thấp (1-5 mcg/kg/phút): Tăng tưới máu thận, mạc treo. Liều trung bình (5-10): Tăng co bóp cơ tim. Liều cao (10-20): Co mạch ngoại biên, tăng HA. Người lớn: 2-20 mcg/kg/phút, tăng dần. Trẻ em: 5-20 mcg/kg/phút.",
-                                    lieutoida: "50 mcg/kg/phút (rất hiếm dùng, chỉ trong trường hợp đặc biệt).",
-                                    luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu vẫn <90 mmHg, nước tiểu <0,5 mL/kg/h, lactate tăng, tri giác không cải thiện. Tăng 2-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Ngưng từ từ, giảm 25% mỗi 30 phút, tránh ngưng đột ngột. ⚠️ NGƯNG TẠM THỜI: Nhịp nhanh >140/phút, loạn nhịp, hoại tử đầu chi (do co mạch mạnh). ⚠️ MỤC TIÊU HA: HA tâm thu 90-110 mmHg (sốc tim), 65 mmHg (HA trung bình ở sốc nhiễm khuẩn). ⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Loạn nhịp, nhịp nhanh, tăng HA, hoại tử đầu chi, buồn nôn."
-                                }
-                            },
-                            { 
-                                title: "Noradrenaline (Norepinephrine)", 
-                                desc: "Truyền TM liên tục qua bơm tiêm điện hoặc dịch truyền. Liều 0,05-3 mcg/kg/phút.",
-                                tag: "Vận mạch",
-                                detail: {
-                                    chidinh: "Sốc nhiễm khuẩn (ưu tiên số 1). Sốc tim nếu HA tâm thu <70 mmHg kèm tưới máu kém. Sốc phản vệ (sau Adrenaline). Hạ HA do giãn mạch khi gây mê. Hội chứng gan thận type 1 (phối hợp Albumin).",
-                                    chongchidinh: "Hạ HA do giảm thể tích chưa bù dịch (phải bù dịch trước). Huyết khối mạc treo hoặc ngoại biên. Nhịp nhanh thất. Loạn nhịp nhanh chưa kiểm soát.",
-                                    dduochoc: "Khởi phát: 1-2 phút. Đạt đỉnh: 5-10 phút. T1/2: ~2,5 phút. Chuyển hóa qua MAO và COMT ở gan.",
-                                    lieu: "Người lớn: 0,05-3 mcg/kg/phút truyền TM liên tục, hiệu chỉnh theo HA. Khởi đầu 0,05-0,1 mcg/kg/phút, tăng dần. Trẻ em: 0,05-0,1 mcg/kg/phút, tối đa 2 mcg/kg/phút.",
-                                    lieutoida: "3,3 mcg/kg/phút (thực tế ít khi vượt quá 1-2 mcg/kg/phút).",
-                                    luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA trung bình (MAP) <65 mmHg hoặc <mục tiêu đã đặt. Tăng mỗi 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO DỪNG TĂNG: MAP đạt 65-70 mmHg ở sốc nhiễm khuẩn, hoặc 80-90 mmHg nếu có THA mạn, hoặc 100-110 mmHg nếu có bệnh mạch vành. ⚠️ KHI NÀO NGƯNG: MAP ổn định ≥65 mmHg trong 6-12 giờ không cần tăng liều, có thể giảm 0,05 mcg/kg/phút mỗi 30 phút. Ngưng khi liều <0,05 mcg/kg/phút và HA ổn định. ⚠️ NGƯNG TẠM THỜI: Loạn nhịp nặng, thiếu máu cơ tim, hoại tử đầu chi, MAP >120 mmHg. ⚠️ MỤC TIÊU HA: MAP 65-70 mmHg (sốc nhiễm khuẩn theo SSC 2021). MAP 80-90 mmHg nếu bệnh nhân có THA mạn. MAP 100-110 mmHg nếu có bệnh mạch vành. ⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Thiếu máu chi, hoại tử đầu chi, loạn nhịp, tăng đường huyết, đau đầu. ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM để tránh hoại tử mô ngoại vi."
-                                }
-                            },
-                            { 
-                                title: "Adrenaline (Epinephrine)", 
-                                desc: "Sốc phản vệ: 0,5mg tiêm bắp mặt trước đùi. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.",
-                                tag: "Vận mạch",
-                                detail: {
-                                    chidinh: "Sốc phản vệ (thuốc đầu tay). Ngừng tim (CPR). Sốc tim nặng, sốc nhiễm khuẩn kháng trị. Phối hợp gây tê tại chỗ. Cơn hen nặng kháng trị. Nhịp chậm có triệu chứng.",
-                                    chongchidinh: "Không có chống chỉ định tuyệt đối trong cấp cứu ngừng tim và sốc phản vệ. Thận trọng: Bệnh tim thiếu máu, loạn nhịp nặng, THA nặng, cường giáp, phụ nữ có thai.",
-                                    dduochoc: "Tiêm bắp: Khởi phát 3-5 phút, T1/2 ~2-3 phút. Tiêm TM: Khởi phát 30 giây, T1/2 ~2 phút. Truyền TM: Đạt đỉnh 5-10 phút sau khi bắt đầu. Chuyển hóa qua COMT và MAO.",
-                                    lieu: "Sốc phản vệ: 0,5mg tiêm bắp mặt trước đùi, lặp lại sau 5-15 phút. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút. Trẻ em sốc phản vệ: 0,01 mg/kg tiêm bắp (tối đa 0,3-0,5mg).",
-                                    lieutoida: "Không giới hạn trong cấp cứu ngừng tim. Truyền TM: 0,5 mcg/kg/phút (có thể tăng đến 1 mcg/kg/phút trong trường hợp kháng trị).",
-                                    luuy: "⚠️ KHI NÀO TĂNG LIỀU: Trong sốc phản vệ, nếu sau 2 lần tiêm bắp không cải thiện (HA không lên, khó thở không giảm), chuyển sang truyền TM. Trong sốc tim, nếu MAP <65 mmHg dù đã truyền Noradrenaline liều cao, có thể thêm Adrenaline. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm liều từ từ mỗi 30 phút. ⚠️ NGƯNG TẠM THỜI: Loạn nhịp nặng, thiếu máu cơ tim, tăng đường huyết nặng, toan chuyển hóa nặng, MAP >120 mmHg. ⚠️ MỤC TIÊU HA: Trong sốc phản vệ: HA tâm thu ≥90 mmHg (người lớn), hết khó thở, tri giác tỉnh. Trong CPR: Không đặt mục tiêu HA mà đặt mục tiêu ROSC. Trong sốc tim: MAP 65-70 mmHg. ⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Nhịp nhanh, loạn nhịp, tăng HA, tăng đường huyết, hạ kali máu, toan chuyển hóa. ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM."
-                                }
-                            }
+                            { title: "Dobutamin", desc: "Truyền TM liên tục. Liều 2,5-20 mcg/kg/phút.", tag: "Vận mạch",
+                              detail: { chidinh: "Suy tim cấp có cung lượng tim thấp, HA tâm thu >70 mmHg. Sốc tim. Test gắng sức tim. Hỗ trợ sau phẫu thuật tim.", chongchidinh: "Hẹp dưới van ĐM chủ nặng. Bệnh cơ tim phì đại tắc nghẽn. NMCT cấp chưa xử trí. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Người lớn: 2,5-20 mcg/kg/phút. Khởi đầu 2,5-5 mcg/kg/phút, tăng dần mỗi 5-10 phút.", lieutoida: "20 mcg/kg/phút.", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2,5-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA tâm thu >100 ổn định, hết sốc. Giảm 25-50% mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nhanh, HA tâm thu >180, nhịp tim >140. ⚠️ MỤC TIÊU HA: 90-110 mmHg (sốc tim); 100-120 nếu THA mạn. ⚠️ SUY THẬN/GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Nhịp nhanh, loạn nhịp, đau ngực." }},
+                            { title: "Dopamin", desc: "Truyền TM liên tục. Liều 2-20 mcg/kg/phút.", tag: "Vận mạch",
+                              detail: { chidinh: "Sốc tim, sốc nhiễm khuẩn. Suy tim cấp có hạ HA. Hạ HA nặng có giảm tưới máu. Nhịp chậm có triệu chứng (liều thấp).", chongchidinh: "U tủy thượng thận. Nhịp nhanh thất chưa xử trí. Loạn nhịp nhanh. Suy tim sung huyết chưa kiểm soát. Hẹp van ĐM chủ nặng.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Liều thấp (1-5): Tăng tưới máu thận. Trung bình (5-10): Tăng co bóp. Cao (10-20): Co mạch ngoại biên.", lieutoida: "50 mcg/kg/phút (rất hiếm).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm 25% mỗi 30 phút. ⚠️ NGƯNG TẠM: Nhịp nhanh >140, loạn nhịp, hoại tử đầu chi. ⚠️ MỤC TIÊU HA: 90-110 (sốc tim), 65 (MAP sốc nhiễm khuẩn). ⚠️ Tác dụng phụ: Loạn nhịp, nhịp nhanh, hoại tử đầu chi." }},
+                            { title: "Noradrenaline (Norepinephrine)", desc: "Truyền TM liên tục. Liều 0,05-3 mcg/kg/phút.", tag: "Vận mạch",
+                              detail: { chidinh: "Sốc nhiễm khuẩn (ưu tiên số 1). Sốc tim nếu HA tâm thu <70 kèm tưới máu kém. Sốc phản vệ (sau Adrenaline). Hạ HA do giãn mạch khi gây mê. Hội chứng gan thận type 1.", chongchidinh: "Hạ HA do giảm thể tích chưa bù dịch. Huyết khối mạc treo/ngoại biên. Nhịp nhanh thất. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 5-10 phút. T1/2 ~2,5 phút.", lieu: "Người lớn: 0,05-3 mcg/kg/phút. Khởi đầu 0,05-0,1, tăng dần. Trẻ em: 0,05-0,1 (tối đa 2).", lieutoida: "3,3 mcg/kg/phút (thực tế ít khi >1-2).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: MAP <65 hoặc <mục tiêu. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO DỪNG TĂNG: MAP 65-70 (sốc nhiễm khuẩn), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ KHI NÀO NGƯNG: MAP ≥65 ổn định 6-12 giờ. Giảm 0,05 mcg/kg/phút mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, hoại tử đầu chi, MAP >120. ⚠️ MỤC TIÊU HA: MAP 65-70 (SSC 2021), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }},
+                            { title: "Adrenaline (Epinephrine)", desc: "Sốc phản vệ: 0,5mg TB mặt trước đùi. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", tag: "Vận mạch",
+                              detail: { chidinh: "Sốc phản vệ (thuốc đầu tay). Ngừng tim (CPR). Sốc tim nặng, sốc nhiễm khuẩn kháng trị. Phối hợp gây tê tại chỗ. Cơn hen nặng kháng trị.", chongchidinh: "Không có chống chỉ định tuyệt đối trong cấp cứu ngừng tim và sốc phản vệ. Thận trọng: bệnh tim thiếu máu, loạn nhịp nặng, cường giáp.", dduochoc: "Tiêm bắp: Khởi phát 3-5 phút. Tiêm TM: 30 giây. T1/2 ~2 phút.", lieu: "Sốc phản vệ: 0,5mg TB mặt trước đùi, lặp lại sau 5-15 phút. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", lieutoida: "Không giới hạn trong CPR. Truyền TM: 0,5 mcg/kg/phút (có thể tăng 1 nếu kháng trị).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: Sốc phản vệ sau 2 lần TB không cải thiện → truyền TM. Sốc tim MAP <65 dù Noradrenaline liều cao → thêm Adrenaline. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, MAP >120. ⚠️ MỤC TIÊU HA: Sốc phản vệ HA tâm thu ≥90, hết khó thở. CPR không đặt mục tiêu HA. Sốc tim MAP 65-70. ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }}
+                        ]
+                    },
+                    {
+                        name: "Kháng sinh ICU (Long An)",
+                        icon: "fa-syringe",
+                        items: [
+                            { title: "Amoxicillin", desc: "Kháng sinh beta-lactam, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, da/mô mềm, viêm nội tâm mạc, viêm màng não do vi khuẩn nhạy cảm.", chongchidinh: "Dị ứng penicillin. Tăng bạch cầu đơn nhân nhiễm trùng.", dduochoc: "Hấp thu tốt qua đường uống. Thải trừ chủ yếu qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 8h (uống) hoặc 1g mỗi 6-8h (TM). Trẻ em: 25-50 mg/kg/ngày chia 3 lần.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều." }},
+                            { title: "Piperacillin–Tazobactam", desc: "Kháng sinh phổ rộng, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn ổ bụng có biến chứng, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng penicillin hoặc cephalosporin. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM, phân bố rộng. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều chuẩn: 3,375g mỗi 6 giờ. Nhiễm trùng nặng: 4,5g mỗi 6 giờ.", lieutoida: "18g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >40 không chỉnh. CrCl 20-40: 2,25g mỗi 6h (NT nặng 3,375g). CrCl <20: 2,25g mỗi 8h (NT nặng 2,25g mỗi 6h). ⚠️ SUY GAN: Thận trọng." }},
+                            { title: "Ceftriaxone", desc: "Cephalosporin thế hệ 3, không cần chỉnh liều theo CrCl.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm màng não, viêm phổi, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, bệnh lậu.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin. Trẻ sơ sinh vàng da. Phụ nữ có thai 3 tháng cuối.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận và mật. T1/2 ~6-9 giờ.", lieu: "Người lớn: 1-2g mỗi 12-24 giờ. Viêm màng não: 2g mỗi 12 giờ. Trẻ em: 50-75 mg/kg/ngày.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Không pha với dung dịch chứa Calci." }},
+                            { title: "Ceftazidime", desc: "Cephalosporin thế hệ 3, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1,5-2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh. CrCl 30-50: 1-2g mỗi 12h. CrCl 16-30: 1-2g mỗi 24h. CrCl 6-15: 0,5-1g mỗi 24h. CrCl <5: 0,5g mỗi 24h. ⚠️ SUY GAN: Không cần chỉnh liều." }},
+                            { title: "Cefoperazone + Sulbactam", desc: "Kháng sinh phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml x2 TTM XXX giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin hoặc sulbactam. Tiền sử sốc phản vệ với beta-lactam. Suy gan nặng.", dduochoc: "Thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 1-2g mỗi 12 giờ.", lieutoida: "4g/ngày (nếu GFR <18).", luuy: "⚠️ SUY THẬN: GFR <18 → <4g/ngày. ⚠️ SUY GAN: GIẢM LIỀU, thận trọng cao. ⚠️ Nguy cơ chảy máu do giảm prothrombin." }},
+                            { title: "Cefepime", desc: "Cephalosporin thế hệ 4, phổ rộng. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn da/mô mềm, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8-12 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Liều 1-2g/12h: CrCl >60 không chỉnh, 30-60 dùng 1-2g/24h, 11-29 dùng 0,5-1g/24h, <11 dùng 0,25-0,5g/24h. Liều 2g/8h: CrCl >60 không chỉnh, 30-60 dùng 2g/12h, 11-29 dùng 2g/24h, <11 dùng 1g/24h. ⚠️ SUY GAN: Không cần chỉnh liều." }},
+                            { title: "Imipenem", desc: "Kháng sinh carbapenem, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ hoặc 1g mỗi 8 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <70 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ co giật." }},
+                            { title: "Meropenem", desc: "Carbapenem phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM X giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: viêm màng não, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn ổ bụng, nhiễm khuẩn tiết niệu phức tạp, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều tải: 3g/ngày (tối đa 6g/ngày). Liều chuẩn: 1g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh, 26-50 dùng 1g/12h, 10-25 dùng 0,5g/12h, <10 dùng 0,5g/24h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ co giật." }},
+                            { title: "Amikacin", desc: "Aminoglycoside, có độc tính thận và tai. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn nặng do Gram âm hiếu khí: nhiễm khuẩn huyết, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng aminoglycoside. Nhược cơ nặng. Suy thận nặng. Mất thính lực.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 15-20 mg/kg mỗi 24 giờ.", lieutoida: "1,5g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >60 không chỉnh, 40-60 dùng 15 mg/kg/36h, 30-40 dùng 15 mg/kg/48h, <30 KHÔNG KHUYẾN CÁO. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi chức năng thận và thính lực." }},
+                            { title: "Ciprofloxacin", desc: "Fluoroquinolone. Y lệnh: 1 chai (400mg) TTM XXX giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn tiết niệu, viêm tuyến tiền liệt, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm, viêm phổi bệnh viện, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Tiêm TM. Thải trừ qua thận và gan. T1/2 ~4 giờ.", lieu: "Người lớn: 400mg mỗi 8-12 giờ.", lieutoida: "1200mg/ngày (TM).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
+                            { title: "Levofloxacin", desc: "Fluoroquinolone. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%. Thải trừ qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 500-750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
+                            { title: "Moxifloxacin", desc: "Fluoroquinolone thế hệ 4. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng có biến chứng.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân. Kéo dài QT.", dduochoc: "Sinh khả dụng TM ~90%. Thải trừ qua gan và thận. T1/2 ~12 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ kéo dài QT." }},
+                            { title: "Azithromycin", desc: "Macrolide, tác dụng trên vi khuẩn không điển hình. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phế quản, nhiễm khuẩn da/mô mềm, nhiễm Chlamydia, Mycoplasma.", chongchidinh: "Dị ứng macrolide. Suy gan nặng.", dduochoc: "Sinh khả dụng uống ~37%. Thải trừ qua mật. T1/2 ~68 giờ.", lieu: "Người lớn: 500mg/ngày x 3 ngày hoặc 500mg ngày 1 rồi 250mg ngày 2-5.", lieutoida: "500mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Kéo dài QT." }},
+                            { title: "Clarithromycin", desc: "Macrolide, ức chế CYP3A4. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Viêm phổi cộng đồng, viêm xoang, nhiễm khuẩn da/mô mềm, nhiễm H. pylori (phối hợp).", chongchidinh: "Dị ứng macrolide. Suy gan nặng. Kéo dài QT. Phối hợp với ergotamine.", dduochoc: "Sinh khả dụng ~55%. Thải trừ qua thận và gan. T1/2 ~3-4 giờ.", lieu: "Người lớn: 250-500mg mỗi 12 giờ.", lieutoida: "1g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Ức chế CYP3A4, tương tác nhiều thuốc." }},
+                            { title: "Clindamycin", desc: "Lincosamide, tác dụng trên vi khuẩn kỵ khí và Gram dương. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng, nhiễm khuẩn răng miệng, viêm phổi do vi khuẩn kỵ khí, nhiễm trùng xương khớp.", chongchidinh: "Dị ứng clindamycin. Tiền sử viêm đại tràng giả mạc.", dduochoc: "Sinh khả dụng uống ~90%. Thải trừ qua gan và thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 300-600mg mỗi 6-8 giờ (uống) hoặc 600-900mg mỗi 8 giờ (TM).", lieutoida: "4,8g/ngày (TM).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU nếu suy gan nặng. ⚠️ Nguy cơ viêm đại tràng giả mạc do C. difficile." }},
+                            { title: "Doxycyclin", desc: "Tetracycline phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn hô hấp, nhiễm Chlamydia, Mycoplasma, Rickettsia, sốt mò, viêm tuyến tiền liệt, mụn trứng cá.", chongchidinh: "Dị ứng tetracycline. Phụ nữ có thai/cho con bú. Trẻ <8 tuổi (nguy cơ vàng răng).", dduochoc: "Sinh khả dụng uống ~93%. Thải trừ qua gan và thận. T1/2 ~18-22 giờ.", lieu: "Người lớn: 100mg mỗi 12 giờ ngày 1, sau đó 100mg mỗi 24 giờ.", lieutoida: "200mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Không dùng cho trẻ <8 tuổi và phụ nữ có thai." }},
+                            { title: "Vancomycin", desc: "Glycopeptide, tác dụng trên MRSA. Y lệnh: 1 lọ pha 20ml nước cất + NaCl 0,9% 250ml TTM XXX giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, viêm màng não. Viêm đại tràng giả mạc do C. difficile (uống).", chongchidinh: "Dị ứng vancomycin. Tiền sử điếc. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~4-6 giờ (tăng ở suy thận).", lieu: "Người lớn: 15-20 mg/kg mỗi 8-12 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >100 không chỉnh, >50-100 dùng 15-20 mg/kg/12h, 20-50 dùng 15-20 mg/kg/24h, <20 dùng 15-20 mg/kg/48h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy 15-20 mcg/mL. ⚠️ Độc thận, độc tai." }},
+                            { title: "Teicoplanin", desc: "Glycopeptide, tác dụng trên MRSA. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng teicoplanin. Tiền sử dị ứng vancomycin nặng.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~70-100 giờ.", lieu: "Người lớn: Liều tải 400-800mg mỗi 12 giờ x 3-5 liều, sau đó 400-800mg mỗi 24 giờ.", lieutoida: "800mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (giảm 50% liều duy trì). ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy >10 mcg/mL (nhiễm khuẩn sâu >20)." }},
+                            { title: "Linezolid", desc: "Oxazolidinone, tác dụng trên MRSA và VRE. Y lệnh: 1 lọ (600mg/300ml) TTM XXX giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn do MRSA và VRE: viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn huyết. Viêm phổi cộng đồng do phế cầu kháng thuốc.", chongchidinh: "Dị ứng linezolid. Đang dùng hoặc đã dùng MAOIs trong 2 tuần. Hội chứng carcinoid. THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~5-7 giờ.", lieu: "Người lớn: 600mg mỗi 12 giờ.", lieutoida: "1200mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi công thức máu (giảm tiểu cầu, thiếu máu). ⚠️ Nguy cơ hội chứng serotonin khi dùng chung SSRI." }},
+                            { title: "Metronidazole", desc: "Nitroimidazole, tác dụng trên vi khuẩn kỵ khí và ký sinh trùng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn kỵ khí: nhiễm khuẩn ổ bụng, nhiễm khuẩn phụ khoa, nhiễm khuẩn da/mô mềm, viêm đại tràng giả mạc, nhiễm Trichomonas, amip, Giardia.", chongchidinh: "Dị ứng metronidazole. Phụ nữ có thai 3 tháng đầu. Rối loạn thần kinh trung ương nặng.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~8 giờ.", lieu: "Người lớn: 500mg mỗi 8-12 giờ (uống hoặc TM).", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khi suy gan nặng. ⚠️ Không uống rượu khi dùng thuốc." }},
+                            { title: "Colistin", desc: "Polymyxin, tác dụng trên Gram âm đa kháng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM XXX giọt/phút.", tag: "KS ICU",
+                              detail: { chidinh: "Nhiễm khuẩn do Gram âm đa kháng (MDR): Acinetobacter baumannii, Pseudomonas aeruginosa, Klebsiella pneumoniae kháng carbapenem. Viêm phổi thở máy, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng colistin. Nhược cơ nặng. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~3-6 giờ.", lieu: "Người lớn: Liều tải 9 triệu IU, sau đó 4,5 triệu IU mỗi 12 giờ.", lieutoida: "9-12 triệu IU/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ ĐỘC THẬN và ĐỘC THẦN KINH là tác dụng phụ chính. Theo dõi chức năng thận hàng ngày." }}
                         ]
                     }
                 ]
@@ -1276,7 +379,7 @@
                     { name: "Huyết khối", icon: "fa-droplet", items: [
                         { title: "Wells DVT", desc: "Đánh giá nguy cơ huyết khối tĩnh mạch sâu chi dưới.", tag: "Huyết khối", tool: "wellsdvt" },
                         { title: "Wells PE", desc: "Đánh giá nguy cơ thuyên tắc phổi.", tag: "Huyết khối", tool: "wellspe" },
-                        { title: "Geneva Score", desc: "Đánh giá nguy cơ thuyên tắc phổi (thay thế Wells).", tag: "Huyết khối" },
+                        { title: "Geneva Score", desc: "Đánh giá nguy cơ thuyên tắc phổi.", tag: "Huyết khối" },
                         { title: "Padua Score", desc: "Đánh giá nguy cơ huyết khối ở bệnh nhân nội khoa.", tag: "Huyết khối" }
                     ]},
                     { name: "Tiêu hóa", icon: "fa-stomach", items: [
@@ -1319,13 +422,11 @@
                 subs: [
                     { name: "BMI", icon: "fa-weight-scale", type: "calculator", calc: "bmi" },
                     { name: "eGFR (CKD-EPI)", icon: "fa-kidney", type: "calculator", calc: "egfr" },
-                    { name: "CrCl (Cockcroft-Gault)", icon: "fa-flask", type: "calculator", calc: "crcl" }
+                    { name: "CrCl (Cockcroft-Gault)", icon: "fa-flask", type: "calculator", calc: "crcl" },
+                    { name: "Bù Natri (Adrogué-Madias)", icon: "fa-droplet", type: "calculator", calc: "nacorr" }
                 ]
             }
-        };
-
-        /* ============ CÁC CÔNG CỤ ĐÁNH GIÁ TƯƠNG TÁC ============ */
-        const TOOLS = {
+        };        const TOOLS = {
             cha2ds2vasc: {
                 name: "CHA₂DS₂-VASc",
                 desc: "Đánh giá nguy cơ đột quỵ ở bệnh nhân rung nhĩ không do bệnh van tim",
@@ -1478,10 +579,10 @@
                 questions: [
                     { id: "cancer", text: "Ung thư đang hoạt động (điều trị trong 6 tháng hoặc tạm ngưng)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "paralysis", text: "Liệt, yếu hoặc bất động chi dưới gần đây", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
-                    { id: "bed", text: "Nằm giường >3 ngày hoặc phẫu thuật lớn trong 4 tuần (cần gây mê/region)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "bed", text: "Nằm giường >3 ngày hoặc phẫu thuật lớn trong 4 tuần", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "tenderness", text: "Đau khu trú dọc theo hệ tĩnh mạch sâu", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "swelling", text: "Sưng toàn bộ chi dưới", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
-                    { id: "calf", text: "Sưng cẳng chân >3 cm so với bên đối diện (đo dưới xương chày 10cm)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "calf", text: "Sưng cẳng chân >3 cm so với bên đối diện", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "pitting", text: "Phù ấn lõm khu trú ở chân bị bệnh", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "collateral", text: "Tuần hoàn bàng hệ nông (không do suy van)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
                     { id: "previous", text: "Tiền sử DVT đã ghi nhận", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
@@ -1523,11 +624,10 @@
             }
         };
 
-        /* ============ CÁC MÁY TÍNH LÂM SÀNG ============ */
         const CALCULATORS = {
             bmi: {
                 name: "BMI - Chỉ số khối cơ thể",
-                desc: "Tính BMI để đánh giá tình trạng dinh dưỡng",
+                desc: "Tính BMI để đánh giá tình trạng dinh dưỡng (chuẩn châu Á)",
                 fields: [
                     { id: "weight", label: "Cân nặng (kg)", type: "number", placeholder: "VD: 60", min: 1, max: 300, step: 0.1 },
                     { id: "height", label: "Chiều cao (cm)", type: "number", placeholder: "VD: 165", min: 30, max: 250, step: 0.1 }
@@ -1543,18 +643,26 @@
                     else if (bmi < 25) { interpret = "Thừa cân"; level = "mid"; note = "BMI 23-24.9: Thừa cân (chuẩn châu Á)."; }
                     else if (bmi < 30) { interpret = "Béo phì độ I"; level = "mid"; note = "BMI 25-29.9: Béo phì độ I."; }
                     else if (bmi < 35) { interpret = "Béo phì độ II"; level = "high"; note = "BMI 30-34.9: Béo phì độ II. Nguy cơ tim mạch cao."; }
-                    else { interpret = "Béo phì độ III"; level = "high"; note = "BMI ≥35: Béo phì độ III (béo phì nặng). Nguy cơ rất cao."; }
+                    else { interpret = "Béo phì độ III"; level = "high"; note = "BMI ≥35: Béo phì độ III. Nguy cơ rất cao."; }
                     return { value: bmi.toFixed(2), unit: "kg/m²", interpret: interpret, level: level, note: note };
                 }
             },
             egfr: {
                 name: "eGFR - CKD-EPI 2021",
-                desc: "Ước tính mức lọc cầu thận theo công thức CKD-EPI 2021 (không chủng tộc)",
+                desc: "Ước tính mức lọc cầu thận (có thể chuyển đổi đơn vị Creatinine)",
                 fields: [
-                    { id: "creat", label: "Creatinine máu (mg/dL)", type: "number", placeholder: "VD: 1.0", min: 0.1, max: 20, step: 0.01 },
+                    { id: "creat", label: "Creatinine máu", type: "number", placeholder: "VD: 1.0", min: 0.01, max: 2000, step: 0.01 },
                     { id: "age", label: "Tuổi (năm)", type: "number", placeholder: "VD: 50", min: 18, max: 120, step: 1 },
                     { id: "sex", label: "Giới tính", type: "select", options: [{ value: "female", label: "Nữ" }, { value: "male", label: "Nam" }] }
                 ],
+                unitConverter: {
+                    fieldId: "creat",
+                    label: "Đơn vị Creatinine:",
+                    units: [
+                        { code: "mgdl", label: "mg/dL", toBase: function(x) { return x; }, fromBase: function(x) { return x; }, hint: "Đơn vị chuẩn (VD: 1.0)" },
+                        { code: "umoll", label: "µmol/L", toBase: function(x) { return x / 88.4; }, fromBase: function(x) { return x * 88.4; }, hint: "Đơn vị SI (VD: 88.4)" }
+                    ]
+                },
                 calculate: function(v) {
                     var cr = parseFloat(v.creat);
                     var age = parseFloat(v.age);
@@ -1567,24 +675,32 @@
                     var egfr = 142 * Math.pow(minVal, a) * Math.pow(maxVal, -1.200) * Math.pow(0.9938, age);
                     if (sex === "female") egfr *= 1.012;
                     var interpret, level, note;
-                    if (egfr >= 90) { interpret = "G1 - Bình thường"; level = "low"; note = "eGFR ≥90: Chức năng thận bình thường hoặc tăng."; }
-                    else if (egfr >= 60) { interpret = "G2 - Giảm nhẹ"; level = "low"; note = "eGFR 60-89: Giảm nhẹ, không có ý nghĩa bệnh lý nếu không có dấu hiệu tổn thương thận."; }
-                    else if (egfr >= 45) { interpret = "G3a - Giảm nhẹ - vừa"; level = "mid"; note = "eGFR 45-59: Giảm nhẹ - vừa. Theo dõi 1 năm/lần. Chỉnh liều thuốc thải qua thận."; }
-                    else if (egfr >= 30) { interpret = "G3b - Giảm vừa - nặng"; level = "mid"; note = "eGFR 30-44: Giảm vừa - nặng. Theo dõi 6 tháng/lần. Chỉnh liều thuốc."; }
-                    else if (egfr >= 15) { interpret = "G4 - Giảm nặng"; level = "high"; note = "eGFR 15-29: Giảm nặng. Theo dõi 3 tháng/lần. Chuẩn bị lọc máu."; }
-                    else { interpret = "G5 - Suy thận giai đoạn cuối"; level = "high"; note = "eGFR <15: Suy thận giai đoạn cuối. Cần lọc máu/thay thế thận."; }
+                    if (egfr >= 90) { interpret = "G1 - Bình thường"; level = "low"; note = "eGFR ≥90: Chức năng thận bình thường."; }
+                    else if (egfr >= 60) { interpret = "G2 - Giảm nhẹ"; level = "low"; note = "eGFR 60-89: Giảm nhẹ."; }
+                    else if (egfr >= 45) { interpret = "G3a - Giảm nhẹ - vừa"; level = "mid"; note = "eGFR 45-59: Giảm nhẹ - vừa. Theo dõi 1 năm/lần."; }
+                    else if (egfr >= 30) { interpret = "G3b - Giảm vừa - nặng"; level = "mid"; note = "eGFR 30-44: Giảm vừa - nặng. Theo dõi 6 tháng/lần."; }
+                    else if (egfr >= 15) { interpret = "G4 - Giảm nặng"; level = "high"; note = "eGFR 15-29: Giảm nặng. Chuẩn bị lọc máu."; }
+                    else { interpret = "G5 - Suy thận giai đoạn cuối"; level = "high"; note = "eGFR <15: Suy thận giai đoạn cuối. Cần lọc máu."; }
                     return { value: egfr.toFixed(1), unit: "mL/phút/1.73m²", interpret: interpret, level: level, note: note };
                 }
             },
             crcl: {
                 name: "CrCl - Cockcroft-Gault",
-                desc: "Tính độ thanh thải creatinine để chỉnh liều thuốc",
+                desc: "Tính độ thanh thải creatinine (có thể chuyển đổi đơn vị)",
                 fields: [
                     { id: "age", label: "Tuổi (năm)", type: "number", placeholder: "VD: 60", min: 18, max: 120, step: 1 },
                     { id: "weight", label: "Cân nặng (kg)", type: "number", placeholder: "VD: 60", min: 20, max: 300, step: 0.1 },
-                    { id: "creat", label: "Creatinine máu (mg/dL)", type: "number", placeholder: "VD: 1.2", min: 0.1, max: 20, step: 0.01 },
+                    { id: "creat", label: "Creatinine máu", type: "number", placeholder: "VD: 1.2", min: 0.01, max: 2000, step: 0.01 },
                     { id: "sex", label: "Giới tính", type: "select", options: [{ value: "female", label: "Nữ" }, { value: "male", label: "Nam" }] }
                 ],
+                unitConverter: {
+                    fieldId: "creat",
+                    label: "Đơn vị Creatinine:",
+                    units: [
+                        { code: "mgdl", label: "mg/dL", toBase: function(x) { return x; }, fromBase: function(x) { return x; }, hint: "Đơn vị chuẩn (VD: 1.2)" },
+                        { code: "umoll", label: "µmol/L", toBase: function(x) { return x / 88.4; }, fromBase: function(x) { return x * 88.4; }, hint: "Đơn vị SI (VD: 106)" }
+                    ]
+                },
                 calculate: function(v) {
                     var age = parseFloat(v.age);
                     var w = parseFloat(v.weight);
@@ -1594,12 +710,77 @@
                     var crcl = ((140 - age) * w) / (72 * cr);
                     if (sex === "female") crcl *= 0.85;
                     var interpret, level, note;
-                    if (crcl >= 90) { interpret = "Bình thường"; level = "low"; note = "CrCl ≥90: Chức năng thận bình thường. Dùng liều chuẩn."; }
-                    else if (crcl >= 60) { interpret = "Giảm nhẹ"; level = "low"; note = "CrCl 60-89: Giảm nhẹ. Đa số thuốc dùng liều bình thường."; }
-                    else if (crcl >= 30) { interpret = "Giảm trung bình"; level = "mid"; note = "CrCl 30-59: Giảm trung bình. Cần chỉnh liều thuốc thải qua thận."; }
-                    else if (crcl >= 15) { interpret = "Giảm nặng"; level = "high"; note = "CrCl 15-29: Giảm nặng. Nhiều thuốc chống chỉ định hoặc giảm liều mạnh."; }
-                    else { interpret = "Suy thận nặng"; level = "high"; note = "CrCl <15: Suy thận nặng. Tránh thuốc độc thận, chỉnh liều theo protocol."; }
+                    if (crcl >= 90) { interpret = "Bình thường"; level = "low"; note = "CrCl ≥90: Dùng liều chuẩn."; }
+                    else if (crcl >= 60) { interpret = "Giảm nhẹ"; level = "low"; note = "CrCl 60-89: Đa số thuốc dùng liều bình thường."; }
+                    else if (crcl >= 30) { interpret = "Giảm trung bình"; level = "mid"; note = "CrCl 30-59: Cần chỉnh liều thuốc thải qua thận."; }
+                    else if (crcl >= 15) { interpret = "Giảm nặng"; level = "high"; note = "CrCl 15-29: Nhiều thuốc chống chỉ định hoặc giảm liều mạnh."; }
+                    else { interpret = "Suy thận nặng"; level = "high"; note = "CrCl <15: Suy thận nặng. Tránh thuốc độc thận."; }
                     return { value: crcl.toFixed(1), unit: "mL/phút", interpret: interpret, level: level, note: note };
+                }
+            },
+            nacorr: {
+                name: "Tốc độ bù Natri trong hạ Natri máu",
+                desc: "Công thức Adrogué-Madias - tính tốc độ truyền Natri để bù hạ Natri máu",
+                fields: [
+                    { id: "weight", label: "Cân nặng (kg)", type: "number", placeholder: "VD: 60", min: 20, max: 300, step: 0.1 },
+                    { id: "sex", label: "Giới tính", type: "select", options: [{ value: "female", label: "Nữ" }, { value: "male", label: "Nam" }] },
+                    { id: "age", label: "Tuổi (năm)", type: "number", placeholder: "VD: 60", min: 18, max: 120, step: 1 },
+                    { id: "na_current", label: "Na+ máu hiện tại (mmol/L)", type: "number", placeholder: "VD: 120", min: 90, max: 160, step: 1 },
+                    { id: "na_fluid", label: "Na+ dịch truyền (mmol/L)", type: "number", placeholder: "VD: 513 (NaCl 3%)", min: 0, max: 1000, step: 1 },
+                    { id: "rate", label: "Tốc độ truyền (mL/giờ)", type: "number", placeholder: "VD: 30", min: 1, max: 1000, step: 1 }
+                ],
+                calculate: function(v) {
+                    var w = parseFloat(v.weight);
+                    var age = parseFloat(v.age);
+                    var na_c = parseFloat(v.na_current);
+                    var na_f = parseFloat(v.na_fluid);
+                    var rate = parseFloat(v.rate);
+                    var sex = v.sex;
+                    if (!w || !age || !na_c || !na_f || !rate || !sex) return null;
+                    
+                    // Hệ số nước toàn cơ thể (TBW) theo tuổi và giới
+                    var factor;
+                    if (sex === "female") {
+                        factor = age >= 65 ? 0.45 : 0.50;
+                    } else {
+                        factor = age >= 65 ? 0.50 : 0.60;
+                    }
+                    var tbw = w * factor;
+                    
+                    // Công thức Adrogué-Madias: ΔNa+ = (Na+ dịch - Na+ máu) / (TBW + 1)
+                    // Nhưng khi truyền 1L dịch:
+                    var deltaPer Liter = (na_f - na_c) / (tbw + 1);
+                    // Tốc độ thay đổi Na+ mỗi giờ:
+                    var deltaPerHour = deltaPerLiter * (rate / 1000);
+                    
+                    // Mục tiêu an toàn: ≤8-10 mmol/L trong 24h → ≤0.5 mmol/L/giờ
+                    var maxRateSafe = 0.5;
+                    var warning = "";
+                    var level = "low";
+                    if (deltaPerHour > 1.0) {
+                        level = "high";
+                        warning = "⚠️ NGUY HIỂM: Tốc độ bù >1 mmol/L/giờ, nguy cơ hủy myelin cầu não!";
+                    } else if (deltaPerHour > 0.5) {
+                        level = "mid";
+                        warning = "⚠️ THẬN TRỌNG: Tốc độ bù >0.5 mmol/L/giờ. Tối đa 8-10 mmol/L/24h. Theo dõi Na+ mỗi 2-4 giờ.";
+                    } else {
+                        warning = "✅ Tốc độ an toàn (≤0.5 mmol/L/giờ). Theo dõi Na+ mỗi 4-6 giờ.";
+                    }
+                    
+                    var note = "TBW = " + tbw.toFixed(1) + " L (hệ số " + factor + "). " +
+                               "Na+ máu hiện tại: " + na_c + " mmol/L. " +
+                               "Na+ dịch truyền: " + na_f + " mmol/L. " +
+                               "Tốc độ truyền: " + rate + " mL/giờ. " +
+                               "→ ΔNa+ dự kiến: " + deltaPerHour.toFixed(2) + " mmol/L/giờ (" + (deltaPerHour * 24).toFixed(1) + " mmol/L/24h). " + warning;
+                    
+                    var interpret;
+                    if (deltaPerHour > 1.0) interpret = "Tốc độ QUÁ NHANH";
+                    else if (deltaPerHour > 0.5) interpret = "Tốc độ NHANH";
+                    else if (deltaPerHour > 0.2) interpret = "Tốc độ trung bình";
+                    else if (deltaPerHour > 0) interpret = "Tốc độ chậm";
+                    else interpret = "Không tăng Na+ (dịch nhược trương)";
+                    
+                    return { value: deltaPerHour.toFixed(2), unit: "mmol/L/giờ", interpret: interpret, level: level, note: note };
                 }
             }
         };
@@ -1610,11 +791,10 @@
         let currentToolKey = null;
         let toolSelections = {};
         let currentCalcKey = null;
-                /* ============ ĐIỀU HƯỚNG ============ */
+        let currentUnit = {};
+
         function showPage(id) {
-            document.querySelectorAll('.page').forEach(function(p) {
-                p.classList.remove('active');
-            });
+            document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
             document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1631,10 +811,8 @@
             document.getElementById('breadcrumb-current').textContent = cat.title;
             document.getElementById('sub-title').textContent = cat.title;
             document.getElementById('sub-subtitle').textContent = cat.subtitle;
-
             var grid = document.getElementById('sub-grid');
             grid.innerHTML = '';
-
             if (cat.subs.length === 0) {
                 grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><i class="fa-solid fa-hourglass-half"></i><p>Danh mục đang được cập nhật</p></div>';
             } else {
@@ -1642,9 +820,7 @@
                     var card = document.createElement('div');
                     card.className = 'sub-card';
                     card.onclick = function() { openSub(sub.name); };
-                    card.innerHTML = 
-                        '<div class="sub-card-icon ' + cat.color + '"><i class="fa-solid ' + sub.icon + '"></i></div>' +
-                        '<span>' + sub.name + '</span>';
+                    card.innerHTML = '<div class="sub-card-icon ' + cat.color + '"><i class="fa-solid ' + sub.icon + '"></i></div><span>' + sub.name + '</span>';
                     grid.appendChild(card);
                 });
             }
@@ -1655,32 +831,21 @@
             currentSub = subName;
             var cat = DATA[currentCategory];
             var sub = cat.subs.find(function(s) { return s.name === subName; });
-            
-            if (sub.type === "calculator") {
-                openCalculator(sub.calc);
-                return;
-            }
-            
+            if (sub.type === "calculator") { openCalculator(sub.calc); return; }
             document.getElementById('bc-parent').textContent = cat.title;
             document.getElementById('bc-current').textContent = subName;
             document.getElementById('search-title').textContent = subName;
             document.getElementById('search-subtitle').textContent = 'Tra cứu ' + sub.items.length + ' mục trong chuyên khoa ' + subName;
             document.getElementById('search-input').value = '';
-            
             currentItems = sub.items;
             renderResults(sub.items);
             showPage('page-search');
         }
 
         function goBack() {
-            if (currentCategory) {
-                openCategory(currentCategory);
-            } else {
-                goHome();
-            }
+            if (currentCategory) { openCategory(currentCategory); } else { goHome(); }
         }
 
-        /* ============ TRA CỨU ============ */
         function renderResults(items) {
             var list = document.getElementById('results-list');
             if (items.length === 0) {
@@ -1693,7 +858,6 @@
                 if (item.tool) {
                     toolBtn = '<button class="open-tool-btn" onclick="openTool(\'' + item.tool + '\', \'' + item.title.replace(/'/g, "\\'") + '\', event)"><i class="fa-solid fa-calculator"></i> Mở công cụ tính điểm</button>';
                 }
-                
                 var detailHtml = '';
                 var toggleBtn = '';
                 if (item.detail) {
@@ -1708,14 +872,11 @@
                     '</div>';
                     toggleBtn = '<button class="toggle-detail-btn" onclick="toggleDetail(' + idx + ', event)"><i class="fa-solid fa-chevron-down"></i> Xem chi tiết</button>';
                 }
-                
                 html += '<div class="result-item' + (item.tool ? ' has-tool' : '') + '">' +
                             '<h4>' + item.title + '</h4>' +
                             '<p>' + item.desc + '</p>' +
                             '<span class="tag">' + item.tag + '</span>' +
-                            toggleBtn +
-                            toolBtn +
-                            detailHtml +
+                            toggleBtn + toolBtn + detailHtml +
                         '</div>';
             });
             list.innerHTML = html;
@@ -1736,14 +897,9 @@
 
         function handleSearch() {
             var keyword = document.getElementById('search-input').value.toLowerCase().trim();
-            if (keyword === '') {
-                renderResults(currentItems);
-                return;
-            }
+            if (keyword === '') { renderResults(currentItems); return; }
             var filtered = currentItems.filter(function(item) {
-                var inMain = item.title.toLowerCase().includes(keyword) || 
-                             item.desc.toLowerCase().includes(keyword) ||
-                             item.tag.toLowerCase().includes(keyword);
+                var inMain = item.title.toLowerCase().includes(keyword) || item.desc.toLowerCase().includes(keyword) || item.tag.toLowerCase().includes(keyword);
                 var inDetail = false;
                 if (item.detail) {
                     var d = item.detail;
@@ -1754,19 +910,16 @@
             renderResults(filtered);
         }
 
-        /* ============ CÔNG CỤ ĐÁNH GIÁ (Thang điểm tương tác) ============ */
         function openTool(toolKey, toolName, evt) {
             if (evt) evt.stopPropagation();
             currentToolKey = toolKey;
             toolSelections = {};
             var tool = TOOLS[toolKey];
             var cat = DATA[currentCategory];
-            
             document.getElementById('tool-bc-parent').textContent = cat.title;
             document.getElementById('tool-bc-current').textContent = toolName;
             document.getElementById('tool-title').textContent = tool.name;
             document.getElementById('tool-subtitle').textContent = tool.desc;
-            
             var container = document.getElementById('assess-questions');
             container.innerHTML = '';
             tool.questions.forEach(function(q) {
@@ -1774,41 +927,26 @@
                 qDiv.className = 'assess-question';
                 var optsHtml = '';
                 q.options.forEach(function(opt, i) {
-                    optsHtml += '<button class="assess-opt" data-qid="' + q.id + '" data-point="' + opt.point + '" data-idx="' + i + '" onclick="selectOption(this)">' +
-                                    opt.label + '<span class="opt-point">' + opt.point + '</span>' +
-                                '</button>';
+                    optsHtml += '<button class="assess-opt" data-qid="' + q.id + '" data-point="' + opt.point + '" data-idx="' + i + '" onclick="selectOption(this)">' + opt.label + '<span class="opt-point">' + opt.point + '</span></button>';
                 });
-                qDiv.innerHTML = '<div class="assess-q-title">' + q.text + '</div>' +
-                                 '<div class="assess-options">' + optsHtml + '</div>';
+                qDiv.innerHTML = '<div class="assess-q-title">' + q.text + '</div><div class="assess-options">' + optsHtml + '</div>';
                 container.appendChild(qDiv);
             });
-            
             var tbody = document.getElementById('ref-tbody');
             tbody.innerHTML = '';
             tool.ref.forEach(function(r) {
-                tbody.innerHTML += '<tr>' +
-                    '<td><strong>' + r.range + '</strong></td>' +
-                    '<td><span class="ref-badge badge-' + r.level + '">' + r.verdict + '</span></td>' +
-                    '<td>' + r.note + '</td>' +
-                '</tr>';
+                tbody.innerHTML += '<tr><td><strong>' + r.range + '</strong></td><td><span class="ref-badge badge-' + r.level + '">' + r.verdict + '</span></td><td>' + r.note + '</td></tr>';
             });
-            
             document.getElementById('assess-result').classList.remove('show');
-            
             showPage('page-tool');
         }
 
         function selectOption(btn) {
             var qid = btn.dataset.qid;
             var point = parseFloat(btn.dataset.point);
-            
-            document.querySelectorAll('.assess-opt[data-qid="' + qid + '"]').forEach(function(b) {
-                b.classList.remove('selected');
-            });
-            
+            document.querySelectorAll('.assess-opt[data-qid="' + qid + '"]').forEach(function(b) { b.classList.remove('selected'); });
             btn.classList.add('selected');
             toolSelections[qid] = point;
-            
             updateToolScore();
         }
 
@@ -1816,12 +954,7 @@
             var tool = TOOLS[currentToolKey];
             var total = 0;
             var answered = 0;
-            
-            Object.keys(toolSelections).forEach(function(k) {
-                total += toolSelections[k];
-                answered++;
-            });
-            
+            Object.keys(toolSelections).forEach(function(k) { total += toolSelections[k]; answered++; });
             if (answered === tool.questions.length) {
                 var result = tool.interpret(total);
                 document.getElementById('assess-score').textContent = total;
@@ -1835,59 +968,50 @@
             }
         }
 
-        /* ============ MÁY TÍNH LÂM SÀNG ============ */
         function openCalculator(calcKey) {
             currentCalcKey = calcKey;
+            currentUnit = {};
             var calc = CALCULATORS[calcKey];
             var cat = DATA[currentCategory];
-            
             document.getElementById('calc-bc-parent').textContent = cat.title;
             document.getElementById('calc-bc-current').textContent = calc.name;
             document.getElementById('calc-title').textContent = calc.name;
             document.getElementById('calc-subtitle').textContent = calc.desc;
+            
+            // Khởi tạo đơn vị mặc định
+            if (calc.unitConverter) {
+                currentUnit[calc.unitConverter.fieldId] = calc.unitConverter.units[0].code;
+            }
             
             var container = document.getElementById('calc-content');
             var fieldsHtml = '';
             calc.fields.forEach(function(f) {
                 if (f.type === "select") {
                     var opts = '';
-                    f.options.forEach(function(o) {
-                        opts += '<option value="' + o.value + '">' + o.label + '</option>';
-                    });
-                    fieldsHtml += '<div class="calc-field">' +
-                        '<label>' + f.label + '</label>' +
-                        '<select id="calc-' + f.id + '">' + opts + '</select>' +
-                    '</div>';
+                    f.options.forEach(function(o) { opts += '<option value="' + o.value + '">' + o.label + '</option>'; });
+                    fieldsHtml += '<div class="calc-field"><label>' + f.label + '</label><select id="calc-' + f.id + '">' + opts + '</select></div>';
                 } else {
-                    fieldsHtml += '<div class="calc-field">' +
-                        '<label>' + f.label + '</label>' +
-                        '<input type="' + f.type + '" id="calc-' + f.id + '" placeholder="' + (f.placeholder || '') + '" min="' + (f.min || '') + '" max="' + (f.max || '') + '" step="' + (f.step || 'any') + '">' +
-                    '</div>';
+                    var unitHtml = '';
+                    if (calc.unitConverter && calc.unitConverter.fieldId === f.id) {
+                        var btns = '';
+                        calc.unitConverter.units.forEach(function(u, i) {
+                            btns += '<button type="button" class="' + (i === 0 ? 'active' : '') + '" data-field="' + f.id + '" data-unit="' + u.code + '" onclick="switchUnit(this)">' + u.label + '</button>';
+                        });
+                        unitHtml = '<div class="unit-convert"><span>' + calc.unitConverter.label + '</span>' + btns + '</div>';
+                    }
+                    fieldsHtml += '<div class="calc-field"><label>' + f.label + '</label><input type="' + f.type + '" id="calc-' + f.id + '" placeholder="' + (f.placeholder || '') + '" min="' + (f.min || '') + '" max="' + (f.max || '') + '" step="' + (f.step || 'any') + '">' + unitHtml + '</div>';
                 }
             });
             
             container.innerHTML = 
-                '<div class="calc-header">' +
-                    '<div class="calc-header-icon bg-purple"><i class="fa-solid fa-calculator"></i></div>' +
-                    '<div class="calc-header-text">' +
-                        '<h3>Nhập thông số</h3>' +
-                        '<p>Kết quả sẽ tự động hiển thị khi bạn nhập đủ</p>' +
-                    '</div>' +
-                '</div>' +
+                '<div class="calc-header"><div class="calc-header-icon bg-purple"><i class="fa-solid fa-calculator"></i></div><div class="calc-header-text"><h3>Nhập thông số</h3><p>Kết quả sẽ tự động hiển thị khi bạn nhập đủ</p></div></div>' +
                 '<div class="calc-form">' + fieldsHtml + '</div>' +
                 '<button class="calc-btn" onclick="runCalc()"><i class="fa-solid fa-equals"></i> Tính toán</button>' +
                 '<div class="calc-result-box" id="calc-result-box">' +
-                    '<div class="assess-score-row">' +
-                        '<div class="calc-big-number" id="calc-value">0</div>' +
-                        '<div class="assess-score-info">' +
-                            '<div class="label" id="calc-unit">-</div>' +
-                            '<span class="assess-verdict verdict-low" id="calc-interpret">-</span>' +
-                        '</div>' +
-                    '</div>' +
+                    '<div class="assess-score-row"><div class="calc-big-number" id="calc-value">0</div><div class="assess-score-info"><div class="label" id="calc-unit">-</div><span class="assess-verdict verdict-low" id="calc-interpret">-</span></div></div>' +
                     '<div class="calc-note" id="calc-note">-</div>' +
                 '</div>';
             
-            // Cho phép nhập và tự động tính
             setTimeout(function() {
                 calc.fields.forEach(function(f) {
                     var el = document.getElementById('calc-' + f.id);
@@ -1902,12 +1026,57 @@
             showPage('page-calc');
         }
 
+        function switchUnit(btn) {
+            var fieldId = btn.dataset.field;
+            var newUnit = btn.dataset.unit;
+            var oldUnit = currentUnit[fieldId];
+            if (oldUnit === newUnit) return;
+            
+            // Đổi giá trị đang nhập
+            var input = document.getElementById('calc-' + fieldId);
+            var calc = CALCULATORS[currentCalcKey];
+            var converter = calc.unitConverter;
+            var oldUnitObj = converter.units.find(function(u) { return u.code === oldUnit; });
+            var newUnitObj = converter.units.find(function(u) { return u.code === newUnit; });
+            
+            if (input.value && oldUnitObj && newUnitObj) {
+                var valBase = oldUnitObj.toBase(parseFloat(input.value));
+                var valNew = newUnitObj.fromBase(valBase);
+                input.value = valNew.toFixed(2);
+            }
+            
+            currentUnit[fieldId] = newUnit;
+            
+            // Cập nhật UI nút
+            document.querySelectorAll('.unit-convert button[data-field="' + fieldId + '"]').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            
+            // Cập nhật placeholder
+            if (newUnitObj && input) {
+                input.placeholder = newUnitObj.hint;
+            }
+            
+            runCalc();
+        }
+
         function runCalc() {
             var calc = CALCULATORS[currentCalcKey];
             var values = {};
             calc.fields.forEach(function(f) {
                 var el = document.getElementById('calc-' + f.id);
-                values[f.id] = el ? el.value : '';
+                var val = el ? el.value : '';
+                
+                // Nếu field này có đơn vị chuyển đổi, đổi về đơn vị cơ sở trước khi tính
+                if (calc.unitConverter && calc.unitConverter.fieldId === f.id && val) {
+                    var currentUnitCode = currentUnit[f.id];
+                    var unitObj = calc.unitConverter.units.find(function(u) { return u.code === currentUnitCode; });
+                    if (unitObj) {
+                        val = unitObj.toBase(parseFloat(val));
+                    }
+                }
+                values[f.id] = val;
             });
             
             var result = calc.calculate(values);
@@ -1922,7 +1091,6 @@
             document.getElementById('calc-result-box').classList.add('show');
         }
 
-        /* ============ THEME ============ */
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             var icon = document.querySelector('.theme-btn i');
