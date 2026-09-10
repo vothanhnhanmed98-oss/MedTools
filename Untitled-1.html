@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTools - BS Võ Thành Nhân</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f4f7f9;
+            --surface-color: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --border-color: #334155;
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .app {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ================= HEADER ================= */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 32px;
+        }
+
+        .brand { display: flex; align-items: center; gap: 16px; cursor: pointer; }
+
+        .brand-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+            color: white;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .brand-text h1 {
+            font-size: 24px; font-weight: 800;
+            color: var(--text-primary); line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-text p { font-size: 14px; color: var(--text-secondary); }
+
+        .header-right { display: flex; align-items: center; }
+
+        .author-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(96, 165, 250, 0.1));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 12px;
+        }
+
+        .author-badge i { font-size: 14px; }
+
+        .theme-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            color: var(--text-primary);
+            font-size: 18px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px) rotate(15deg);
+        }
+
+        /* ================= MAIN ================= */
+        .main-content { flex: 1; }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .category-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #60a5fa);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .category-card:hover::before { transform: scaleX(1); }
+
+        .category-icon {
+            width: 64px; height: 64px;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .category-card h2 {
+            font-size: 22px; font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .category-card > p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .sub-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 4px 12px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 50px;
+        }
+
+        .bg-blue { background-color: #dbeafe; color: #2563eb; }
+        .bg-red { background-color: #fee2e2; color: #dc2626; }
+        .bg-green { background-color: #dcfce7; color: #16a34a; }
+        .bg-purple { background-color: #f3e8ff; color: #9333ea; }
+
+        body.dark-mode .bg-blue { background-color: rgba(37, 99, 235, 0.2); }
+        body.dark-mode .bg-red { background-color: rgba(220, 38, 38, 0.2); }
+        body.dark-mode .bg-green { background-color: rgba(22, 163, 74, 0.2); }
+        body.dark-mode .bg-purple { background-color: rgba(147, 51, 234, 0.2); }
+
+        /* ================= TRANG ================= */
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .breadcrumb a:hover { opacity: 0.7; }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+
+        .sub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .sub-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sub-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sub-card-icon {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .sub-card span {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        /* ================= TRA CỨU ================= */
+        .search-container {
+            position: relative;
+            max-width: 100%;
+            margin-bottom: 24px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 16px 20px 16px 52px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .result-item {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .result-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .result-item.has-tool { border-left: 4px solid var(--primary-color); }
+
+        .result-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .result-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .result-item .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 50px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .open-tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 9px 18px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .open-tool-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* ================= CÔNG CỤ ĐÁNH GIÁ ================= */
+        .assess-tool {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .assess-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .assess-header-icon {
+            width: 48px; height: 48px;
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .assess-header-text h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .assess-header-text p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .assess-question {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .assess-question:last-of-type { border-bottom: none; }
+
+        .assess-q-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .assess-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .assess-opt {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            background-color: var(--surface-color);
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .assess-opt:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .assess-opt.selected {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .opt-point {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+            height: 20px;
+            padding: 0 6px;
+            border-radius: 50px;
+            background-color: rgba(37, 99, 235, 0.15);
+            color: var(--primary-color);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .assess-opt.selected .opt-point {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .assess-result {
+            margin-top: 24px;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.08));
+            border: 2px solid rgba(37, 99, 235, 0.2);
+            display: none;
+        }
+
+        .assess-result.show { display: block; animation: fadeIn 0.4s ease; }
+
+        .assess-score-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .assess-score-big {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .assess-score-info { flex: 1; }
+
+        .assess-score-info .label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .assess-verdict {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-top: 6px;
+        }
+
+        .verdict-low { background-color: #16a34a; }
+        .verdict-mid { background-color: #ea580c; }
+        .verdict-high { background-color: #dc2626; }
+
+        .assess-advice {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 14px 16px;
+            background-color: var(--surface-color);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Bảng tham chiếu */
+        .ref-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 28px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .ref-title i { color: var(--primary-color); }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            background-color: var(--surface-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .ref-table th {
+            background-color: rgba(37, 99, 235, 0.08);
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ref-table td {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .ref-table tr:hover td { background-color: rgba(37, 99, 235, 0.04); }
+
+        .ref-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .badge-low { background-color: #16a34a; }
+        .badge-mid { background-color: #ea580c; }
+        .badge-high { background-color: #dc2626; }
+
+        /* ================= FOOTER ================= */
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-author {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background-color: rgba(37, 99, 235, 0.08);
+            border-radius: 50px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .footer-author i { font-size: 12px; }
+
+        @media (max-width: 700px) {
+            .categories-grid { grid-template-columns: 1fr; }
+            .brand-text h1 { font-size: 20px; }
+            .brand-text p { font-size: 12px; }
+            .brand-icon { width: 40px; height: 40px; font-size: 20px; }
+            .page-title { font-size: 22px; }
+            .category-card { padding: 24px; }
+            .author-badge span { display: none; }
+            .author-badge { padding: 8px 10px; }
+            .assess-score-big { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- ================= HEADER ================= -->
+        <header class="top-header">
+            <div class="brand" onclick="goHome()">
+                <div class="brand-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <div class="brand-text">
+                    <h1>MedTools</h1>
+                    <p>Công cụ hỗ trợ lâm sàng</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <span>BS Võ Thành Nhân</span>
+                </div>
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <!-- ============ TRANG CHỦ ============ -->
+            <div id="page-home" class="page active">
+                <div class="categories-grid">
+                    <div class="category-card" onclick="openCategory('ylenh')">
+                        <div class="category-icon bg-blue"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+                        <h2>Y lệnh thuốc</h2>
+                        <p>Tra cứu y lệnh thuốc theo chuyên khoa</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 3 chuyên khoa</span>
+                    </div>
+
+                    <div class="category-card" onclick="openCategory('thangdiem')">
+                        <div class="category-icon bg-red"><i class="fa-solid fa-chart-line"></i></div>
+                        <h2>Thang điểm</h2>
+                        <p>Các thang điểm đánh giá lâm sàng</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 6 chuyên khoa</span>
+                    </div>
+
+                    <div class="category-card" onclick="openCategory('phacdo')">
+                        <div class="category-icon bg-green"><i class="fa-solid fa-notes-medical"></i></div>
+                        <h2>Phác đồ điều trị</h2>
+                        <p>Phác đồ theo chuyên khoa</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 2 chuyên khoa</span>
+                    </div>
+
+                    <div class="category-card" onclick="openCategory('khac')">
+                        <div class="category-icon bg-purple"><i class="fa-solid fa-toolbox"></i></div>
+                        <h2>Công cụ khác</h2>
+                        <p>Các công cụ tính toán y khoa khác</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> Đang cập nhật</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TRANG TIỂU MỤC ============ -->
+            <div id="page-sub" class="page">
+                <button class="back-btn" onclick="goHome()">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </button>
+                <div class="breadcrumb">
+                    <a onclick="goHome()">Trang chủ</a>
+                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+                    <span id="breadcrumb-current"></span>
+                </div>
+                <h2 class="page-title" id="sub-title"></h2>
+                <p class="page-subtitle" id="sub-subtitle"></p>
+                <div class="sub-grid" id="sub-grid"></div>
+            </div>
+
+            <!-- ============ TRANG TRA CỨU ============ -->
+            <div id="page-search" class="page">
+                <button class="back-btn" onclick="goBack()">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </button>
+                <div class="breadcrumb">
+                    <a onclick="goHome()">Trang chủ</a>
+                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+                    <a id="bc-parent" onclick="goBack()"></a>
+                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+                    <span id="bc-current"></span>
+                </div>
+                <h2 class="page-title" id="search-title"></h2>
+                <p class="page-subtitle" id="search-subtitle"></p>
+
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Tìm kiếm nội dung..." oninput="handleSearch()">
+                </div>
+
+                <div class="results-list" id="results-list"></div>
+            </div>
+
+            <!-- ============ TRANG CÔNG CỤ ĐÁNH GIÁ ============ -->
+            <div id="page-tool" class="page">
+                <button class="back-btn" onclick="goBack()">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </button>
+                <div class="breadcrumb">
+                    <a onclick="goHome()">Trang chủ</a>
+                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+                    <a id="tool-bc-parent" onclick="goBack()"></a>
+                    <i class="fa-solid fa-chevron-right" style="font-size:10px"></i>
+                    <span id="tool-bc-current"></span>
+                </div>
+                <h2 class="page-title" id="tool-title"></h2>
+                <p class="page-subtitle" id="tool-subtitle"></p>
+
+                <div class="assess-tool">
+                    <div class="assess-header">
+                        <div class="assess-header-icon bg-red"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <div class="assess-header-text">
+                            <h3>Chọn đáp án cho từng mục</h3>
+                            <p>Điểm sẽ tự động cập nhật khi bạn chọn</p>
+                        </div>
+                    </div>
+                    <div id="assess-questions"></div>
+                </div>
+
+                <div class="assess-result" id="assess-result">
+                    <div class="assess-score-row">
+                        <div class="assess-score-big" id="assess-score">0</div>
+                        <div class="assess-score-info">
+                            <div class="label">Tổng điểm</div>
+                            <span class="assess-verdict verdict-low" id="assess-verdict">Chưa đủ dữ liệu</span>
+                        </div>
+                    </div>
+                    <div class="assess-advice" id="assess-advice">Hãy chọn đáp án cho tất cả các mục để xem kết quả.</div>
+                </div>
+
+                <div class="ref-title">
+                    <i class="fa-solid fa-table-list"></i> Bảng tham chiếu
+                </div>
+                <table class="ref-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 130px;">Điểm</th>
+                            <th style="width: 130px;">Mức độ</th>
+                            <th>Ý nghĩa lâm sàng</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ref-tbody"></tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+            <p>&copy; 2026 MedTools. Bảo lưu mọi quyền.</p>
+            <div class="footer-author">
+                <i class="fa-solid fa-user-doctor"></i>
+                Phát triển bởi BS Võ Thành Nhân
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const DATA = {
+            ylenh: {
+                title: "Y lệnh thuốc",
+                subtitle: "Chọn chuyên khoa để tra cứu y lệnh",
+                color: "bg-blue",
+                subs: [
+                    {
+                        name: "Kháng sinh",
+                        icon: "fa-bacteria",
+                        items: [
+                            { title: "Amoxicillin", desc: "Liều người lớn: 500mg mỗi 8h. Trẻ em: 25-45 mg/kg/ngày chia 2-3 lần.", tag: "Kháng sinh" },
+                            { title: "Ceftriaxone", desc: "Liều người lớn: 1-2g tiêm TM/ngày. Viêm màng não: 2g mỗi 12h.", tag: "Kháng sinh" },
+                            { title: "Azithromycin", desc: "Liều: 500mg/ngày x 3 ngày, hoặc 500mg ngày 1 rồi 250mg ngày 2-5.", tag: "Kháng sinh" },
+                            { title: "Vancomycin", desc: "Liều: 15-20 mg/kg mỗi 8-12h. Theo dõi nồng độ đáy 15-20 mcg/mL.", tag: "Kháng sinh" },
+                            { title: "Levofloxacin", desc: "Liều: 500-750mg/ngày. Viêm phổi cộng đồng: 500mg/ngày x 7-14 ngày.", tag: "Kháng sinh" }
+                        ]
+                    },
+                    {
+                        name: "Thần kinh",
+                        icon: "fa-brain",
+                        items: [
+                            { title: "Diazepam", desc: "Co giật: 5-10mg tiêm TM chậm, lặp lại sau 10-15 phút nếu cần.", tag: "Thần kinh" },
+                            { title: "Phenytoin", desc: "Liều tấn công: 15-20 mg/kg TM. Duy trì: 100mg mỗi 8h.", tag: "Thần kinh" },
+                            { title: "Manitol 20%", desc: "Phù não: 0.25-1 g/kg TM nhanh trong 15-20 phút.", tag: "Thần kinh" },
+                            { title: "Levetiracetam", desc: "Động kinh: khởi đầu 500mg mỗi 12h, tăng dần tối đa 1500mg mỗi 12h.", tag: "Thần kinh" }
+                        ]
+                    },
+                    {
+                        name: "Tim mạch",
+                        icon: "fa-heart-pulse",
+                        items: [
+                            { title: "Adrenalin", desc: "Ngừng tim: 1mg TM mỗi 3-5 phút. Sốc phản vệ: 0.5mg TB mặt trước đùi.", tag: "Tim mạch" },
+                            { title: "Amiodarone", desc: "Rung thất: 300mg TM nhanh, sau đó 150mg. Duy trì 1mg/phút trong 6h.", tag: "Tim mạch" },
+                            { title: "Furosemide", desc: "Phù phổi cấp: 40-80mg TM chậm. Tối đa 200mg/lần.", tag: "Tim mạch" },
+                            { title: "Nitroglycerin", desc: "Đau thắt ngực: 0.4mg ngậm dưới lưỡi, lặp lại mỗi 5 phút tối đa 3 lần.", tag: "Tim mạch" },
+                            { title: "Digoxin", desc: "Suy tim: liều tấn công 0.5mg TM, sau đó 0.25mg mỗi 6h tối đa 1-1.5mg.", tag: "Tim mạch" }
+                        ]
+                    }
+                ]
+            },
+            thangdiem: {
+                title: "Thang điểm",
+                subtitle: "Chọn chuyên khoa để tra cứu thang điểm",
+                color: "bg-red",
+                subs: [
+                    {
+                        name: "ICU",
+                        icon: "fa-bed-pulse",
+                        items: [
+                            { title: "APACHE II", desc: "Đánh giá độ nặng bệnh nhân ICU. Điểm 0-71, >25 điểm tiên lượng tử vong cao.", tag: "ICU" },
+                            { title: "SOFA", desc: "Đánh giá suy đa tạng. Điểm 0-24, mỗi cơ quan 0-4 điểm.", tag: "ICU" },
+                            { title: "GCS", desc: "Thang điểm hôn mê Glasgow: Mắt (1-4) + Lời nói (1-5) + Vận động (1-6) = 3-15.", tag: "ICU" },
+                            { title: "RASS", desc: "Richmond Agitation-Sedation Scale: từ -5 (hôn mê) đến +4 (hung hăng).", tag: "ICU" }
+                        ]
+                    },
+                    {
+                        name: "Tim mạch",
+                        icon: "fa-heart-pulse",
+                        items: [
+                            { title: "CHA₂DS₂-VASc", desc: "Đánh giá nguy cơ đột quỵ ở bệnh nhân rung nhĩ. ≥2 điểm ở nam, ≥3 ở nữ cần kháng đông.", tag: "Tim mạch", tool: "cha2ds2vasc" },
+                            { title: "HAS-BLED", desc: "Đánh giá nguy cơ xuất huyết khi dùng kháng đông. ≥3 điểm là nguy cơ cao.", tag: "Tim mạch", tool: "hasbled" },
+                            { title: "GRACE", desc: "Tiên lượng hội chứng vành cấp. Phân tầng nguy cơ tử vong 6 tháng.", tag: "Tim mạch", tool: "grace" },
+                            { title: "SCORE2", desc: "Đánh giá nguy cơ tim mạch 10 năm ở người 40-69 tuổi (châu Âu).", tag: "Tim mạch", tool: "score2" }
+                        ]
+                    },
+                    {
+                        name: "Thần kinh",
+                        icon: "fa-brain",
+                        items: [
+                            { title: "NIH Stroke Scale (NIHSS)", desc: "Đánh giá mức độ nặng đột quỵ. 0-42 điểm, ≥21 là nặng.", tag: "Thần kinh", tool: "nihss" },
+                            { title: "mRS", desc: "Modified Rankin Scale đánh giá tàn tật sau đột quỵ: 0-6.", tag: "Thần kinh" },
+                            { title: "Hunt & Hess", desc: "Phân độ xuất huyết dưới nhện: I-V.", tag: "Thần kinh" },
+                            { title: "ABCD2", desc: "Đánh giá nguy cơ đột quỵ sau cơn thiếu máu não thoáng qua. 0-7 điểm.", tag: "Thần kinh" }
+                        ]
+                    },
+                    {
+                        name: "Hô hấp",
+                        icon: "fa-lungs",
+                        items: [
+                            { title: "CURB-65", desc: "Đánh giá viêm phổi cộng đồng. ≥2 điểm cần nhập viện, ≥3 cần ICU.", tag: "Hô hấp" },
+                            { title: "PSI/PORT", desc: "Pneumonia Severity Index phân tầng nguy cơ viêm phổi.", tag: "Hô hấp" },
+                            { title: "BODE Index", desc: "Đánh giá tiên lượng COPD: BMI, tắc nghẽn, khó thở, khả năng gắng sức.", tag: "Hô hấp" },
+                            { title: "Wells (PE)", desc: "Đánh giá nguy cơ thuyên tắc phổi.", tag: "Hô hấp" }
+                        ]
+                    },
+                    {
+                        name: "Tiêu hóa",
+                        icon: "fa-stomach",
+                        items: [
+                            { title: "Child-Pugh", desc: "Đánh giá xơ gan: A, B, C dựa trên bilirubin, albumin, INR, cổ trướng, não gan.", tag: "Tiêu hóa" },
+                            { title: "MELD", desc: "Model for End-stage Liver Disease. Dùng để xếp hàng ghép gan.", tag: "Tiêu hóa" },
+                            { title: "Glasgow-Blatchford", desc: "Đánh giá xuất huyết tiêu hóa trên. ≤1 có thể xuất viện sớm.", tag: "Tiêu hóa" },
+                            { title: "Rockall", desc: "Tiên lượng tử vong trong xuất huyết tiêu hóa.", tag: "Tiêu hóa" }
+                        ]
+                    },
+                    {
+                        name: "Thận",
+                        icon: "fa-kidney",
+                        items: [
+                            { title: "AKIN", desc: "Phân độ tổn thương thận cấp: 1-3 dựa trên creatinine và nước tiểu.", tag: "Thận" },
+                            { title: "RIFLE", desc: "Risk, Injury, Failure, Loss, ESRD - phân loại AKI.", tag: "Thận" },
+                            { title: "KDIGO", desc: "Tiêu chuẩn AKI hiện hành: tăng creatinine ≥0.3 mg/dL trong 48h.", tag: "Thận" },
+                            { title: "CKD-EPI", desc: "Tính eGFR đánh giá chức năng thận mạn.", tag: "Thận" }
+                        ]
+                    }
+                ]
+            },
+            phacdo: {
+                title: "Phác đồ điều trị",
+                subtitle: "Chọn chuyên khoa để tra cứu phác đồ",
+                color: "bg-green",
+                subs: [
+                    {
+                        name: "Tim mạch",
+                        icon: "fa-heart-pulse",
+                        items: [
+                            { title: "Nhồi máu cơ tim ST chênh lên", desc: "Tái thông mạch vành trong 120 phút. Dùng Aspirin + Ticagrelor + Heparin.", tag: "Tim mạch" },
+                            { title: "Suy tim cấp", desc: "Oxy, Nitroglycerin, Furosemide TM, theo dõi huyết áp và nước tiểu.", tag: "Tim mạch" },
+                            { title: "Rung nhĩ", desc: "Kiểm soát tần số (Beta-blocker, Digoxin) hoặc chuyển nhịp. Kháng đông theo CHA2DS2-VASc.", tag: "Tim mạch" },
+                            { title: "Tăng huyết áp cấp cứu", desc: "Hạ HA từ từ, không quá 25% trong giờ đầu. Dùng Nicardipine hoặc Labetalol TM.", tag: "Tim mạch" }
+                        ]
+                    },
+                    {
+                        name: "Thần kinh",
+                        icon: "fa-brain",
+                        items: [
+                            { title: "Đột quỵ thiếu máu não cấp", desc: "rtPA trong 4.5h đầu. Kiểm soát HA <185/110 trước tiêu sợi huyết.", tag: "Thần kinh" },
+                            { title: "Xuất huyết não", desc: "Kiểm soát HA, đảo ngược kháng đông, phẫu thuật nếu máu tụ lớn.", tag: "Thần kinh" },
+                            { title: "Động kinh co giật", desc: "Benzodiazepine TM, sau đó Phenytoin/Levetiracetam. Tìm nguyên nhân.", tag: "Thần kinh" },
+                            { title: "Viêm màng não mủ", desc: "Kháng sinh ngay sau chọc dò: Ceftriaxone + Vancomycin + Ampicillin nếu >50 tuổi.", tag: "Thần kinh" }
+                        ]
+                    }
+                ]
+            },
+            khac: {
+                title: "Công cụ khác",
+                subtitle: "Danh mục đang được cập nhật",
+                color: "bg-purple",
+                subs: []
+            }
+        };
+
+        /* ============ CÁC CÔNG CỤ ĐÁNH GIÁ TƯƠNG TÁC ============ */
+        const TOOLS = {
+            cha2ds2vasc: {
+                name: "CHA₂DS₂-VASc",
+                desc: "Đánh giá nguy cơ đột quỵ ở bệnh nhân rung nhĩ không do bệnh van tim",
+                questions: [
+                    { id: "c", text: "Suy tim sung huyết / Rối loạn chức năng thất trái (EF ≤40%)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "h", text: "Tăng huyết áp (đang điều trị hoặc HA ≥140/90)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "a2", text: "Tuổi ≥ 75", options: [{ label: "Không", point: 0 }, { label: "Có (+2)", point: 2 }] },
+                    { id: "d", text: "Đái tháo đường", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "s2", text: "Tiền sử đột quỵ / TIA / Thuyên tắc hệ thống", options: [{ label: "Không", point: 0 }, { label: "Có (+2)", point: 2 }] },
+                    { id: "v", text: "Bệnh mạch máu (NMCT cũ, bệnh ĐM ngoại biên, xơ vữa ĐM chủ)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "a", text: "Tuổi 65-74", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "sc", text: "Giới tính nữ", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] }
+                ],
+                interpret: function(score) {
+                    if (score === 0) return { level: "low", text: "Nguy cơ thấp", advice: "Không cần kháng đông. Cân nhắc Aspirin nếu có bệnh mạch vành kèm theo." };
+                    if (score === 1) return { level: "mid", text: "Nguy cơ trung bình", advice: "Cân nhắc kháng đông uống (DOAC hoặc Warfarin). Đánh giá nguy cơ xuất huyết bằng HAS-BLED trước khi bắt đầu." };
+                    return { level: "high", text: "Nguy cơ cao", advice: "Chỉ định kháng đông uống (DOAC ưu tiên hơn Warfarin). Đánh giá HAS-BLED để kiểm soát yếu tố nguy cơ chảy máu." };
+                },
+                ref: [
+                    { range: "0", verdict: "Thấp", level: "low", note: "Không cần kháng đông" },
+                    { range: "1", verdict: "Trung bình", level: "mid", note: "Cân nhắc kháng đông" },
+                    { range: "≥2", verdict: "Cao", level: "high", note: "Chỉ định kháng đông" }
+                ]
+            },
+            hasbled: {
+                name: "HAS-BLED",
+                desc: "Đánh giá nguy cơ xuất huyết ở bệnh nhân dùng kháng đông",
+                questions: [
+                    { id: "h", text: "Tăng huyết áp (HA tâm thu >160 mmHg)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "a1", text: "Suy thận (Dialys, ghép thận, Cr >200 µmol/L)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "a2", text: "Suy gan (Xơ gan, Bilirubin >2x, AST/ALT/ALP >3x)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "s", text: "Đột quỵ trước đó", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "b", text: "Tiền sử chảy máu / Thiếu máu do chảy máu", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "l", text: "INR không ổn định (TTR <60%)", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "e", text: "Tuổi > 65", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "d", text: "Thuốc kèm (NSAID, kháng KTC) hoặc nghiện rượu", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] }
+                ],
+                interpret: function(score) {
+                    if (score <= 2) return { level: "low", text: "Nguy cơ thấp", advice: "Có thể dùng kháng đông. Theo dõi định kỳ các yếu tố nguy cơ." };
+                    return { level: "high", text: "Nguy cơ cao", advice: "Thận trọng khi dùng kháng đông. Kiểm soát các yếu tố có thể điều chỉnh (HA, NSAID, rượu). Tái khám sát, không nhất thiết chống chỉ định kháng đông." };
+                },
+                ref: [
+                    { range: "0-2", verdict: "Thấp", level: "low", note: "Dùng kháng đông được" },
+                    { range: "≥3", verdict: "Cao", level: "high", note: "Thận trọng, theo dõi sát" }
+                ]
+            },
+            grace: {
+                name: "GRACE Score",
+                desc: "Tiên lượng tử vong ở hội chứng vành cấp (tính tại thời điểm nhập viện)",
+                questions: [
+                    { id: "age", text: "Tuổi", options: [{ label: "<40", point: 0 }, { label: "40-49", point: 18 }, { label: "50-59", point: 36 }, { label: "60-69", point: 55 }, { label: "70-79", point: 73 }, { label: "≥80", point: 91 }] },
+                    { id: "hr", text: "Nhịp tim (lần/phút)", options: [{ label: "<70", point: 0 }, { label: "70-89", point: 3 }, { label: "90-109", point: 9 }, { label: "110-149", point: 15 }, { label: "150-199", point: 24 }, { label: "≥200", point: 38 }] },
+                    { id: "sbp", text: "Huyết áp tâm thu (mmHg)", options: [{ label: "<80", point: 58 }, { label: "80-99", point: 53 }, { label: "100-119", point: 43 }, { label: "120-139", point: 34 }, { label: "140-159", point: 24 }, { label: "160-199", point: 10 }, { label: "≥200", point: 0 }] },
+                    { id: "cr", text: "Creatinine (mg/dL)", options: [{ label: "0-0.39", point: 1 }, { label: "0.4-0.79", point: 4 }, { label: "0.8-1.19", point: 7 }, { label: "1.2-1.59", point: 10 }, { label: "1.6-1.99", point: 13 }, { label: "2.0-3.99", point: 21 }, { label: "≥4", point: 28 }] },
+                    { id: "killip", text: "Phân độ Killip", options: [{ label: "I", point: 0 }, { label: "II", point: 20 }, { label: "III", point: 39 }, { label: "IV", point: 59 }] },
+                    { id: "arrest", text: "Ngừng tim lúc nhập viện", options: [{ label: "Không", point: 0 }, { label: "Có", point: 39 }] },
+                    { id: "st", text: "ST chênh xuống trên ECG", options: [{ label: "Không", point: 0 }, { label: "Có", point: 28 }] },
+                    { id: "enzyme", text: "Men tim tăng cao bất thường", options: [{ label: "Không", point: 0 }, { label: "Có", point: 14 }] }
+                ],
+                interpret: function(score) {
+                    if (score <= 108) return { level: "low", text: "Nguy cơ thấp (<1%)", advice: "Tử vong nội viện <1%. Điều trị nội khoa tích cực, xét can thiệp theo nguy cơ." };
+                    if (score <= 140) return { level: "mid", text: "Nguy cơ trung bình (1-3%)", advice: "Tử vong nội viện 1-3%. Cân nhắc can thiệp mạch vành sớm (<72h)." };
+                    return { level: "high", text: "Nguy cơ cao (>3%)", advice: "Tử vong nội viện >3%. Can thiệp mạch vành sớm (<24h). Theo dõi tại ICU." };
+                },
+                ref: [
+                    { range: "≤108", verdict: "Thấp", level: "low", note: "Tử vong nội viện <1%" },
+                    { range: "109-140", verdict: "Trung bình", level: "mid", note: "Tử vong nội viện 1-3%" },
+                    { range: ">140", verdict: "Cao", level: "high", note: "Tử vong nội viện >3%" }
+                ]
+            },
+            score2: {
+                name: "SCORE2",
+                desc: "Đánh giá nguy cơ tim mạch 10 năm ở người 40-69 tuổi không có bệnh tim mạch",
+                questions: [
+                    { id: "age", text: "Nhóm tuổi", options: [{ label: "40-49", point: 0 }, { label: "50-59", point: 1 }, { label: "60-69", point: 2 }] },
+                    { id: "sex", text: "Giới tính", options: [{ label: "Nữ", point: 0 }, { label: "Nam", point: 1 }] },
+                    { id: "smoke", text: "Hút thuốc lá", options: [{ label: "Không", point: 0 }, { label: "Có", point: 1 }] },
+                    { id: "sbp", text: "Huyết áp tâm thu", options: [{ label: "<120 mmHg", point: 0 }, { label: "120-139", point: 1 }, { label: "140-159", point: 2 }, { label: "≥160", point: 3 }] },
+                    { id: "chol", text: "Cholesterol toàn phần", options: [{ label: "<5 mmol/L", point: 0 }, { label: "5-6.4", point: 1 }, { label: "6.5-7.9", point: 2 }, { label: "≥8", point: 3 }] },
+                    { id: "dm", text: "Đái tháo đường", options: [{ label: "Không", point: 0 }, { label: "Có", point: 2 }] }
+                ],
+                interpret: function(score) {
+                    if (score <= 4) return { level: "low", text: "Nguy cơ thấp (<5%)", advice: "Tư vấn lối sống lành mạnh. Kiểm tra định kỳ 3-5 năm." };
+                    if (score <= 8) return { level: "mid", text: "Nguy cơ trung bình (5-10%)", advice: "Tư vấn lối sống tích cực. Cân nhắc statin nếu LDL-C cao. Theo dõi 1-2 năm." };
+                    return { level: "high", text: "Nguy cơ cao (>10%)", advice: "Chỉ định statin. Kiểm soát huyết áp, đường huyết. Theo dõi sát và can thiệp tích cực." };
+                },
+                ref: [
+                    { range: "0-4", verdict: "Thấp", level: "low", note: "Nguy cơ <5% trong 10 năm" },
+                    { range: "5-8", verdict: "Trung bình", level: "mid", note: "Nguy cơ 5-10%" },
+                    { range: "≥9", verdict: "Cao", level: "high", note: "Nguy cơ >10%" }
+                ]
+            },
+            nihss: {
+                name: "NIH Stroke Scale (NIHSS)",
+                desc: "Đánh giá mức độ nặng đột quỵ (tổng điểm 0-42)",
+                questions: [
+                    { id: "1a", text: "1a. Ý thức - Mức độ tỉnh táo", options: [{ label: "Tỉnh", point: 0 }, { label: "Lơ mơ", point: 1 }, { label: "Hôn mê nhẹ", point: 2 }, { label: "Hôn mê", point: 3 }] },
+                    { id: "1b", text: "1b. Ý thức - Trả lời câu hỏi (tháng, tuổi)", options: [{ label: "Đúng cả 2", point: 0 }, { label: "Đúng 1", point: 1 }, { label: "Sai cả 2", point: 2 }] },
+                    { id: "1c", text: "1c. Ý thức - Thực hiện y lệnh (nhắm mắt, nắm tay)", options: [{ label: "Đúng cả 2", point: 0 }, { label: "Đúng 1", point: 1 }, { label: "Không làm được", point: 2 }] },
+                    { id: "2", text: "2. Vận nhãn (liếc mắt theo lệnh)", options: [{ label: "Bình thường", point: 0 }, { label: "Liệt một phần", point: 1 }, { label: "Liệt hoàn toàn", point: 2 }] },
+                    { id: "3", text: "3. Thị trường", options: [{ label: "Bình thường", point: 0 }, { label: "Bán manh một phần", point: 1 }, { label: "Bán manh hoàn toàn", point: 2 }, { label: "Mù cả 2 bên", point: 3 }] },
+                    { id: "4", text: "4. Liệt mặt", options: [{ label: "Không", point: 0 }, { label: "Nhẹ", point: 1 }, { label: "Một phần", point: 2 }, { label: "Hoàn toàn", point: 3 }] },
+                    { id: "5a", text: "5a. Vận động tay trái", options: [{ label: "Bình thường", point: 0 }, { label: "Drift nhẹ", point: 1 }, { label: "Drift rõ", point: 2 }, { label: "Không chống trọng lực", point: 3 }, { label: "Không cử động", point: 4 }] },
+                    { id: "5b", text: "5b. Vận động tay phải", options: [{ label: "Bình thường", point: 0 }, { label: "Drift nhẹ", point: 1 }, { label: "Drift rõ", point: 2 }, { label: "Không chống trọng lực", point: 3 }, { label: "Không cử động", point: 4 }] },
+                    { id: "6a", text: "6a. Vận động chân trái", options: [{ label: "Bình thường", point: 0 }, { label: "Drift nhẹ", point: 1 }, { label: "Drift rõ", point: 2 }, { label: "Không chống trọng lực", point: 3 }, { label: "Không cử động", point: 4 }] },
+                    { id: "6b", text: "6b. Vận động chân phải", options: [{ label: "Bình thường", point: 0 }, { label: "Drift nhẹ", point: 1 }, { label: "Drift rõ", point: 2 }, { label: "Không chống trọng lực", point: 3 }, { label: "Không cử động", point: 4 }] },
+                    { id: "7", text: "7. Thất điều chi (ngón tay - mũi, gót - cẳng chân)", options: [{ label: "Không", point: 0 }, { label: "1 chi", point: 1 }, { label: "2 chi", point: 2 }] },
+                    { id: "8", text: "8. Cảm giác", options: [{ label: "Bình thường", point: 0 }, { label: "Mất một phần", point: 1 }, { label: "Mất hoàn toàn", point: 2 }] },
+                    { id: "9", text: "9. Ngôn ngữ (mô tả tranh, gọi tên)", options: [{ label: "Bình thường", point: 0 }, { label: "Mất ngôn ngữ nhẹ", point: 1 }, { label: "Mất ngôn ngữ nặng", point: 2 }, { label: "Câm", point: 3 }] },
+                    { id: "10", text: "10. Nói khó (đọc từ khó)", options: [{ label: "Bình thường", point: 0 }, { label: "Nhẹ - vừa", point: 1 }, { label: "Nặng", point: 2 }] },
+                    { id: "11", text: "11. Mất chú ý (bỏ qua nửa người)", options: [{ label: "Không", point: 0 }, { label: "Một phần", point: 1 }, { label: "Hoàn toàn", point: 2 }] }
+                ],
+                interpret: function(score) {
+                    if (score <= 4) return { level: "low", text: "Đột quỵ nhẹ (0-4)", advice: "Đột quỵ nhẹ. Cân nhắc tiêu sợi huyết nếu trong cửa sổ 4.5h. Theo dõi sát." };
+                    if (score <= 15) return { level: "mid", text: "Đột quỵ trung bình (5-15)", advice: "Đột quỵ trung bình. Tiêu sợi huyết nếu đủ điều kiện. Đánh giá can thiệp lấy huyết khối." };
+                    if (score <= 20) return { level: "mid", text: "Đột quỵ trung bình - nặng (16-20)", advice: "Đột quỵ trung bình - nặng. Cân nhắc can thiệp lấy huyết khối. Theo dõi ICU." };
+                    return { level: "high", text: "Đột quỵ nặng (≥21)", advice: "Đột quỵ nặng. Tiên lượng xấu. Cân nhắc can thiệp lấy huyết khối, chăm sóc ICU tích cực." };
+                },
+                ref: [
+                    { range: "0-4", verdict: "Nhẹ", level: "low", note: "Tiên lượng tốt, có thể dùng rtPA" },
+                    { range: "5-15", verdict: "Trung bình", level: "mid", note: "Cân nhắc rtPA / lấy huyết khối" },
+                    { range: "16-20", verdict: "Trung bình - nặng", level: "mid", note: "Cân nhắc can thiệp lấy huyết khối" },
+                    { range: "≥21", verdict: "Nặng", level: "high", note: "Tiên lượng xấu, chăm sóc ICU" }
+                ]
+            }
+        };
+
+        let currentCategory = null;
+        let currentSub = null;
+        let currentItems = [];
+        let currentToolKey = null;
+        let toolSelections = {};
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(function(p) {
+                p.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHome() {
+            showPage('page-home');
+            currentCategory = null;
+            currentSub = null;
+        }
+
+        function openCategory(catKey) {
+            currentCategory = catKey;
+            var cat = DATA[catKey];
+            document.getElementById('breadcrumb-current').textContent = cat.title;
+            document.getElementById('sub-title').textContent = cat.title;
+            document.getElementById('sub-subtitle').textContent = cat.subtitle;
+
+            var grid = document.getElementById('sub-grid');
+            grid.innerHTML = '';
+
+            if (cat.subs.length === 0) {
+                grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><i class="fa-solid fa-hourglass-half"></i><p>Danh mục đang được cập nhật</p></div>';
+            } else {
+                cat.subs.forEach(function(sub) {
+                    var card = document.createElement('div');
+                    card.className = 'sub-card';
+                    card.onclick = function() { openSub(sub.name); };
+                    card.innerHTML = 
+                        '<div class="sub-card-icon ' + cat.color + '"><i class="fa-solid ' + sub.icon + '"></i></div>' +
+                        '<span>' + sub.name + '</span>';
+                    grid.appendChild(card);
+                });
+            }
+            showPage('page-sub');
+        }
+
+        function openSub(subName) {
+            currentSub = subName;
+            var cat = DATA[currentCategory];
+            var sub = cat.subs.find(function(s) { return s.name === subName; });
+            
+            document.getElementById('bc-parent').textContent = cat.title;
+            document.getElementById('bc-current').textContent = subName;
+            document.getElementById('search-title').textContent = subName;
+            document.getElementById('search-subtitle').textContent = 'Tra cứu ' + sub.items.length + ' mục trong chuyên khoa ' + subName;
+            document.getElementById('search-input').value = '';
+            
+            currentItems = sub.items;
+            renderResults(sub.items);
+            showPage('page-search');
+        }
+
+        function goBack() {
+            if (currentCategory) {
+                openCategory(currentCategory);
+            } else {
+                goHome();
+            }
+        }
+
+        function renderResults(items) {
+            var list = document.getElementById('results-list');
+            if (items.length === 0) {
+                list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-magnifying-glass"></i><p>Không tìm thấy kết quả phù hợp</p></div>';
+                return;
+            }
+            var html = '';
+            items.forEach(function(item) {
+                var toolBtn = '';
+                if (item.tool) {
+                    toolBtn = '<button class="open-tool-btn" onclick="openTool(\'' + item.tool + '\', \'' + item.title.replace(/'/g, "\\'") + '\', event)"><i class="fa-solid fa-calculator"></i> Mở công cụ tính điểm</button>';
+                }
+                html += '<div class="result-item' + (item.tool ? ' has-tool' : '') + '">' +
+                            '<h4>' + item.title + '</h4>' +
+                            '<p>' + item.desc + '</p>' +
+                            '<span class="tag">' + item.tag + '</span>' +
+                            toolBtn +
+                        '</div>';
+            });
+            list.innerHTML = html;
+        }
+
+        function handleSearch() {
+            var keyword = document.getElementById('search-input').value.toLowerCase().trim();
+            if (keyword === '') {
+                renderResults(currentItems);
+                return;
+            }
+            var filtered = currentItems.filter(function(item) {
+                return item.title.toLowerCase().includes(keyword) || 
+                       item.desc.toLowerCase().includes(keyword) ||
+                       item.tag.toLowerCase().includes(keyword);
+            });
+            renderResults(filtered);
+        }
+
+        /* ============ CÔNG CỤ ĐÁNH GIÁ ============ */
+        function openTool(toolKey, toolName, evt) {
+            if (evt) evt.stopPropagation();
+            currentToolKey = toolKey;
+            toolSelections = {};
+            var tool = TOOLS[toolKey];
+            var cat = DATA[currentCategory];
+            
+            document.getElementById('tool-bc-parent').textContent = cat.title;
+            document.getElementById('tool-bc-current').textContent = toolName;
+            document.getElementById('tool-title').textContent = tool.name;
+            document.getElementById('tool-subtitle').textContent = tool.desc;
+            
+            // Render câu hỏi
+            var container = document.getElementById('assess-questions');
+            container.innerHTML = '';
+            tool.questions.forEach(function(q) {
+                var qDiv = document.createElement('div');
+                qDiv.className = 'assess-question';
+                var optsHtml = '';
+                q.options.forEach(function(opt, i) {
+                    optsHtml += '<button class="assess-opt" data-qid="' + q.id + '" data-point="' + opt.point + '" data-idx="' + i + '" onclick="selectOption(this)">' +
+                                    opt.label + '<span class="opt-point">' + opt.point + '</span>' +
+                                '</button>';
+                });
+                qDiv.innerHTML = '<div class="assess-q-title">' + q.text + '</div>' +
+                                 '<div class="assess-options">' + optsHtml + '</div>';
+                container.appendChild(qDiv);
+            });
+            
+            // Render bảng tham chiếu
+            var tbody = document.getElementById('ref-tbody');
+            tbody.innerHTML = '';
+            tool.ref.forEach(function(r) {
+                tbody.innerHTML += '<tr>' +
+                    '<td><strong>' + r.range + '</strong></td>' +
+                    '<td><span class="ref-badge badge-' + r.level + '">' + r.verdict + '</span></td>' +
+                    '<td>' + r.note + '</td>' +
+                '</tr>';
+            });
+            
+            // Ẩn kết quả ban đầu
+            document.getElementById('assess-result').classList.remove('show');
+            
+            showPage('page-tool');
+        }
+
+        function selectOption(btn) {
+            var qid = btn.dataset.qid;
+            var point = parseInt(btn.dataset.point);
+            
+            // Bỏ chọn tất cả option cùng câu hỏi
+            document.querySelectorAll('.assess-opt[data-qid="' + qid + '"]').forEach(function(b) {
+                b.classList.remove('selected');
+            });
+            
+            // Chọn option này
+            btn.classList.add('selected');
+            toolSelections[qid] = point;
+            
+            updateToolScore();
+        }
+
+        function updateToolScore() {
+            var tool = TOOLS[currentToolKey];
+            var total = 0;
+            var answered = 0;
+            
+            Object.keys(toolSelections).forEach(function(k) {
+                total += toolSelections[k];
+                answered++;
+            });
+            
+            // Chỉ hiện kết quả khi đã trả lời TẤT CẢ câu hỏi
+            if (answered === tool.questions.length) {
+                var result = tool.interpret(total);
+                document.getElementById('assess-score').textContent = total;
+                var verdict = document.getElementById('assess-verdict');
+                verdict.textContent = result.text;
+                verdict.className = 'assess-verdict verdict-' + result.level;
+                document.getElementById('assess-advice').textContent = result.advice;
+                document.getElementById('assess-result').classList.add('show');
+            } else {
+                document.getElementById('assess-result').classList.remove('show');
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            var icon = document.querySelector('.theme-btn i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>
