@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedTools - BS Võ Thành Nhân</title>
+    <title>MedTools - BS Võ Thành Nhân (Chồng BS Vi)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -142,7 +142,7 @@
                 <div class="brand-text"><h1>MedTools</h1><p>Công cụ hỗ trợ lâm sàng</p></div>
             </div>
             <div class="header-right">
-                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân"><i class="fa-solid fa-user-doctor"></i><span>BS Võ Thành Nhân</span></div>
+                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân (Chồng BS Vi)"><i class="fa-solid fa-user-doctor"></i><span>BS Võ Thành Nhân (Chồng BS Vi)</span></div>
                 <button class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện"><i class="fa-solid fa-moon"></i></button>
             </div>
         </header>
@@ -170,8 +170,8 @@
                     <div class="category-card" onclick="openCategory('khac')">
                         <div class="category-icon bg-purple"><i class="fa-solid fa-calculator"></i></div>
                         <h2>Máy tính lâm sàng</h2>
-                        <p>BMI, eGFR, CrCl, bù Natri</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 4 công cụ</span>
+                        <p>BMI, eGFR, CrCl, bù Natri hạ/tăng</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 5 công cụ</span>
                     </div>
                 </div>
             </div>
@@ -216,10 +216,11 @@
         </main>
         <footer class="footer">
             <p>&copy; 2026 MedTools. Bảo lưu mọi quyền.</p>
-            <div class="footer-author"><i class="fa-solid fa-user-doctor"></i> Phát triển bởi BS Võ Thành Nhân</div>
+            <div class="footer-author"><i class="fa-solid fa-user-doctor"></i> Phát triển bởi BS Võ Thành Nhân (Chồng BS Vi)</div>
         </footer>
     </div>
-    <script>        const DATA = {
+    <script>
+                const DATA = {
             ylenh: {
                 title: "Y lệnh thuốc",
                 subtitle: "Chọn chuyên khoa để tra cứu y lệnh",
@@ -423,10 +424,12 @@
                     { name: "BMI", icon: "fa-weight-scale", type: "calculator", calc: "bmi" },
                     { name: "eGFR (CKD-EPI)", icon: "fa-kidney", type: "calculator", calc: "egfr" },
                     { name: "CrCl (Cockcroft-Gault)", icon: "fa-flask", type: "calculator", calc: "crcl" },
-                    { name: "Bù Natri (Adrogué-Madias)", icon: "fa-droplet", type: "calculator", calc: "nacorr" }
+                    { name: "Bù Natri trong HẠ Natri máu", icon: "fa-droplet", type: "calculator", calc: "nacorr" },
+                    { name: "Bù Natri trong TĂNG Natri máu", icon: "fa-fire", type: "calculator", calc: "nahyper" }
                 ]
             }
-        };        const TOOLS = {
+        };
+                const TOOLS = {
             cha2ds2vasc: {
                 name: "CHA₂DS₂-VASc",
                 desc: "Đánh giá nguy cơ đột quỵ ở bệnh nhân rung nhĩ không do bệnh van tim",
@@ -719,19 +722,17 @@
                 }
             },
             nacorr: {
-                name: "Tốc độ bù Natri trong hạ Natri máu",
-                desc: "Công thức Adrogué-Madias — tính tốc độ truyền dịch để đạt mục tiêu tăng Na⁺ mong muốn",
+                name: "Bù Natri trong HẠ Natri máu (Na⁺ <135)",
+                desc: "Công thức Adrogué-Madias — tính tốc độ truyền dịch ƯU TRƯƠNG để TĂNG Na⁺ máu theo mục tiêu",
                 fields: [
-                    { id: "na_current", label: "Na⁺ máu hiện tại (mEq/L)", type: "number", placeholder: "VD: 120", min: 90, max: 160, step: 0.1 },
+                    { id: "na_current", label: "Na⁺ máu hiện tại (mEq/L)", type: "number", placeholder: "VD: 120", min: 90, max: 134, step: 0.1 },
                     { id: "weight", label: "Cân nặng (kg)", type: "number", placeholder: "VD: 60", min: 20, max: 300, step: 0.1 },
                     { id: "sex", label: "Giới tính", type: "select", options: [{ value: "female", label: "Nữ" }, { value: "male", label: "Nam" }] },
                     { id: "age", label: "Tuổi (năm)", type: "number", placeholder: "VD: 60", min: 18, max: 120, step: 1 },
-                    { id: "fluid", label: "Loại dịch truyền", type: "select", options: [
+                    { id: "fluid", label: "Loại dịch truyền (ưu trương)", type: "select", options: [
                         { value: "513", label: "NaCl 3% (Na⁺ = 513 mEq/L)" },
                         { value: "855", label: "NaCl 5% (Na⁺ = 855 mEq/L)" },
-                        { value: "154", label: "NaCl 0,9% (Na⁺ = 154 mEq/L)" },
-                        { value: "130", label: "Ringer Lactate (Na⁺ = 130 mEq/L)" },
-                        { value: "77", label: "NaCl 0,45% (Na⁺ = 77 mEq/L)" }
+                        { value: "154", label: "NaCl 0,9% (Na⁺ = 154 mEq/L)" }
                     ]},
                     { id: "target_rate", label: "Tốc độ thay đổi Na⁺ mong muốn (mEq/L/giờ)", type: "number", placeholder: "VD: 0.5", min: 0.1, max: 2, step: 0.1 }
                 ],
@@ -761,7 +762,7 @@
                             unit: "mL/giờ",
                             interpret: "Không thể bù",
                             level: "high",
-                            note: "⚠️ Dịch truyền có nồng độ Na⁺ thấp hơn hoặc bằng Na⁺ máu (" + na_f + " ≤ " + na_c + " mEq/L). Không thể làm tăng Na⁺ máu. Cần chọn dịch ưu trương hơn (NaCl 3% hoặc 5%)."
+                            note: "⚠️ Dịch truyền có nồng độ Na⁺ thấp hơn hoặc bằng Na⁺ máu. Không thể làm tăng Na⁺ máu. Chọn NaCl 3% hoặc 5%."
                         };
                     }
                     
@@ -781,10 +782,10 @@
                     }
                     
                     if (rate > 100) {
-                        warning += " ⚠️ Tốc độ truyền khá cao (" + rate.toFixed(1) + " mL/giờ). Kiểm tra lại cân nặng và loại dịch.";
+                        warning += " ⚠️ Tốc độ truyền khá cao (" + rate.toFixed(1) + " mL/giờ). Kiểm tra lại.";
                     }
                     
-                    var note = "📐 Công thức Adrogué-Madias:\n\n" +
+                    var note = "📐 Công thức Adrogué-Madias (HẠ Natri máu):\n\n" +
                                "Bước 1: TBW = " + w + " × " + factor + " = " + tbw.toFixed(1) + " L (hệ số " + factor + " cho " + (sex === "female" ? "nữ" : "nam") + " " + (age >= 65 ? "≥65" : "<65") + " tuổi)\n\n" +
                                "Bước 2: Δ[Na⁺] khi truyền 1 LÍT dịch = [(Na⁺ dịch) − (Na⁺ máu)] / (TBW + 1)\n" +
                                "= [" + na_f + " − " + na_c + "] / [" + tbw.toFixed(1) + " + 1]\n" +
@@ -793,7 +794,7 @@
                                "Bước 3: Tốc độ truyền = 1000 × (mục tiêu / Δ[Na⁺])\n" +
                                "= 1000 × (" + target + " / " + deltaNaPerLiter.toFixed(4) + ")\n" +
                                "= " + rate.toFixed(1) + " mL/giờ\n\n" +
-                               "📊 Mục tiêu: Tăng Na⁺ " + target + " mEq/L mỗi giờ → tăng " + (target * 24).toFixed(1) + " mEq/L/24h.\n\n" +
+                               "📊 Mục tiêu: Tăng Na⁺ " + target + " mEq/L/giờ → " + (target * 24).toFixed(1) + " mEq/L/24h.\n\n" +
                                warning;
                     
                     var interpret;
@@ -802,6 +803,93 @@
                     else interpret = "An toàn — theo dõi sát";
                     
                     return { value: rate.toFixed(1), unit: "mL/giờ", interpret: interpret, level: level, note: note };
+                }
+            },
+            nahyper: {
+                name: "Bù Natri trong TĂNG Natri máu (Na⁺ >145)",
+                desc: "Công thức Free Water Deficit — tính tốc độ truyền dịch NHƯỢC TRƯƠNG để GIẢM Na⁺ máu theo mục tiêu",
+                fields: [
+                    { id: "na_current", label: "Na⁺ máu hiện tại (mEq/L)", type: "number", placeholder: "VD: 155", min: 145, max: 200, step: 0.1 },
+                    { id: "weight", label: "Cân nặng (kg)", type: "number", placeholder: "VD: 60", min: 20, max: 300, step: 0.1 },
+                    { id: "sex", label: "Giới tính", type: "select", options: [{ value: "female", label: "Nữ" }, { value: "male", label: "Nam" }] },
+                    { id: "age", label: "Tuổi (năm)", type: "number", placeholder: "VD: 60", min: 18, max: 120, step: 1 },
+                    { id: "na_target", label: "Na⁺ mục tiêu (mEq/L)", type: "number", placeholder: "VD: 145", min: 130, max: 155, step: 0.1 },
+                    { id: "hours", label: "Thời gian dự kiến hạ (giờ)", type: "number", placeholder: "VD: 48", min: 6, max: 240, step: 1 },
+                    { id: "fluid", label: "Loại dịch truyền (nhược trương)", type: "select", options: [
+                        { value: "0", label: "D5W - Nước cất 5% (Na⁺ = 0 mEq/L)" },
+                        { value: "77", label: "NaCl 0,45% (Na⁺ = 77 mEq/L)" },
+                        { value: "130", label: "Ringer Lactate (Na⁺ = 130 mEq/L)" }
+                    ]}
+                ],
+                calculate: function(v) {
+                    var na_c = parseFloat(v.na_current);
+                    var w = parseFloat(v.weight);
+                    var age = parseFloat(v.age);
+                    var sex = v.sex;
+                    var na_t = parseFloat(v.na_target);
+                    var hrs = parseFloat(v.hours);
+                    var na_f = parseFloat(v.fluid);
+                    
+                    if (!na_c || !w || !age || !sex || !na_t || !hrs) return null;
+                    if (isNaN(na_f)) na_f = 0;
+                    
+                    if (na_t >= na_c) {
+                        return {
+                            value: "—",
+                            unit: "mL/giờ",
+                            interpret: "Mục tiêu không hợp lệ",
+                            level: "high",
+                            note: "⚠️ Na⁺ mục tiêu phải NHỎ HƠN Na⁺ hiện tại (đây là bù trong TĂNG Natri máu)."
+                        };
+                    }
+                    
+                    var factor;
+                    if (sex === "female") {
+                        factor = age >= 65 ? 0.45 : 0.50;
+                    } else {
+                        factor = age >= 65 ? 0.50 : 0.60;
+                    }
+                    var tbw = w * factor;
+                    
+                    var fwd = tbw * ((na_c / na_t) - 1);
+                    var dropRate = (na_c - na_t) / hrs;
+                    var fluidFactor = (na_f - na_c) / (tbw + 1);
+                    
+                    var rateLPerHour;
+                    if (fluidFactor === 0) {
+                        rateLPerHour = fwd / hrs;
+                    } else {
+                        rateLPerHour = dropRate / Math.abs(fluidFactor);
+                    }
+                    var rateMlPerHour = rateLPerHour * 1000;
+                    
+                    var warning = "";
+                    var level = "low";
+                    
+                    if (dropRate > 0.5) {
+                        level = "high";
+                        warning = "⚠️ NGUY HIỂM: Tốc độ hạ Na⁺ >0.5 mEq/L/giờ, nguy cơ PHÙ NÃO!";
+                    } else {
+                        warning = "✅ Tốc độ an toàn (≤0.5 mEq/L/giờ). Theo dõi Na⁺ mỗi 2-4 giờ.";
+                    }
+                    
+                    var note = "📐 Công thức Free Water Deficit (TĂNG Natri máu):\n\n" +
+                               "Bước 1: TBW = " + w + " × " + factor + " = " + tbw.toFixed(1) + " L (hệ số " + factor + " cho " + (sex === "female" ? "nữ" : "nam") + " " + (age >= 65 ? "≥65" : "<65") + " tuổi)\n\n" +
+                               "Bước 2: FWD (Lượng nước thiếu) = TBW × [(Na⁺ hiện tại / Na⁺ mục tiêu) − 1]\n" +
+                               "= " + tbw.toFixed(1) + " × [(" + na_c + " / " + na_t + ") − 1]\n" +
+                               "= " + tbw.toFixed(1) + " × " + ((na_c / na_t) - 1).toFixed(4) + "\n" +
+                               "= " + fwd.toFixed(2) + " L nước cần bù\n\n" +
+                               "Bước 3: Tốc độ hạ Na⁺ = (" + na_c + " − " + na_t + ") / " + hrs + " giờ\n" +
+                               "= " + dropRate.toFixed(3) + " mEq/L/giờ (→ " + (dropRate * 24).toFixed(1) + " mEq/L/24h)\n\n" +
+                               "Bước 4: Tốc độ truyền dịch = " + rateMlPerHour.toFixed(0) + " mL/giờ\n\n" +
+                               "📊 Tổng lượng dịch ≈ " + fwd.toFixed(2) + " L trong " + hrs + " giờ.\n\n" +
+                               warning;
+                    
+                    var interpret;
+                    if (dropRate > 0.5) interpret = "Nguy hiểm — hạ quá nhanh";
+                    else interpret = "An toàn — theo dõi sát";
+                    
+                    return { value: rateMlPerHour.toFixed(0), unit: "mL/giờ", interpret: interpret, level: level, note: note };
                 }
             }
         };
