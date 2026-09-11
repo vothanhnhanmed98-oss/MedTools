@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedTools - BS Võ Thành Nhân (Chồng BS Vi)</title>
+    <title>MedTools - BS Võ Thành Nhân, BS Huỳnh Thị Thúy Vi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
         .brand-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--primary-color),#60a5fa);color:#fff;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:var(--shadow-md)}
         .brand-text h1{font-size:24px;font-weight:800;color:var(--text-primary);line-height:1.2;letter-spacing:-.5px}
         .brand-text p{font-size:14px;color:var(--text-secondary)}
-        .header-right{display:flex;align-items:center}
-        .author-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(96,165,250,.1));border:1px solid rgba(37,99,235,.2);border-radius:50px;font-size:13px;font-weight:600;color:var(--primary-color);margin-right:12px}
+        .header-right{display:flex;align-items:center;gap:12px}
+        .author-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(96,165,250,.1));border:1px solid rgba(37,99,235,.2);border-radius:50px;font-size:13px;font-weight:600;color:var(--primary-color)}
         .author-badge i{font-size:14px}
         .theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;box-shadow:var(--shadow-sm)}
         .theme-btn:hover{background-color:var(--primary-color);color:#fff;border-color:var(--primary-color);transform:translateY(-2px) rotate(15deg)}
@@ -34,8 +34,8 @@
         .category-card h2{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
         .category-card>p{font-size:14px;color:var(--text-secondary);margin-bottom:16px}
         .sub-count{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--primary-color);font-weight:600;padding:4px 12px;background-color:rgba(37,99,235,.1);border-radius:50px}
-        .bg-blue{background-color:#dbeafe;color:#2563eb}.bg-red{background-color:#fee2e2;color:#dc2626}.bg-green{background-color:#dcfce7;color:#16a34a}.bg-purple{background-color:#f3e8ff;color:#9333ea}.bg-orange{background-color:#ffedd5;color:#ea580c}
-        body.dark-mode .bg-blue{background-color:rgba(37,99,235,.2)}body.dark-mode .bg-red{background-color:rgba(220,38,38,.2)}body.dark-mode .bg-green{background-color:rgba(22,163,74,.2)}body.dark-mode .bg-purple{background-color:rgba(147,51,234,.2)}body.dark-mode .bg-orange{background-color:rgba(234,88,12,.2)}
+        .bg-blue{background-color:#dbeafe;color:#2563eb}.bg-red{background-color:#fee2e2;color:#dc2626}.bg-green{background-color:#dcfce7;color:#16a34a}.bg-purple{background-color:#f3e8ff;color:#9333ea}.bg-orange{background-color:#ffedd5;color:#ea580c}.bg-teal{background-color:#ccfbf1;color:#0d9488}
+        body.dark-mode .bg-blue{background-color:rgba(37,99,235,.2)}body.dark-mode .bg-red{background-color:rgba(220,38,38,.2)}body.dark-mode .bg-green{background-color:rgba(22,163,74,.2)}body.dark-mode .bg-purple{background-color:rgba(147,51,234,.2)}body.dark-mode .bg-orange{background-color:rgba(234,88,12,.2)}body.dark-mode .bg-teal{background-color:rgba(13,148,136,.2)}
         .page{display:none}.page.active{display:block;animation:fadeIn .3s ease}
         @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
         .breadcrumb{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-secondary);margin-bottom:24px;flex-wrap:wrap}
@@ -53,16 +53,20 @@
         .search-container input{width:100%;padding:16px 20px 16px 52px;border-radius:50px;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);font-size:16px;font-family:inherit;box-shadow:var(--shadow-sm);transition:all .3s ease;outline:none}
         .search-container input:focus{border-color:var(--primary-color);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
         .results-list{display:flex;flex-direction:column;gap:12px}
-        .result-item{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;transition:all .25s ease}
+        .result-item{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:20px;transition:all .25s ease;position:relative}
         .result-item:hover{border-color:var(--primary-color);box-shadow:var(--shadow-md)}
         .result-item.has-tool{border-left:4px solid var(--primary-color)}
-        .result-item h4{font-size:16px;font-weight:700;color:var(--primary-color);margin-bottom:6px}
+        .result-item h4{font-size:16px;font-weight:700;color:var(--primary-color);margin-bottom:6px;padding-right:40px}
         .result-item>p{font-size:14px;color:var(--text-secondary);line-height:1.6}
         .result-item .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 10px;border-radius:50px;background-color:rgba(37,99,235,.1);color:var(--primary-color);margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
         .open-tool-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:9px 18px;background-color:var(--primary-color);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s ease}
         .open-tool-btn:hover{background-color:var(--primary-hover);transform:translateY(-1px)}
         .toggle-detail-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;margin-left:8px;padding:8px 16px;background-color:transparent;color:var(--primary-color);border:1px solid var(--primary-color);border-radius:50px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s ease}
         .toggle-detail-btn:hover{background-color:var(--primary-color);color:#fff}
+        .fav-btn{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background-color:var(--bg-color);border:1px solid var(--border-color);color:var(--text-secondary);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;z-index:2}
+        .fav-btn:hover{transform:scale(1.1);border-color:#f59e0b;color:#f59e0b}
+        .fav-btn.active{background-color:#fef3c7;border-color:#f59e0b;color:#f59e0b}
+        body.dark-mode .fav-btn.active{background-color:rgba(245,158,11,.2)}
         .result-detail{margin-top:14px;padding:18px;background-color:var(--bg-color);border-radius:var(--radius-md);border-left:3px solid var(--primary-color);display:none}
         .result-detail.show{display:block;animation:fadeIn .3s ease}
         .detail-row{display:flex;gap:12px;margin-bottom:12px;font-size:13px;line-height:1.6}
@@ -70,6 +74,42 @@
         .detail-label{font-weight:700;color:var(--primary-color);flex-shrink:0;min-width:160px}
         .detail-value{color:var(--text-primary);flex:1}
         .detail-value.warn{color:#dc2626;font-weight:600;background-color:rgba(220,38,38,.08);padding:8px 12px;border-radius:8px;display:block}
+        .crcl-table{margin-top:8px;border:1px solid var(--border-color);border-radius:8px;overflow:hidden;background-color:var(--surface-color)}
+        .crcl-table table{width:100%;border-collapse:collapse;font-size:12.5px}
+        .crcl-table th{background-color:rgba(37,99,235,.1);color:var(--primary-color);padding:8px 12px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.3px;border-bottom:1px solid var(--border-color)}
+        .crcl-table td{padding:8px 12px;border-bottom:1px solid var(--border-color);color:var(--text-primary)}
+        .crcl-table tr:last-child td{border-bottom:none}
+        .crcl-table tr:hover td{background-color:rgba(37,99,235,.04)}
+        /* ===== PHA VẬN MẠCH - BƠM TIÊM ĐIỆN ===== */
+        .vp-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+        .vp-tab{padding:10px 20px;border:2px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);border-radius:50px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s ease}
+        .vp-tab.active{background-color:var(--primary-color);border-color:var(--primary-color);color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.3)}
+        .vp-tab:hover{border-color:var(--primary-color);color:var(--primary-color)}
+        .vp-tab.active:hover{color:#fff}
+        .vp-selector{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+        .vp-drug{padding:10px 16px;border:2px solid var(--border-color);background-color:var(--surface-color);color:var(--text-primary);border-radius:10px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:6px}
+        .vp-drug.active{background:linear-gradient(135deg,var(--primary-color),#60a5fa);border-color:var(--primary-color);color:#fff}
+        .vp-drug:hover{border-color:var(--primary-color)}
+        .vp-drug.active:hover{color:#fff}
+        .vp-block{background-color:var(--bg-color);border-radius:var(--radius-md);padding:18px;margin-bottom:16px;border-left:4px solid var(--primary-color)}
+        .vp-block-title{font-size:14px;font-weight:700;color:var(--primary-color);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .vp-info{font-size:12.5px;color:var(--text-secondary);margin-bottom:12px;padding:8px 12px;background-color:var(--surface-color);border-radius:8px;border:1px solid var(--border-color)}
+        .vp-info strong{color:var(--text-primary)}
+        .vp-result{margin-top:16px;padding:20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(96,165,250,.1));border:2px solid var(--primary-color);text-align:center}
+        .vp-result-label{font-size:12px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px}
+        .vp-result-value{font-size:44px;font-weight:800;color:var(--primary-color);line-height:1;margin-bottom:6px}
+        .vp-result-unit{font-size:16px;color:var(--text-secondary);font-weight:600}
+        .vp-result-sub{font-size:13px;color:var(--text-primary);margin-top:10px;padding-top:10px;border-top:1px dashed var(--border-color)}
+        .vp-table-wrap{margin-top:16px;border:1px solid var(--border-color);border-radius:8px;overflow:hidden;background-color:var(--surface-color)}
+        .vp-table{width:100%;border-collapse:collapse;font-size:13px}
+        .vp-table th{background-color:rgba(37,99,235,.1);color:var(--primary-color);padding:10px 12px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.3px;border-bottom:1px solid var(--border-color)}
+        .vp-table td{padding:9px 12px;border-bottom:1px solid var(--border-color);color:var(--text-primary)}
+        .vp-table tr:last-child td{border-bottom:none}
+        .vp-table tr:hover td{background-color:rgba(37,99,235,.05)}
+        .vp-table tr.highlight td{background-color:rgba(245,158,11,.15);font-weight:700;color:#d97706}
+        .vp-formula{margin-top:16px;padding:14px 16px;background-color:var(--surface-color);border-radius:var(--radius-md);border-left:4px solid #16a34a;font-size:12.5px;color:var(--text-primary);line-height:1.7;white-space:pre-wrap}
+        .vp-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+        @media(max-width:700px){.vp-row2{grid-template-columns:1fr}.vp-result-value{font-size:36px}}
         .empty-state{text-align:center;padding:60px 20px;color:var(--text-secondary)}
         .empty-state i{font-size:48px;margin-bottom:16px;opacity:.4}
         .back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:50px;color:var(--text-primary);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:20px;transition:all .2s ease}
@@ -88,14 +128,12 @@
         .unit-convert button{padding:4px 10px;border:1px solid var(--border-color);background-color:var(--surface-color);color:var(--text-secondary);border-radius:50px;font-family:inherit;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s ease}
         .unit-convert button.active{background-color:var(--primary-color);color:#fff;border-color:var(--primary-color)}
         .unit-convert button:hover{border-color:var(--primary-color);color:var(--primary-color)}
-        .calc-field-hint{font-size:11px;color:var(--text-secondary);font-style:italic;margin-top:2px}
         .calc-btn{padding:12px 28px;background-color:var(--primary-color);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s ease}
         .calc-btn:hover{background-color:var(--primary-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
         .calc-result-box{margin-top:20px;padding:24px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(96,165,250,.08));border:2px solid rgba(37,99,235,.2);display:none}
         .calc-result-box.show{display:block;animation:fadeIn .4s ease}
         .calc-big-number{font-size:52px;font-weight:800;color:var(--primary-color);line-height:1}
         .calc-unit{font-size:20px;color:var(--text-secondary);font-weight:600}
-        .calc-interpret{display:inline-block;padding:6px 16px;border-radius:50px;font-size:14px;font-weight:700;color:#fff;margin-top:10px}
         .calc-note{font-size:13px;color:var(--text-primary);line-height:1.7;padding:14px 16px;background-color:var(--surface-color);border-radius:var(--radius-md);border-left:4px solid var(--primary-color);margin-top:16px;white-space:pre-wrap}
         .assess-tool{background-color:var(--surface-color);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:28px;margin-bottom:24px;box-shadow:var(--shadow-sm)}
         .assess-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border-color)}
@@ -131,7 +169,10 @@
         .footer{text-align:center;padding:32px 0;margin-top:40px;border-top:1px solid var(--border-color);color:var(--text-secondary);font-size:14px}
         .footer-author{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background-color:rgba(37,99,235,.08);border-radius:50px;color:var(--primary-color);font-weight:600;margin-top:8px}
         .footer-author i{font-size:12px}
-        @media (max-width:700px){.categories-grid{grid-template-columns:1fr}.brand-text h1{font-size:20px}.brand-text p{font-size:12px}.brand-icon{width:40px;height:40px;font-size:20px}.page-title{font-size:22px}.category-card{padding:24px}.author-badge span{display:none}.author-badge{padding:8px 10px}.assess-score-big{font-size:40px}.calc-big-number{font-size:40px}.detail-label{min-width:100%}.detail-row{flex-direction:column;gap:4px}.calc-form{grid-template-columns:1fr}}
+        .back-to-top{position:fixed;bottom:30px;right:30px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary-color),#60a5fa);color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 6px 20px rgba(37,99,235,.4);display:flex;align-items:center;justify-content:center;transition:all .3s ease;opacity:0;visibility:hidden;transform:translateY(20px);z-index:999}
+        .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+        .back-to-top:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(37,99,235,.6)}
+        @media (max-width:700px){.categories-grid{grid-template-columns:1fr}.brand-text h1{font-size:18px}.brand-text p{font-size:11px}.brand-icon{width:40px;height:40px;font-size:20px}.page-title{font-size:22px}.category-card{padding:24px}.author-badge span{display:none}.author-badge{padding:8px 10px}.assess-score-big{font-size:40px}.calc-big-number{font-size:40px}.detail-label{min-width:100%}.detail-row{flex-direction:column;gap:4px}.calc-form{grid-template-columns:1fr}.back-to-top{bottom:20px;right:20px;width:46px;height:46px;font-size:18px}}
     </style>
 </head>
 <body>
@@ -142,7 +183,7 @@
                 <div class="brand-text"><h1>MedTools</h1><p>Công cụ hỗ trợ lâm sàng</p></div>
             </div>
             <div class="header-right">
-                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân (Chồng BS Vi)"><i class="fa-solid fa-user-doctor"></i><span>BS Võ Thành Nhân (Chồng BS Vi)</span></div>
+                <div class="author-badge" title="Tác giả: BS Võ Thành Nhân, BS Huỳnh Thị Thúy Vi"><i class="fa-solid fa-user-doctor"></i><span>BS Võ Thành Nhân, BS Huỳnh Thị Thúy Vi</span></div>
                 <button class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện"><i class="fa-solid fa-moon"></i></button>
             </div>
         </header>
@@ -152,8 +193,8 @@
                     <div class="category-card" onclick="openCategory('ylenh')">
                         <div class="category-icon bg-blue"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
                         <h2>Y lệnh thuốc</h2>
-                        <p>Tra cứu y lệnh thuốc theo chuyên khoa</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 6 chuyên khoa</span>
+                        <p>Tra cứu y lệnh thuốc theo bệnh viện</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 2 bệnh viện</span>
                     </div>
                     <div class="category-card" onclick="openCategory('thangdiem')">
                         <div class="category-icon bg-red"><i class="fa-solid fa-chart-line"></i></div>
@@ -170,8 +211,20 @@
                     <div class="category-card" onclick="openCategory('khac')">
                         <div class="category-icon bg-purple"><i class="fa-solid fa-calculator"></i></div>
                         <h2>Máy tính lâm sàng</h2>
-                        <p>BMI, eGFR, CrCl, bù Natri hạ/tăng</p>
-                        <span class="sub-count"><i class="fa-solid fa-list"></i> 5 công cụ</span>
+                        <p>BMI, eGFR, CrCl, bù Natri, pha vận mạch</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 6 công cụ</span>
+                    </div>
+                    <div class="category-card" onclick="openCategory('xetnghiem')">
+                        <div class="category-icon bg-teal"><i class="fa-solid fa-flask-vial"></i></div>
+                        <h2>Xét nghiệm</h2>
+                        <p>Tra cứu giá trị bình thường & ý nghĩa</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 7 nhóm</span>
+                    </div>
+                    <div class="category-card" onclick="openCategory('ichtruyen')">
+                        <div class="category-icon bg-orange"><i class="fa-solid fa-droplet"></i></div>
+                        <h2>Dịch truyền</h2>
+                        <p>Thành phần, chỉ định, lưu ý</p>
+                        <span class="sub-count"><i class="fa-solid fa-list"></i> 3 nhóm</span>
                     </div>
                 </div>
             </div>
@@ -216,134 +269,526 @@
         </main>
         <footer class="footer">
             <p>&copy; 2026 MedTools. Bảo lưu mọi quyền.</p>
-            <div class="footer-author"><i class="fa-solid fa-user-doctor"></i> Phát triển bởi BS Võ Thành Nhân (Chồng BS Vi)</div>
+            <div class="footer-author"><i class="fa-solid fa-user-doctor"></i> Phát triển bởi BS Võ Thành Nhân, BS Huỳnh Thị Thúy Vi</div>
         </footer>
     </div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Về đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <script>
                 const DATA = {
             ylenh: {
                 title: "Y lệnh thuốc",
-                subtitle: "Chọn chuyên khoa để tra cứu y lệnh",
+                subtitle: "Chọn bệnh viện để tra cứu y lệnh",
                 color: "bg-blue",
                 subs: [
                     {
-                        name: "Kháng sinh",
-                        icon: "fa-bacteria",
-                        items: [
-                            { title: "Curam 1000mg (Amoxicillin + Clavulanic acid)", desc: "1 viên x 2 lần/ngày, cách nhau 12 giờ. Uống cùng bữa ăn.", tag: "Kháng sinh",
-                              detail: { chidinh: "Nhiễm khuẩn hô hấp trên/dưới, viêm xoang, viêm tai giữa, nhiễm khuẩn tiết niệu, nhiễm khuẩn da và mô mềm, nhiễm khuẩn xương khớp.", chongchidinh: "Dị ứng penicillin. Tiền sử vàng da / rối loạn chức năng gan do amoxicillin-clavulanate.", dduochoc: "Hấp thu tốt qua đường uống, sinh khả dụng ~70-90%. Thải trừ chủ yếu qua thận. T1/2 ~1-1.5 giờ.", lieu: "Người lớn: 1000mg x 2 lần/ngày. Trẻ em: 25-45 mg/kg/ngày chia 2 lần.", lieutoida: "4000mg amoxicillin + 250mg clavulanic/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng, theo dõi chức năng gan." }},
-                            { title: "Ceftibiotic 2000 (Ceftizoxim 2g)", desc: "Pha với NaCl 0,9% 100ml, TTM XX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
-                              detail: { chidinh: "Nhiễm khuẩn nặng: viêm phổi, viêm màng não, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM, phân bố rộng, qua được hàng rào máu não. Thải trừ qua thận. T1/2 ~1.5-2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 6-8 giờ.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều." }},
-                            { title: "Levogolds (Levofloxacin 750mg/150ml)", desc: "1 túi TTM XXX giọt/phút, cách ngày 1 lần.", tag: "Kháng sinh",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
-                            { title: "Bacqure 500mg (Imipenem + Cilastatin)", desc: "1 lọ pha với NaCl 0,9% 100ml, TTM XX giọt/phút.", tag: "Kháng sinh",
-                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Phân bố rộng, thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ. Trẻ em: 15-25 mg/kg mỗi 6 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <70 mL/phút. ⚠️ Nguy cơ co giật." }},
-                            { title: "Tenafotin 2000 (Cefepim 2g)", desc: "1 lọ pha NaCl 0,9% 100ml, TTM XXX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
-                              detail: { chidinh: "Viêm phổi cộng đồng/bệnh viện, nhiễm khuẩn tiết niệu, da/mô mềm, ổ bụng, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Cephalosporin thế hệ 4, phổ rộng. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 12 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <60 mL/phút." }},
-                            { title: "Cefoperazone 2g", desc: "1 lọ TMC trong 5 phút, cách nhau 12 giờ.", tag: "Kháng sinh",
-                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Suy gan nặng.", dduochoc: "Cephalosporin thế hệ 3, thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 2-4g mỗi 12 giờ. Trẻ em: 50-100 mg/kg/ngày.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ chảy máu." }},
-                            { title: "Quinrox (Levofloxacin 400mg/40ml)", desc: "1 lọ pha NaCl 0,9% 500ml (lấy 360ml), TTM XX giọt/phút.", tag: "Kháng sinh",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT." }}
+                        name: "Thuốc BV Vĩnh Long",
+                        icon: "fa-hospital",
+                        isGroup: true,
+                        subs: [
+                            {
+                                name: "Kháng sinh",
+                                icon: "fa-bacteria",
+                                items: [
+                                    { title: "Curam 1000mg (Amoxicillin + Clavulanic acid)", desc: "1 viên x 2 lần/ngày, cách nhau 12 giờ. Uống cùng bữa ăn.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Nhiễm khuẩn hô hấp trên/dưới, viêm xoang, viêm tai giữa, nhiễm khuẩn tiết niệu, nhiễm khuẩn da và mô mềm, nhiễm khuẩn xương khớp.", chongchidinh: "Dị ứng penicillin. Tiền sử vàng da / rối loạn chức năng gan do amoxicillin-clavulanate.", dduochoc: "Hấp thu tốt qua đường uống, sinh khả dụng ~70-90%. Thải trừ chủ yếu qua thận. T1/2 ~1-1.5 giờ.", lieu: "Người lớn: 1000mg x 2 lần/ngày. Trẻ em: 25-45 mg/kg/ngày chia 2 lần.", lieutoida: "4000mg amoxicillin + 250mg clavulanic/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng, theo dõi chức năng gan.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "1000mg mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-29", dose: "500mg mỗi 12 giờ", note: "Giảm 50%" },
+                                            { range: "CrCl < 10", dose: "500mg mỗi 24 giờ", note: "Giảm mạnh" }
+                                        ]
+                                      }},
+                                    { title: "Ceftibiotic 2000 (Ceftizoxim 2g)", desc: "Pha với NaCl 0,9% 100ml, TTM XX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Nhiễm khuẩn nặng: viêm phổi, viêm màng não, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM, phân bố rộng, qua được hàng rào máu não. Thải trừ qua thận. T1/2 ~1.5-2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 6-8 giờ.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều.",
+                                        crcl: [
+                                            { range: "CrCl > 50", dose: "2g mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 20-50", dose: "2g mỗi 24 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-19", dose: "1g mỗi 24 giờ", note: "Giảm liều + tần suất" },
+                                            { range: "CrCl < 10", dose: "1g mỗi 48 giờ", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Levogolds (Levofloxacin 750mg/150ml)", desc: "1 túi TTM XXX giọt/phút, cách ngày 1 lần.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "750mg mỗi 24 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 20-49", dose: "750mg mỗi 48 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-19", dose: "500mg mỗi 48 giờ", note: "Giảm liều + tần suất" },
+                                            { range: "CrCl < 10", dose: "500mg mỗi 48 giờ", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Bacqure 500mg (Imipenem + Cilastatin)", desc: "1 lọ pha với NaCl 0,9% 100ml, TTM XX giọt/phút.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Phân bố rộng, thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ. Trẻ em: 15-25 mg/kg mỗi 6 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <70 mL/phút. ⚠️ Nguy cơ co giật.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 70", dose: "500mg mỗi 6 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 50-69", dose: "500mg mỗi 8 giờ", note: "Giảm tần suất nhẹ" },
+                                            { range: "CrCl 30-49", dose: "500mg mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 15-29", dose: "250mg mỗi 12 giờ", note: "Giảm liều" },
+                                            { range: "CrCl < 15", dose: "Không khuyến cáo", note: "Cân nhắc lọc máu" }
+                                        ]
+                                      }},
+                                    { title: "Tenafotin 2000 (Cefepim 2g)", desc: "1 lọ pha NaCl 0,9% 100ml, TTM XXX giọt/phút, cách 12 giờ.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Viêm phổi cộng đồng/bệnh viện, nhiễm khuẩn tiết niệu, da/mô mềm, ổ bụng, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Cephalosporin thế hệ 4, phổ rộng. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Người lớn: 2g mỗi 12 giờ. Trẻ em: 50 mg/kg mỗi 12 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <60 mL/phút.",
+                                        crcl: [
+                                            { range: "CrCl > 60", dose: "2g mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 30-60", dose: "2g mỗi 24 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 11-29", dose: "1g mỗi 24 giờ", note: "Giảm liều" },
+                                            { range: "CrCl < 11", dose: "500mg mỗi 24 giờ", note: "Giảm mạnh" }
+                                        ]
+                                      }},
+                                    { title: "Cefoperazone 2g", desc: "1 lọ TMC trong 5 phút, cách nhau 12 giờ.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Suy gan nặng.", dduochoc: "Cephalosporin thế hệ 3, thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 2-4g mỗi 12 giờ. Trẻ em: 50-100 mg/kg/ngày.", lieutoida: "12g/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều (thải qua mật). ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ chảy máu.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Thải trừ qua mật" }
+                                        ]
+                                      }},
+                                    { title: "Quinrox (Levofloxacin 400mg/40ml)", desc: "1 lọ pha NaCl 0,9% 500ml (lấy 360ml), TTM XX giọt/phút.", tag: "Kháng sinh",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. Bệnh nhân <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%, thải trừ chủ yếu qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Giảm liều khi CrCl <50 mL/phút. ⚠️ Nguy cơ viêm gân, kéo dài QT.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "400mg mỗi 24 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 20-49", dose: "400mg mỗi 48 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-19", dose: "400mg mỗi 48 giờ", note: "Theo dõi sát" },
+                                            { range: "CrCl < 10", dose: "Cân nhắc thay thế", note: "Không khuyến cáo" }
+                                        ]
+                                      }}
+                                ]
+                            },
+                            {
+                                name: "Thần kinh",
+                                icon: "fa-brain",
+                                items: [
+                                    { title: "Diazepam", desc: "Co giật: 5-10mg tiêm TM chậm, lặp lại sau 10-15 phút nếu cần.", tag: "Thần kinh" },
+                                    { title: "Phenytoin", desc: "Liều tấn công: 15-20 mg/kg TM. Duy trì: 100mg mỗi 8h.", tag: "Thần kinh" },
+                                    { title: "Manitol 20%", desc: "Phù não: 0.25-1 g/kg TM nhanh trong 15-20 phút.", tag: "Thần kinh" },
+                                    { title: "Levetiracetam", desc: "Động kinh: khởi đầu 500mg mỗi 12h.", tag: "Thần kinh" }
+                                ]
+                            },
+                            {
+                                name: "Tim mạch",
+                                icon: "fa-heart-pulse",
+                                items: [
+                                    { title: "Digoxin / Anfarm (0,5mg/2ml)", desc: "½ ống pha loãng TMC 5 phút hoặc 1 ống pha loãng TMC 5 phút.", tag: "Tim mạch",
+                                      detail: { chidinh: "Suy tim có rung nhĩ tần số nhanh. Kiểm soát tần số thất trong rung nhĩ/nhịp nhanh trên thất. Suy tim EF thấp còn triệu chứng (NYHA II-IV).", chongchidinh: "Block AV độ II-III. Hội chứng WPW kèm rung nhĩ. Bệnh cơ tim phì đại tắc nghẽn. Hạ kali/magiê máu nặng. Nhồi máu cơ tim cấp.", dduochoc: "Sinh khả dụng ~60-80%. Thải trừ chủ yếu qua thận. T1/2 ~36-48 giờ. Khởi phát TM: 5-30 phút.", lieu: "Người lớn: Liều tấn công 0,5mg TM, sau đó 0,25mg mỗi 6h, tối đa 1-1,5mg/24h. Duy trì: 0,125-0,25mg/ngày.", lieutoida: "1,5mg/ngày (tấn công), 0,25mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU rõ rệt, theo dõi nồng độ Digoxin 0,5-2 ng/mL. ⚠️ Hạ K+ làm tăng độc tính. ⚠️ Cách 6-8 giờ mới dùng lại.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "0,125-0,25mg/ngày", note: "Liều chuẩn" },
+                                            { range: "CrCl 30-49", dose: "0,125mg/ngày", note: "Giảm liều" },
+                                            { range: "CrCl 10-29", dose: "0,0625-0,125mg/ngày", note: "Theo dõi nồng độ" },
+                                            { range: "CrCl < 10", dose: "Cá thể hóa, theo dõi sát", note: "Nguy cơ ngộ độc cao" }
+                                        ]
+                                      }},
+                                    { title: "Zodamid 5mg/1ml (Midazolam)", desc: "1 ống pha loãng TMC 5 phút hoặc ½ ống pha loãng TMC 5 phút.", tag: "Tim mạch",
+                                      detail: { chidinh: "An thần trước thủ thuật (chụp mạch vành, đặt stent, sốc điện chuyển nhịp). An thần bệnh nhân ICU thở máy. Cắt cơn co giật kéo dài.", chongchidinh: "Dị ứng benzodiazepine. Nhược cơ nặng. Suy hô hấp nặng chưa hỗ trợ. Suy gan nặng. Ngưng thở khi ngủ do tắc nghẽn.", dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~1,5-2,5 giờ. Chuyển hóa qua CYP3A4 ở gan.", lieu: "Người lớn: 1-2,5mg TM chậm, tối đa 5mg/lần. An thần ICU: 0,02-0,1 mg/kg/giờ.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Thận trọng. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp. ⚠️ Cách 5-10 phút mới dùng lại.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "Liều bình thường", note: "Không cần chỉnh" },
+                                            { range: "CrCl 10-29", dose: "Giảm 25% liều", note: "Theo dõi sát" },
+                                            { range: "CrCl < 10", dose: "Giảm 50% liều", note: "Tích lũy, theo dõi hô hấp" }
+                                        ]
+                                      }},
+                                    { title: "Levonox 40mg/0,4ml (Enoxaparin)", desc: "Y lệnh mẫu: Tiêm dưới da 40mg x 1 lần/ngày (dự phòng). Điều trị: 1mg/kg x 2 lần/ngày TDD.", tag: "Tim mạch",
+                                      detail: { chidinh: "Dự phòng huyết khối tĩnh mạch sâu. Điều trị DVT, thuyên tắc phổi. Hội chứng vành cấp. Rung nhĩ có nguy cơ huyết khối.", chongchidinh: "Tiền sử HIT. Chảy máu đang hoạt động. Loét dạ dày-tá tràng đang chảy máu. Đột quỵ xuất huyết. Suy thận nặng (CrCl <15). THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng TDD ~100%. Khởi phát 2-4 giờ. T1/2 ~4,5 giờ.", lieu: "Dự phòng: 40mg TDD 1 lần/ngày. Điều trị: 1mg/kg TDD mỗi 12 giờ.", lieutoida: "200mg/ngày (điều trị). Dự phòng: 40mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (dự phòng 20mg/ngày). ⚠️ SUY GAN: Thận trọng. ⚠️ Theo dõi tiểu cầu, Anti-Xa. ⚠️ Cách 12 giờ mới dùng lại.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "Dự phòng 40mg/ngày - Điều trị 1mg/kg x 2", note: "Liều chuẩn" },
+                                            { range: "CrCl 15-29", dose: "Dự phòng 20mg/ngày - Điều trị 1mg/kg x 1", note: "Giảm 50% liều dự phòng" },
+                                            { range: "CrCl < 15", dose: "Chống chỉ định", note: "Dùng Heparin thường" }
+                                        ]
+                                      }},
+                                    { title: "Takizd (Furosemide)", desc: "1 ống hoặc 2 ống TMC mỗi 5 phút.", tag: "Tim mạch",
+                                      detail: { chidinh: "Phù phổi cấp. Suy tim sung huyết. Phù do xơ gan, hội chứng thận. THA có phù. Tăng kali máu.", chongchidinh: "Vô niệu. Hạ kali/natri máu nặng. Hôn mê gan. Dị ứng sulfonamide.", dduochoc: "Khởi phát TM: 5 phút. T1/2 ~1-2 giờ. Tác dụng lợi tiểu mạnh nhất 30 phút - 2 giờ đầu.", lieu: "Người lớn: 20-40mg TM, có thể tăng đến 80-200mg. Truyền liên tục: 5-40 mg/giờ.", lieutoida: "200mg/lần, 600mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU, theo dõi điện giải. ⚠️ SUY GAN: Thận trọng, nguy cơ hôn mê gan do hạ K+. ⚠️ Hạ K+, Na+, Mg2+, hạ HA, độc tai. ⚠️ Cách 2-6 giờ mới dùng lại.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "20-40mg TM, có thể tăng", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-29", dose: "40-80mg TM, tăng dần", note: "Theo dõi đáp ứng" },
+                                            { range: "CrCl < 10", dose: "80-200mg TM hoặc truyền", note: "Theo dõi sát, nguy cơ độc tai" }
+                                        ]
+                                      }},
+                                    { title: "Amlodipine 5mg", desc: "Uống 1 viên x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Đau thắt ngực ổn định mạn tính. Đau thắt ngực do co thắt mạch vành.", chongchidinh: "Dị ứng amlodipine. Hạ HA nặng. Sốc. Hẹp ĐM chủ nặng. Suy tim chưa kiểm soát.", dduochoc: "Sinh khả dụng ~64-90%. Khởi phát 6-12 giờ. T1/2 ~30-50 giờ. Chuyển hóa qua gan CYP3A4.", lieu: "Người lớn: 5mg x 1 lần/ngày, tăng đến 10mg/ngày. Người già, suy gan: khởi đầu 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khởi đầu. ⚠️ Phù mắt cá, đỏ bừng mặt, nhức đầu. ⚠️ Cách 24 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Thải trừ qua gan" }
+                                        ]
+                                      }},
+                                    { title: "Losartan (Lorsatan)", desc: "Uống 50mg x 1 lần/ngày. Có thể tăng đến 100mg/ngày.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Bệnh thận do ĐTĐ type 2. Suy tim (khi không dung nạp ACEI). Phì đại thất trái.", chongchidinh: "Phụ nữ có thai (3 tháng giữa và cuối). Dị ứng losartan. Hẹp ĐM thận 2 bên. Tăng kali máu nặng.", dduochoc: "Sinh khả dụng ~33%. Khởi phát 6 giờ. T1/2 ~2 giờ (chất chuyển hóa 6-9 giờ).", lieu: "Người lớn: 50mg x 1 lần/ngày, tăng đến 100mg/ngày. Suy gan: 25mg/ngày.", lieutoida: "100mg/ngày.", luuy: "⚠️ SUY THẬN: Theo dõi K+ và Cr. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Ho khan, tăng K+, hạ HA. ⚠️ Cách 24 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "Không cần chỉnh liều", note: "Theo dõi K+, Cr" },
+                                            { range: "CrCl < 30", dose: "Khởi đầu 25mg/ngày", note: "Theo dõi sát K+, Cr" }
+                                        ]
+                                      }},
+                                    { title: "Captopril (Captoril)", desc: "Uống 25mg x 2-3 lần/ngày.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Suy tim sung huyết. Nhồi máu cơ tim sau 24 giờ. Bệnh thận do ĐTĐ type 1.", chongchidinh: "Phụ nữ có thai. Dị ứng ACEI. Tiền sử phù mạch do ACEI. Hẹp ĐM thận 2 bên.", dduochoc: "Sinh khả dụng ~70%. Khởi phát 15-30 phút. T1/2 ~2 giờ. Thải trừ qua thận.", lieu: "Người lớn: 25mg x 2-3 lần/ngày, tối đa 150mg/ngày. THA cấp: 25mg ngậm dưới lưỡi.", lieutoida: "450mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <40 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Ho khan, tăng K+, phù mạch. ⚠️ Cách 8 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 40", dose: "25mg x 2-3 lần/ngày", note: "Liều chuẩn" },
+                                            { range: "CrCl 21-39", dose: "25mg x 2 lần/ngày", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-20", dose: "12,5mg x 2 lần/ngày", note: "Giảm liều" },
+                                            { range: "CrCl < 10", dose: "6,25mg x 2 lần/ngày", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Propranolol", desc: "Uống 10-40mg x 2-4 lần/ngày tùy chỉ định.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Loạn nhịp tim. Cường giáp. Run vô căn. Dự phòng đau nửa đầu.", chongchidinh: "Hen phế quản, COPD nặng. Block AV độ II-III. Suy tim chưa kiểm soát. Sốc tim. Nhịp chậm <50 lần/phút.", dduochoc: "Sinh khả dụng ~30%. Khởi phát 30-60 phút. T1/2 ~4 giờ. Chuyển hóa qua gan.", lieu: "Người lớn: 10-40mg x 2-4 lần/ngày, tối đa 320mg/ngày (THA). Loạn nhịp: 10-30mg x 3-4 lần/ngày.", lieutoida: "640mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều thường. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 6-8 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Thải trừ qua gan" }
+                                        ]
+                                      }},
+                                    { title: "Bisoprolol", desc: "Uống 2,5-10mg x 1 lần/ngày.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm). Đau thắt ngực ổn định. Loạn nhịp (kiểm soát tần số trong rung nhĩ).", chongchidinh: "Suy tim cấp chưa ổn định. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng (HA tâm thu <90). Hen nặng.", dduochoc: "Sinh khả dụng ~88%. Khởi phát 1-3 giờ. T1/2 ~10-12 giờ.", lieu: "Người lớn: THA 5mg/ngày, tăng đến 10-20mg. Suy tim: khởi đầu 1,25mg/ngày, tăng dần mỗi 2 tuần.", lieutoida: "20mg/ngày (THA), 10mg/ngày (suy tim).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <20 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 24 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 20", dose: "Không cần chỉnh liều", note: "Theo dõi sát" },
+                                            { range: "CrCl < 20", dose: "Tối đa 10mg/ngày", note: "Giảm liều tối đa" }
+                                        ]
+                                      }},
+                                    { title: "Metoprolol", desc: "Uống 25-100mg x 1-2 lần/ngày tùy chỉ định.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Nhồi máu cơ tim (dự phòng thứ phát). Suy tim mạn ổn định. Loạn nhịp tim.", chongchidinh: "Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng. Hen nặng.", dduochoc: "Sinh khả dụng ~50%. Khởi phát 1-2 giờ. T1/2 ~3-7 giờ. Chuyển hóa qua CYP2D6.", lieu: "Người lớn: 25-100mg x 1-2 lần/ngày, tối đa 400mg/ngày. NMCT: 25-50mg x 2-3 lần/ngày.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 12 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Thải trừ qua gan" }
+                                        ]
+                                      }},
+                                    { title: "Nebivolol", desc: "Uống 5mg x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
+                                      detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm, người ≥70 tuổi). Đau thắt ngực. Ít gây co thắt phế quản.", chongchidinh: "Suy gan nặng. Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng.", dduochoc: "Sinh khả dụng ~12-96%. Khởi phát 1-3 giờ. T1/2 ~10 giờ (nhanh), 30-50 giờ (chậm).", lieu: "Người lớn: THA 5mg/ngày. Suy tim: khởi đầu 1,25mg/ngày. ≥65 tuổi: 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khởi đầu 2,5mg/ngày khi CrCl <40. ⚠️ SUY GAN: CHỐNG CHỈ ĐỊNH nếu suy gan nặng. ⚠️ Cách 24 giờ dùng liều tiếp.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 40", dose: "5mg/ngày", note: "Liều chuẩn" },
+                                            { range: "CrCl < 40", dose: "Khởi đầu 2,5mg/ngày", note: "Tăng dần nếu dung nạp" }
+                                        ]
+                                      }}
+                                ]
+                            },
+                            {
+                                name: "Thuốc vận mạch",
+                                icon: "fa-syringe",
+                                items: [
+                                    { title: "Dobutamin", desc: "Truyền TM liên tục. Liều 2,5-20 mcg/kg/phút.", tag: "Vận mạch",
+                                      detail: { chidinh: "Suy tim cấp có cung lượng tim thấp, HA tâm thu >70 mmHg. Sốc tim. Test gắng sức tim. Hỗ trợ sau phẫu thuật tim.", chongchidinh: "Hẹp dưới van ĐM chủ nặng. Bệnh cơ tim phì đại tắc nghẽn. NMCT cấp chưa xử trí. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Người lớn: 2,5-20 mcg/kg/phút. Khởi đầu 2,5-5 mcg/kg/phút, tăng dần mỗi 5-10 phút.", lieutoida: "20 mcg/kg/phút.", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2,5-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA tâm thu >100 ổn định, hết sốc. Giảm 25-50% mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nhanh, HA tâm thu >180, nhịp tim >140. ⚠️ MỤC TIÊU HA: 90-110 mmHg (sốc tim); 100-120 nếu THA mạn. ⚠️ SUY THẬN/GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Nhịp nhanh, loạn nhịp, đau ngực." }},
+                                    { title: "Dopamin", desc: "Truyền TM liên tục. Liều 2-20 mcg/kg/phút.", tag: "Vận mạch",
+                                      detail: { chidinh: "Sốc tim, sốc nhiễm khuẩn. Suy tim cấp có hạ HA. Hạ HA nặng có giảm tưới máu. Nhịp chậm có triệu chứng (liều thấp).", chongchidinh: "U tủy thượng thận. Nhịp nhanh thất chưa xử trí. Loạn nhịp nhanh. Suy tim sung huyết chưa kiểm soát. Hẹp van ĐM chủ nặng.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Liều thấp (1-5): Tăng tưới máu thận. Trung bình (5-10): Tăng co bóp. Cao (10-20): Co mạch ngoại biên.", lieutoida: "50 mcg/kg/phút (rất hiếm).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm 25% mỗi 30 phút. ⚠️ NGƯNG TẠM: Nhịp nhanh >140, loạn nhịp, hoại tử đầu chi. ⚠️ MỤC TIÊU HA: 90-110 (sốc tim), 65 (MAP sốc nhiễm khuẩn). ⚠️ Tác dụng phụ: Loạn nhịp, nhịp nhanh, hoại tử đầu chi." }},
+                                    { title: "Noradrenaline (Norepinephrine)", desc: "Truyền TM liên tục. Liều 0,05-3 mcg/kg/phút.", tag: "Vận mạch",
+                                      detail: { chidinh: "Sốc nhiễm khuẩn (ưu tiên số 1). Sốc tim nếu HA tâm thu <70 kèm tưới máu kém. Sốc phản vệ (sau Adrenaline). Hạ HA do giãn mạch khi gây mê. Hội chứng gan thận type 1.", chongchidinh: "Hạ HA do giảm thể tích chưa bù dịch. Huyết khối mạc treo/ngoại biên. Nhịp nhanh thất. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 5-10 phút. T1/2 ~2,5 phút.", lieu: "Người lớn: 0,05-3 mcg/kg/phút. Khởi đầu 0,05-0,1, tăng dần. Trẻ em: 0,05-0,1 (tối đa 2).", lieutoida: "3,3 mcg/kg/phút (thực tế ít khi >1-2).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: MAP <65 hoặc <mục tiêu. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO DỪNG TĂNG: MAP 65-70 (sốc nhiễm khuẩn), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ KHI NÀO NGƯNG: MAP ≥65 ổn định 6-12 giờ. Giảm 0,05 mcg/kg/phút mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, hoại tử đầu chi, MAP >120. ⚠️ MỤC TIÊU HA: MAP 65-70 (SSC 2021), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }},
+                                    { title: "Adrenaline (Epinephrine)", desc: "Sốc phản vệ: 0,5mg TB mặt trước đùi. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", tag: "Vận mạch",
+                                      detail: { chidinh: "Sốc phản vệ (thuốc đầu tay). Ngừng tim (CPR). Sốc tim nặng, sốc nhiễm khuẩn kháng trị. Phối hợp gây tê tại chỗ. Cơn hen nặng kháng trị.", chongchidinh: "Không có chống chỉ định tuyệt đối trong cấp cứu ngừng tim và sốc phản vệ. Thận trọng: bệnh tim thiếu máu, loạn nhịp nặng, cường giáp.", dduochoc: "Tiêm bắp: Khởi phát 3-5 phút. Tiêm TM: 30 giây. T1/2 ~2 phút.", lieu: "Sốc phản vệ: 0,5mg TB mặt trước đùi, lặp lại sau 5-15 phút. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", lieutoida: "Không giới hạn trong CPR. Truyền TM: 0,5 mcg/kg/phút (có thể tăng 1 nếu kháng trị).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: Sốc phản vệ sau 2 lần TB không cải thiện → truyền TM. Sốc tim MAP <65 dù Noradrenaline liều cao → thêm Adrenaline. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, MAP >120. ⚠️ MỤC TIÊU HA: Sốc phản vệ HA tâm thu ≥90, hết khó thở. CPR không đặt mục tiêu HA. Sốc tim MAP 65-70. ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }}
+                                ]
+                            },
+                            {
+                                name: "Giảm đau - An thần",
+                                icon: "fa-syringe",
+                                items: [
+                                    { title: "Morphine 10mg/1ml", desc: "Giảm đau mạnh. 2-5mg TM chậm mỗi 4-6 giờ. Theo dõi hô hấp.", tag: "Giảm đau",
+                                      detail: { chidinh: "Đau nặng cấp tính (NMCT, đau sau mổ, đau ung thư), phù phổi cấp, an thần giảm đau ở ICU.", chongchidinh: "Suy hô hấp nặng, tắc ruột cơ học, tăng áp lực nội sọ, dị ứng morphine, suy gan nặng.", dduochoc: "Khởi phát TM: 5-10 phút. T1/2 ~2-3 giờ. Chuyển hóa qua gan, thải qua thận.", lieu: "Người lớn: 2-5mg TM chậm mỗi 4-6 giờ. Truyền liên tục: 0,5-2 mg/giờ.", lieutoida: "Tùy đáp ứng, theo dõi hô hấp.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU, tích lũy chất chuyển hóa. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Theo dõi nhịp thở, SpO₂, tri giác.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "2-5mg mỗi 4-6 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-49", dose: "Giảm 25-50% liều", note: "Tích lũy M6G" },
+                                            { range: "CrCl < 10", dose: "Giảm 50-75% liều", note: "Theo dõi hô hấp sát" }
+                                        ]
+                                      }},
+                                    { title: "Fentanyl 0,1mg/2ml (50mcg/ml)", desc: "Giảm đau mạnh, khởi phát nhanh. 25-100mcg TM chậm mỗi 30-60 phút.", tag: "Giảm đau",
+                                      detail: { chidinh: "Giảm đau trong phẫu thuật, ICU, thủ thuật. Phù hợp BN suy thận (ít tích lũy).", chongchidinh: "Dị ứng fentanyl. Suy hô hấp chưa hỗ trợ. Nhược cơ.", dduochoc: "Khởi phát TM: 1-3 phút. T1/2 ~3-7 giờ. Chuyển hóa qua gan CYP3A4.", lieu: "Người lớn: 25-100mcg TM chậm mỗi 30-60 phút. Truyền: 25-200 mcg/giờ.", lieutoida: "Theo đáp ứng.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều (ưu tiên hơn Morphine). ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Theo dõi hô hấp.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "25-100mcg mỗi 30-60 phút", note: "Ưu tiên ở suy thận" }
+                                        ]
+                                      }},
+                                    { title: "Paracetamol 1g/100ml", desc: "Hạ sốt, giảm đau. 1g TM mỗi 6 giờ.", tag: "Giảm đau",
+                                      detail: { chidinh: "Hạ sốt, giảm đau nhẹ - vừa. Phối hợp giảm đau đa mô thức.", chongchidinh: "Suy gan nặng. Dị ứng paracetamol. Bệnh gan tiến triển.", dduochoc: "Khởi phát 5-30 phút. T1/2 ~2 giờ. Chuyển hóa qua gan.", lieu: "Người lớn: 1g TM mỗi 6 giờ (tối đa 4g/ngày).", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Giãn khoảng cách nếu CrCl <30 (mỗi 8 giờ). ⚠️ SUY GAN: GIẢM LIỀU tối đa 2g/ngày, theo dõi chức năng gan.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "1g mỗi 6 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl < 30", dose: "1g mỗi 8 giờ", note: "Giãn khoảng cách" }
+                                        ]
+                                      }},
+                                    { title: "Ketorolac 30mg/1ml", desc: "NSAID giảm đau mạnh. 15-30mg TM mỗi 6 giờ (tối đa 5 ngày).", tag: "Giảm đau",
+                                      detail: { chidinh: "Giảm đau cấp tính vừa - nặng (ngắn ngày).", chongchidinh: "Loét dạ dày, xuất huyết tiêu hóa, suy thận, suy gan nặng, phụ nữ có thai 3 tháng cuối, <16 tuổi.", dduochoc: "Khởi phát 30 phút. T1/2 ~4-6 giờ. Thải qua thận.", lieu: "Người lớn: 15-30mg TM mỗi 6 giờ. Tối đa 5 ngày.", lieutoida: "120mg/ngày.", luuy: "⚠️ SUY THẬN: CHỐNG CHỈ ĐỊNH khi CrCl <30. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ loét, xuất huyết tiêu hóa.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "15-30mg mỗi 6 giờ", note: "Tối đa 5 ngày" },
+                                            { range: "CrCl < 30", dose: "CHỐNG CHỈ ĐỊNH", note: "Nguy cơ AKI cao" }
+                                        ]
+                                      }},
+                                    { title: "Tramadol 100mg/2ml", desc: "Giảm đau trung bình. 50-100mg TM chậm mỗi 6-8 giờ.", tag: "Giảm đau",
+                                      detail: { chidinh: "Đau vừa, đau sau mổ, đau mạn tính.", chongchidinh: "Dị ứng tramadol. Động kinh chưa kiểm soát. Đang dùng MAOI. Suy hô hấp nặng.", dduochoc: "Khởi phát 10-15 phút (TM). T1/2 ~6 giờ.", lieu: "Người lớn: 50-100mg TM chậm mỗi 6-8 giờ. Tối đa 400mg/ngày.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (100mg mỗi 12 giờ). ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Nguy cơ co giật.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "50-100mg mỗi 6-8 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-29", dose: "50-100mg mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl < 10", dose: "KHÔNG KHUYẾN CÁO", note: "Nguy cơ co giật" }
+                                        ]
+                                      }},
+                                    { title: "Diazepam 10mg/2ml", desc: "An thần, chống co giật. 5-10mg TM chậm.", tag: "An thần",
+                                      detail: { chidinh: "Co giật, cắt cơn co thắt cơ, an thần trước thủ thuật, hội chứng cai rượu.", chongchidinh: "Nhược cơ nặng, suy hô hấp nặng, hội chứng ngưng thở khi ngủ, suy gan nặng.", dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~20-50 giờ (chất chuyển hóa hoạt động kéo dài).", lieu: "Người lớn: 5-10mg TM chậm, có thể lặp lại sau 10-15 phút.", lieutoida: "30mg/ngày.", luuy: "⚠️ SUY THẬN: Thận trọng, tích lũy. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp, có đối kháng Flumazenil.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "5-10mg TM chậm", note: "Liều chuẩn" },
+                                            { range: "CrCl < 30", dose: "Giảm 50% liều", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Midazolam 5mg/1ml", desc: "An thần, cắt co giật. 1-2,5mg TM chậm.", tag: "An thần",
+                                      detail: { chidinh: "An thần trước thủ thuật, ICU thở máy, cắt cơn co giật kéo dài.", chongchidinh: "Dị ứng benzodiazepine, nhược cơ nặng, suy hô hấp nặng, suy gan nặng.", dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~1,5-2,5 giờ.", lieu: "Người lớn: 1-2,5mg TM chậm. Truyền ICU: 0,02-0,1 mg/kg/giờ.", lieutoida: "10mg/ngày (bolus).", luuy: "⚠️ SUY THẬN: Thận trọng. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp. ⚠️ Cách 5-10 phút mới dùng lại.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "1-2,5mg TM chậm", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-29", dose: "Giảm 25%", note: "Theo dõi sát" },
+                                            { range: "CrCl < 10", dose: "Giảm 50%", note: "Tích lũy" }
+                                        ]
+                                      }}
+                                ]
+                            },
+                            {
+                                name: "Tiêu hóa",
+                                icon: "fa-stomach",
+                                items: [
+                                    { title: "Omeprazole 40mg", desc: "Ức chế bơm proton. 40mg TM mỗi 12-24 giờ.", tag: "Tiêu hóa",
+                                      detail: { chidinh: "Loét dạ dày - tá tràng, trào ngược dạ dày - thực quản, xuất huyết tiêu hóa, dự phòng loét do stress ở ICU.", chongchidinh: "Dị ứng PPI, đang dùng thuốc tương tác CYP2C19 mạnh.", dduochoc: "Khởi phát 1 giờ (TM). T1/2 ~1 giờ. Chuyển hóa qua gan CYP2C19.", lieu: "Người lớn: 40mg TM mỗi 12-24 giờ. XHTH: 80mg bolus, sau đó 8mg/giờ x 72 giờ.", lieutoida: "Không giới hạn cụ thể.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khi suy gan nặng. ⚠️ Tương tác với Clopidogrel.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "40mg mỗi 12-24 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Ondansetron 8mg/4ml", desc: "Chống nôn. 4-8mg TM chậm mỗi 8-12 giờ.", tag: "Tiêu hóa",
+                                      detail: { chidinh: "Nôn, buồn nôn sau mổ, do hóa trị, do xạ trị.", chongchidinh: "Dị ứng ondansetron. Kéo dài QT. Đang dùng Apomorphine.", dduochoc: "Khởi phát 30 phút (TM). T1/2 ~3-6 giờ. Chuyển hóa qua gan CYP3A4.", lieu: "Người lớn: 4-8mg TM chậm mỗi 8-12 giờ.", lieutoida: "24mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Tối đa 8mg/ngày khi suy gan nặng. ⚠️ Nguy cơ kéo dài QT.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "4-8mg mỗi 8-12 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Metoclopramide 10mg/2ml", desc: "Chống nôn, tăng nhu động. 10mg TM chậm mỗi 8 giờ.", tag: "Tiêu hóa",
+                                      detail: { chidinh: "Buồn nôn, nôn, chậm làm rỗng dạ dày, trào ngược.", chongchidinh: "Tắc ruột cơ học, xuất huyết tiêu hóa, u tủy thượng thận, động kinh, Parkinson.", dduochoc: "Khởi phát 1-3 phút (TM). T1/2 ~5-6 giờ. Thải qua thận.", lieu: "Người lớn: 10mg TM chậm mỗi 8 giờ. Tối đa 5 ngày.", lieutoida: "30-40mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <40 (5mg mỗi 8 giờ). ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ loạn trương lực cơ cấp.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 40", dose: "10mg mỗi 8 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl < 40", dose: "5mg mỗi 8 giờ", note: "Giảm liều" }
+                                        ]
+                                      }},
+                                    { title: "Lactulose 10g/15ml", desc: "Nhuận tràng, hạ Ammoniac máu. 15-30ml uống mỗi 6-8 giờ.", tag: "Tiêu hóa",
+                                      detail: { chidinh: "Táo bón, bệnh não gan (hạ ammoniac).", chongchidinh: "Tắc ruột cơ học, galactosemia.", dduochoc: "Khởi phát 24-48 giờ (nhuận tràng). Chuyển hóa bởi vi khuẩn đường ruột.", lieu: "Người lớn: 15-30ml uống mỗi 6-8 giờ. Bệnh não gan: điều chỉnh để 2-3 lần đi tiêu mềm/ngày.", lieutoida: "Không giới hạn.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Dùng được, cần theo dõi. ⚠️ Đầy hơi, chướng bụng.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "15-30ml mỗi 6-8 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }}
+                                ]
+                            },
+                            {
+                                name: "Nội tiết",
+                                icon: "fa-droplet",
+                                items: [
+                                    { title: "Insulin Regular (Actrapid) 100UI/ml", desc: "Truyền TM liên tục hoặc tiêm TM. 0,05-0,1 UI/kg/giờ.", tag: "Nội tiết",
+                                      detail: { chidinh: "ĐTĐ cấp cứu (DKA, HHS), tăng đường huyết nặng, ICU kiểm soát đường huyết.", chongchidinh: "Hạ đường huyết, dị ứng insulin.", dduochoc: "Khởi phát TM: 10-30 phút. T1/2 ~5-10 phút. Chuyển hóa qua gan, thận.", lieu: "DKA: 0,1 UI/kg/giờ truyền TM. ICU: 0,05-0,1 UI/kg/giờ, điều chỉnh theo đường huyết.", lieutoida: "Tùy đáp ứng.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU, tăng nguy cơ hạ đường huyết. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Theo dõi đường huyết mao mạch mỗi 1-2 giờ.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "0,1 UI/kg/giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-49", dose: "Giảm 25-50%", note: "Tăng nguy cơ hạ đường huyết" },
+                                            { range: "CrCl < 10", dose: "Giảm 50%, theo dõi sát", note: "Thận giảm thoái giáng insulin" }
+                                        ]
+                                      }},
+                                    { title: "Metformin 500mg/850mg/1000mg", desc: "Uống. 500mg x 1-3 lần/ngày, cùng bữa ăn.", tag: "Nội tiết",
+                                      detail: { chidinh: "ĐTĐ type 2 (đơn trị hoặc phối hợp).", chongchidinh: "Suy thận (CrCl <30), suy gan nặng, nhiễm toan chuyển hóa, suy tim nặng, nhiễm khuẩn nặng.", dduochoc: "Sinh khả dụng ~50-60%. Không chuyển hóa, thải qua thận dạng nguyên vẹn.", lieu: "Người lớn: 500mg x 1-3 lần/ngày, tăng dần đến tối đa 2000-2500mg/ngày.", lieutoida: "2550mg/ngày.", luuy: "⚠️ SUY THẬN: CHỐNG CHỈ ĐỊNH khi CrCl <30. ⚠️ SUY GAN: CHỐNG CHỈ ĐỊNH nếu suy gan nặng. ⚠️ Nguy cơ toan lactic.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 45", dose: "500-2000mg/ngày", note: "Liều chuẩn" },
+                                            { range: "CrCl 30-44", dose: "Khởi đầu 500mg/ngày", note: "Tối đa 1000mg/ngày" },
+                                            { range: "CrCl < 30", dose: "CHỐNG CHỈ ĐỊNH", note: "Nguy cơ toan lactic" }
+                                        ]
+                                      }},
+                                    { title: "Levothyroxine 50mcg", desc: "Uống. Khởi đầu 25-50mcg/ngày, tăng dần.", tag: "Nội tiết",
+                                      detail: { chidinh: "Suy giáp, phù niêm, sau phẫu thuật tuyến giáp.", chongchidinh: "Nhiễm độc giáp chưa điều trị, NMCT cấp, suy thượng thận chưa điều trị.", dduochoc: "Sinh khả dụng 50-80%. T1/2 ~6-7 ngày. Chuyển hóa qua gan, thận.", lieu: "Người lớn: khởi đầu 25-50mcg/ngày, tăng 25mcg mỗi 2-4 tuần. Người già, bệnh mạch vành: khởi đầu 12,5-25mcg.", lieutoida: "200-300mcg/ngày (tùy).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Uống lúc đói, cách thuốc khác 4 giờ.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Theo TSH" }
+                                        ]
+                                      }},
+                                    { title: "Methylprednisolone 40mg", desc: "TM. 40-125mg mỗi 6-12 giờ tùy chỉ định.", tag: "Nội tiết",
+                                      detail: { chidinh: "Chống viêm mạnh, dị ứng nặng, hen nặng, COPD cấp, sốc phản vệ phối hợp, bệnh tự miễn, phù não.", chongchidinh: "Nhiễm khuẩn nặng chưa kiểm soát, loét dạ dày đang hoạt động, ĐTĐ không kiểm soát.", dduochoc: "Khởi phát TM: 1-2 giờ. T1/2 ~2-3 giờ (sinh học 12-36 giờ).", lieu: "Người lớn: 40-125mg TM mỗi 6-12 giờ. Hen nặng: 40-125mg mỗi 6 giờ x 48h.", lieutoida: "Tùy chỉ định (liều cao xung).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Tăng đường huyết, loét dạ dày, nhiễm khuẩn, loãng xương.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "Không cần chỉnh liều", note: "Theo chỉ định lâm sàng" }
+                                        ]
+                                      }}
+                                ]
+                            },
+                            {
+                                name: "Hô hấp",
+                                icon: "fa-lungs",
+                                items: [
+                                    { title: "Salbutamol 5mg/2,5ml (khí dung)", desc: "Khí dung 2,5-5mg mỗi 20 phút x 3 lần, sau đó mỗi 4-6 giờ.", tag: "Hô hấp",
+                                      detail: { chidinh: "Cơn hen cấp, COPD cấp, co thắt phế quản.", chongchidinh: "Dị ứng salbutamol. Loạn nhịp nhanh.", dduochoc: "Khởi phát 5-15 phút (khí dung). T1/2 ~4-6 giờ.", lieu: "Người lớn: khí dung 2,5-5mg mỗi 20 phút x 3 lần, sau đó mỗi 4-6 giờ. TM (nặng): 0,5mg/giờ.", lieutoida: "20mg/ngày (khí dung).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nhịp nhanh, run tay, hạ kali máu.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "2,5-5mg khí dung mỗi 4-6 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Ipratropium 0,5mg/2ml (khí dung)", desc: "Khí dung 0,5mg mỗi 6 giờ, phối hợp salbutamol.", tag: "Hô hấp",
+                                      detail: { chidinh: "COPD cấp, hen nặng (phối hợp SABA).", chongchidinh: "Dị ứng atropine hoặc ipratropium. Glaucoma góc hẹp.", dduochoc: "Khởi phát 15 phút. T1/2 ~2 giờ.", lieu: "Người lớn: 0,5mg khí dung mỗi 6 giờ, có thể mỗi 4 giờ nếu nặng.", lieutoida: "2mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Khô miệng, bí tiểu.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "0,5mg mỗi 6 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Budesonide 0,5mg/2ml (khí dung)", desc: "Khí dung 0,5-1mg mỗi 12 giờ. Corticoid dạng hít.", tag: "Hô hấp",
+                                      detail: { chidinh: "Hen phế quản, COPD (điều trị duy trì), viêm thanh quản.", chongchidinh: "Dị ứng budesonide.", dduochoc: "Khởi phát chậm (giờ). Tác dụng tại chỗ, ít hấp thu toàn thân.", lieu: "Người lớn: 0,5-1mg khí dung mỗi 12 giờ.", lieutoida: "4mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng, GIẢM LIỀU. ⚠️ Súc miệng sau dùng để tránh nấm miệng.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "0,5-1mg mỗi 12 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Montelukast 10mg", desc: "Uống. 10mg x 1 lần/ngày buổi tối.", tag: "Hô hấp",
+                                      detail: { chidinh: "Hen phế quản (điều trị duy trì), dự phòng co thắt phế quản do gắng sức, viêm mũi dị ứng.", chongchidinh: "Dị ứng montelukast.", dduochoc: "Sinh khả dụng ~64%. T1/2 ~2,7-5,5 giờ. Chuyển hóa qua gan CYP2C8.", lieu: "Người lớn: 10mg uống 1 lần/ngày buổi tối.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng khi suy gan vừa-nặng. ⚠️ Đau đầu, rối loạn giấc ngủ, thay đổi hành vi.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "10mg/ngày", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }}
+                                ]
+                            }
                         ]
                     },
                     {
-                        name: "Thần kinh",
-                        icon: "fa-brain",
-                        items: [
-                            { title: "Diazepam", desc: "Co giật: 5-10mg tiêm TM chậm, lặp lại sau 10-15 phút nếu cần.", tag: "Thần kinh" },
-                            { title: "Phenytoin", desc: "Liều tấn công: 15-20 mg/kg TM. Duy trì: 100mg mỗi 8h.", tag: "Thần kinh" },
-                            { title: "Manitol 20%", desc: "Phù não: 0.25-1 g/kg TM nhanh trong 15-20 phút.", tag: "Thần kinh" },
-                            { title: "Levetiracetam", desc: "Động kinh: khởi đầu 500mg mỗi 12h.", tag: "Thần kinh" }
-                        ]
-                    },
-                    {
-                        name: "Tim mạch",
-                        icon: "fa-heart-pulse",
-                        items: [
-                            { title: "Digoxin / Anfarm (0,5mg/2ml)", desc: "½ ống pha loãng TMC 5 phút hoặc 1 ống pha loãng TMC 5 phút.", tag: "Tim mạch",
-                              detail: { chidinh: "Suy tim có rung nhĩ tần số nhanh. Kiểm soát tần số thất trong rung nhĩ/nhịp nhanh trên thất. Suy tim EF thấp còn triệu chứng (NYHA II-IV).", chongchidinh: "Block AV độ II-III. Hội chứng WPW kèm rung nhĩ. Bệnh cơ tim phì đại tắc nghẽn. Hạ kali/magiê máu nặng. Nhồi máu cơ tim cấp.", dduochoc: "Sinh khả dụng ~60-80%. Thải trừ chủ yếu qua thận. T1/2 ~36-48 giờ. Khởi phát TM: 5-30 phút.", lieu: "Người lớn: Liều tấn công 0,5mg TM, sau đó 0,25mg mỗi 6h, tối đa 1-1,5mg/24h. Duy trì: 0,125-0,25mg/ngày.", lieutoida: "1,5mg/ngày (tấn công), 0,25mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU rõ rệt, theo dõi nồng độ Digoxin 0,5-2 ng/mL. ⚠️ Hạ K+ làm tăng độc tính. ⚠️ Cách 6-8 giờ mới dùng lại." }},
-                            { title: "Zodamid 5mg/1ml (Midazolam)", desc: "1 ống pha loãng TMC 5 phút hoặc ½ ống pha loãng TMC 5 phút.", tag: "Tim mạch",
-                              detail: { chidinh: "An thần trước thủ thuật (chụp mạch vành, đặt stent, sốc điện chuyển nhịp). An thần bệnh nhân ICU thở máy. Cắt cơn co giật kéo dài.", chongchidinh: "Dị ứng benzodiazepine. Nhược cơ nặng. Suy hô hấp nặng chưa hỗ trợ. Suy gan nặng. Ngưng thở khi ngủ do tắc nghẽn.", dduochoc: "Khởi phát TM: 1-5 phút. T1/2 ~1,5-2,5 giờ. Chuyển hóa qua CYP3A4 ở gan.", lieu: "Người lớn: 1-2,5mg TM chậm, tối đa 5mg/lần. An thần ICU: 0,02-0,1 mg/kg/giờ.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Thận trọng. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Theo dõi hô hấp. ⚠️ Cách 5-10 phút mới dùng lại." }},
-                            { title: "Levonox 40mg/0,4ml (Enoxaparin)", desc: "Y lệnh mẫu: Tiêm dưới da 40mg x 1 lần/ngày (dự phòng). Điều trị: 1mg/kg x 2 lần/ngày TDD.", tag: "Tim mạch",
-                              detail: { chidinh: "Dự phòng huyết khối tĩnh mạch sâu. Điều trị DVT, thuyên tắc phổi. Hội chứng vành cấp. Rung nhĩ có nguy cơ huyết khối.", chongchidinh: "Tiền sử HIT. Chảy máu đang hoạt động. Loét dạ dày-tá tràng đang chảy máu. Đột quỵ xuất huyết. Suy thận nặng (CrCl <15). THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng TDD ~100%. Khởi phát 2-4 giờ. T1/2 ~4,5 giờ.", lieu: "Dự phòng: 40mg TDD 1 lần/ngày. Điều trị: 1mg/kg TDD mỗi 12 giờ.", lieutoida: "200mg/ngày (điều trị). Dự phòng: 40mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (dự phòng 20mg/ngày). ⚠️ SUY GAN: Thận trọng. ⚠️ Theo dõi tiểu cầu, Anti-Xa. ⚠️ Cách 12 giờ mới dùng lại." }},
-                            { title: "Takizd (Furosemide)", desc: "1 ống hoặc 2 ống TMC mỗi 5 phút.", tag: "Tim mạch",
-                              detail: { chidinh: "Phù phổi cấp. Suy tim sung huyết. Phù do xơ gan, hội chứng thận. THA có phù. Tăng kali máu.", chongchidinh: "Vô niệu. Hạ kali/natri máu nặng. Hôn mê gan. Dị ứng sulfonamide.", dduochoc: "Khởi phát TM: 5 phút. T1/2 ~1-2 giờ. Tác dụng lợi tiểu mạnh nhất 30 phút - 2 giờ đầu.", lieu: "Người lớn: 20-40mg TM, có thể tăng đến 80-200mg. Truyền liên tục: 5-40 mg/giờ.", lieutoida: "200mg/lần, 600mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU, theo dõi điện giải. ⚠️ SUY GAN: Thận trọng, nguy cơ hôn mê gan do hạ K+. ⚠️ Hạ K+, Na+, Mg2+, hạ HA, độc tai. ⚠️ Cách 2-6 giờ mới dùng lại." }},
-                            { title: "Amlodipine 5mg", desc: "Uống 1 viên x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực ổn định mạn tính. Đau thắt ngực do co thắt mạch vành.", chongchidinh: "Dị ứng amlodipine. Hạ HA nặng. Sốc. Hẹp ĐM chủ nặng. Suy tim chưa kiểm soát.", dduochoc: "Sinh khả dụng ~64-90%. Khởi phát 6-12 giờ. T1/2 ~30-50 giờ. Chuyển hóa qua gan CYP3A4.", lieu: "Người lớn: 5mg x 1 lần/ngày, tăng đến 10mg/ngày. Người già, suy gan: khởi đầu 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khởi đầu. ⚠️ Phù mắt cá, đỏ bừng mặt, nhức đầu. ⚠️ Cách 24 giờ dùng liều tiếp." }},
-                            { title: "Losartan (Lorsatan)", desc: "Uống 50mg x 1 lần/ngày. Có thể tăng đến 100mg/ngày.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Bệnh thận do ĐTĐ type 2. Suy tim (khi không dung nạp ACEI). Phì đại thất trái.", chongchidinh: "Phụ nữ có thai (3 tháng giữa và cuối). Dị ứng losartan. Hẹp ĐM thận 2 bên. Tăng kali máu nặng.", dduochoc: "Sinh khả dụng ~33%. Khởi phát 6 giờ. T1/2 ~2 giờ (chất chuyển hóa 6-9 giờ).", lieu: "Người lớn: 50mg x 1 lần/ngày, tăng đến 100mg/ngày. Suy gan: 25mg/ngày.", lieutoida: "100mg/ngày.", luuy: "⚠️ SUY THẬN: Theo dõi K+ và Cr. ⚠️ SUY GAN: GIẢM LIỀU 50%. ⚠️ Ho khan, tăng K+, hạ HA. ⚠️ Cách 24 giờ dùng liều tiếp." }},
-                            { title: "Captopril (Captoril)", desc: "Uống 25mg x 2-3 lần/ngày.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Suy tim sung huyết. Nhồi máu cơ tim sau 24 giờ. Bệnh thận do ĐTĐ type 1.", chongchidinh: "Phụ nữ có thai. Dị ứng ACEI. Tiền sử phù mạch do ACEI. Hẹp ĐM thận 2 bên.", dduochoc: "Sinh khả dụng ~70%. Khởi phát 15-30 phút. T1/2 ~2 giờ. Thải trừ qua thận.", lieu: "Người lớn: 25mg x 2-3 lần/ngày, tối đa 150mg/ngày. THA cấp: 25mg ngậm dưới lưỡi.", lieutoida: "450mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <40 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Ho khan, tăng K+, phù mạch. ⚠️ Cách 8 giờ dùng liều tiếp." }},
-                            { title: "Propranolol", desc: "Uống 10-40mg x 2-4 lần/ngày tùy chỉ định.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Loạn nhịp tim. Cường giáp. Run vô căn. Dự phòng đau nửa đầu.", chongchidinh: "Hen phế quản, COPD nặng. Block AV độ II-III. Suy tim chưa kiểm soát. Sốc tim. Nhịp chậm <50 lần/phút.", dduochoc: "Sinh khả dụng ~30%. Khởi phát 30-60 phút. T1/2 ~4 giờ. Chuyển hóa qua gan.", lieu: "Người lớn: 10-40mg x 2-4 lần/ngày, tối đa 320mg/ngày (THA). Loạn nhịp: 10-30mg x 3-4 lần/ngày.", lieutoida: "640mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều thường. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 6-8 giờ dùng liều tiếp." }},
-                            { title: "Bisoprolol", desc: "Uống 2,5-10mg x 1 lần/ngày.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm). Đau thắt ngực ổn định. Loạn nhịp (kiểm soát tần số trong rung nhĩ).", chongchidinh: "Suy tim cấp chưa ổn định. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng (HA tâm thu <90). Hen nặng.", dduochoc: "Sinh khả dụng ~88%. Khởi phát 1-3 giờ. T1/2 ~10-12 giờ.", lieu: "Người lớn: THA 5mg/ngày, tăng đến 10-20mg. Suy tim: khởi đầu 1,25mg/ngày, tăng dần mỗi 2 tuần.", lieutoida: "20mg/ngày (THA), 10mg/ngày (suy tim).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <20 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 24 giờ dùng liều tiếp." }},
-                            { title: "Metoprolol", desc: "Uống 25-100mg x 1-2 lần/ngày tùy chỉ định.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Đau thắt ngực. Nhồi máu cơ tim (dự phòng thứ phát). Suy tim mạn ổn định. Loạn nhịp tim.", chongchidinh: "Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng. Hen nặng.", dduochoc: "Sinh khả dụng ~50%. Khởi phát 1-2 giờ. T1/2 ~3-7 giờ. Chuyển hóa qua CYP2D6.", lieu: "Người lớn: 25-100mg x 1-2 lần/ngày, tối đa 400mg/ngày. NMCT: 25-50mg x 2-3 lần/ngày.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ KHÔNG ngưng đột ngột. ⚠️ Cách 12 giờ dùng liều tiếp." }},
-                            { title: "Nebivolol", desc: "Uống 5mg x 1 lần/ngày, có thể tăng đến 10mg/ngày.", tag: "Tim mạch",
-                              detail: { chidinh: "Tăng huyết áp. Suy tim mạn ổn định (EF giảm, người ≥70 tuổi). Đau thắt ngực. Ít gây co thắt phế quản.", chongchidinh: "Suy gan nặng. Suy tim cấp. Sốc tim. Block AV độ II-III. Nhịp chậm <50/phút. Hạ HA nặng.", dduochoc: "Sinh khả dụng ~12-96%. Khởi phát 1-3 giờ. T1/2 ~10 giờ (nhanh), 30-50 giờ (chậm).", lieu: "Người lớn: THA 5mg/ngày. Suy tim: khởi đầu 1,25mg/ngày. ≥65 tuổi: 2,5mg/ngày.", lieutoida: "10mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khởi đầu 2,5mg/ngày khi CrCl <40. ⚠️ SUY GAN: CHỐNG CHỈ ĐỊNH nếu suy gan nặng. ⚠️ Cách 24 giờ dùng liều tiếp." }}
-                        ]
-                    },
-                    {
-                        name: "Thuốc vận mạch",
-                        icon: "fa-syringe",
-                        items: [
-                            { title: "Dobutamin", desc: "Truyền TM liên tục. Liều 2,5-20 mcg/kg/phút.", tag: "Vận mạch",
-                              detail: { chidinh: "Suy tim cấp có cung lượng tim thấp, HA tâm thu >70 mmHg. Sốc tim. Test gắng sức tim. Hỗ trợ sau phẫu thuật tim.", chongchidinh: "Hẹp dưới van ĐM chủ nặng. Bệnh cơ tim phì đại tắc nghẽn. NMCT cấp chưa xử trí. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Người lớn: 2,5-20 mcg/kg/phút. Khởi đầu 2,5-5 mcg/kg/phút, tăng dần mỗi 5-10 phút.", lieutoida: "20 mcg/kg/phút.", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2,5-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA tâm thu >100 ổn định, hết sốc. Giảm 25-50% mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nhanh, HA tâm thu >180, nhịp tim >140. ⚠️ MỤC TIÊU HA: 90-110 mmHg (sốc tim); 100-120 nếu THA mạn. ⚠️ SUY THẬN/GAN: Không cần chỉnh liều. ⚠️ Tác dụng phụ: Nhịp nhanh, loạn nhịp, đau ngực." }},
-                            { title: "Dopamin", desc: "Truyền TM liên tục. Liều 2-20 mcg/kg/phút.", tag: "Vận mạch",
-                              detail: { chidinh: "Sốc tim, sốc nhiễm khuẩn. Suy tim cấp có hạ HA. Hạ HA nặng có giảm tưới máu. Nhịp chậm có triệu chứng (liều thấp).", chongchidinh: "U tủy thượng thận. Nhịp nhanh thất chưa xử trí. Loạn nhịp nhanh. Suy tim sung huyết chưa kiểm soát. Hẹp van ĐM chủ nặng.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 10 phút. T1/2 ~2 phút.", lieu: "Liều thấp (1-5): Tăng tưới máu thận. Trung bình (5-10): Tăng co bóp. Cao (10-20): Co mạch ngoại biên.", lieutoida: "50 mcg/kg/phút (rất hiếm).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: HA tâm thu <90, nước tiểu <0,5 mL/kg/h, lactate tăng. Tăng 2-5 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm 25% mỗi 30 phút. ⚠️ NGƯNG TẠM: Nhịp nhanh >140, loạn nhịp, hoại tử đầu chi. ⚠️ MỤC TIÊU HA: 90-110 (sốc tim), 65 (MAP sốc nhiễm khuẩn). ⚠️ Tác dụng phụ: Loạn nhịp, nhịp nhanh, hoại tử đầu chi." }},
-                            { title: "Noradrenaline (Norepinephrine)", desc: "Truyền TM liên tục. Liều 0,05-3 mcg/kg/phút.", tag: "Vận mạch",
-                              detail: { chidinh: "Sốc nhiễm khuẩn (ưu tiên số 1). Sốc tim nếu HA tâm thu <70 kèm tưới máu kém. Sốc phản vệ (sau Adrenaline). Hạ HA do giãn mạch khi gây mê. Hội chứng gan thận type 1.", chongchidinh: "Hạ HA do giảm thể tích chưa bù dịch. Huyết khối mạc treo/ngoại biên. Nhịp nhanh thất. Loạn nhịp nhanh chưa kiểm soát.", dduochoc: "Khởi phát 1-2 phút. Đạt đỉnh 5-10 phút. T1/2 ~2,5 phút.", lieu: "Người lớn: 0,05-3 mcg/kg/phút. Khởi đầu 0,05-0,1, tăng dần. Trẻ em: 0,05-0,1 (tối đa 2).", lieutoida: "3,3 mcg/kg/phút (thực tế ít khi >1-2).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: MAP <65 hoặc <mục tiêu. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO DỪNG TĂNG: MAP 65-70 (sốc nhiễm khuẩn), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ KHI NÀO NGƯNG: MAP ≥65 ổn định 6-12 giờ. Giảm 0,05 mcg/kg/phút mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, hoại tử đầu chi, MAP >120. ⚠️ MỤC TIÊU HA: MAP 65-70 (SSC 2021), 80-90 (THA mạn), 100-110 (bệnh mạch vành). ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }},
-                            { title: "Adrenaline (Epinephrine)", desc: "Sốc phản vệ: 0,5mg TB mặt trước đùi. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", tag: "Vận mạch",
-                              detail: { chidinh: "Sốc phản vệ (thuốc đầu tay). Ngừng tim (CPR). Sốc tim nặng, sốc nhiễm khuẩn kháng trị. Phối hợp gây tê tại chỗ. Cơn hen nặng kháng trị.", chongchidinh: "Không có chống chỉ định tuyệt đối trong cấp cứu ngừng tim và sốc phản vệ. Thận trọng: bệnh tim thiếu máu, loạn nhịp nặng, cường giáp.", dduochoc: "Tiêm bắp: Khởi phát 3-5 phút. Tiêm TM: 30 giây. T1/2 ~2 phút.", lieu: "Sốc phản vệ: 0,5mg TB mặt trước đùi, lặp lại sau 5-15 phút. Ngừng tim: 1mg TM mỗi 3-5 phút. Truyền TM: 0,01-0,5 mcg/kg/phút.", lieutoida: "Không giới hạn trong CPR. Truyền TM: 0,5 mcg/kg/phút (có thể tăng 1 nếu kháng trị).", luuy: "⚠️ KHI NÀO TĂNG LIỀU: Sốc phản vệ sau 2 lần TB không cải thiện → truyền TM. Sốc tim MAP <65 dù Noradrenaline liều cao → thêm Adrenaline. Tăng 0,05-0,1 mcg/kg/phút mỗi 5-10 phút. ⚠️ KHI NÀO NGƯNG: HA ổn định, hết sốc. Giảm mỗi 30 phút. ⚠️ NGƯNG TẠM: Loạn nhịp nặng, thiếu máu cơ tim, MAP >120. ⚠️ MỤC TIÊU HA: Sốc phản vệ HA tâm thu ≥90, hết khó thở. CPR không đặt mục tiêu HA. Sốc tim MAP 65-70. ⚠️ TRUYỀN QUA ĐƯỜNG TRUNG TÂM." }}
-                        ]
-                    },
-                    {
-                        name: "Kháng sinh ICU (Long An)",
-                        icon: "fa-syringe",
-                        items: [
-                            { title: "Amoxicillin", desc: "Kháng sinh beta-lactam, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, da/mô mềm, viêm nội tâm mạc, viêm màng não do vi khuẩn nhạy cảm.", chongchidinh: "Dị ứng penicillin. Tăng bạch cầu đơn nhân nhiễm trùng.", dduochoc: "Hấp thu tốt qua đường uống. Thải trừ chủ yếu qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 8h (uống) hoặc 1g mỗi 6-8h (TM). Trẻ em: 25-50 mg/kg/ngày chia 3 lần.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều." }},
-                            { title: "Piperacillin–Tazobactam", desc: "Kháng sinh phổ rộng, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn ổ bụng có biến chứng, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng penicillin hoặc cephalosporin. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM, phân bố rộng. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều chuẩn: 3,375g mỗi 6 giờ. Nhiễm trùng nặng: 4,5g mỗi 6 giờ.", lieutoida: "18g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >40 không chỉnh. CrCl 20-40: 2,25g mỗi 6h (NT nặng 3,375g). CrCl <20: 2,25g mỗi 8h (NT nặng 2,25g mỗi 6h). ⚠️ SUY GAN: Thận trọng." }},
-                            { title: "Ceftriaxone", desc: "Cephalosporin thế hệ 3, không cần chỉnh liều theo CrCl.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm màng não, viêm phổi, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, bệnh lậu.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin. Trẻ sơ sinh vàng da. Phụ nữ có thai 3 tháng cuối.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận và mật. T1/2 ~6-9 giờ.", lieu: "Người lớn: 1-2g mỗi 12-24 giờ. Viêm màng não: 2g mỗi 12 giờ. Trẻ em: 50-75 mg/kg/ngày.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Không pha với dung dịch chứa Calci." }},
-                            { title: "Ceftazidime", desc: "Cephalosporin thế hệ 3, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1,5-2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh. CrCl 30-50: 1-2g mỗi 12h. CrCl 16-30: 1-2g mỗi 24h. CrCl 6-15: 0,5-1g mỗi 24h. CrCl <5: 0,5g mỗi 24h. ⚠️ SUY GAN: Không cần chỉnh liều." }},
-                            { title: "Cefoperazone + Sulbactam", desc: "Kháng sinh phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml x2 TTM XXX giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin hoặc sulbactam. Tiền sử sốc phản vệ với beta-lactam. Suy gan nặng.", dduochoc: "Thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 1-2g mỗi 12 giờ.", lieutoida: "4g/ngày (nếu GFR <18).", luuy: "⚠️ SUY THẬN: GFR <18 → <4g/ngày. ⚠️ SUY GAN: GIẢM LIỀU, thận trọng cao. ⚠️ Nguy cơ chảy máu do giảm prothrombin." }},
-                            { title: "Cefepime", desc: "Cephalosporin thế hệ 4, phổ rộng. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn da/mô mềm, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8-12 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Liều 1-2g/12h: CrCl >60 không chỉnh, 30-60 dùng 1-2g/24h, 11-29 dùng 0,5-1g/24h, <11 dùng 0,25-0,5g/24h. Liều 2g/8h: CrCl >60 không chỉnh, 30-60 dùng 2g/12h, 11-29 dùng 2g/24h, <11 dùng 1g/24h. ⚠️ SUY GAN: Không cần chỉnh liều." }},
-                            { title: "Imipenem", desc: "Kháng sinh carbapenem, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ hoặc 1g mỗi 8 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <70 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ co giật." }},
-                            { title: "Meropenem", desc: "Carbapenem phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM X giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: viêm màng não, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn ổ bụng, nhiễm khuẩn tiết niệu phức tạp, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều tải: 3g/ngày (tối đa 6g/ngày). Liều chuẩn: 1g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh, 26-50 dùng 1g/12h, 10-25 dùng 0,5g/12h, <10 dùng 0,5g/24h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ co giật." }},
-                            { title: "Amikacin", desc: "Aminoglycoside, có độc tính thận và tai. Cần chỉnh liều theo CrCl.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn nặng do Gram âm hiếu khí: nhiễm khuẩn huyết, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng aminoglycoside. Nhược cơ nặng. Suy thận nặng. Mất thính lực.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 15-20 mg/kg mỗi 24 giờ.", lieutoida: "1,5g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >60 không chỉnh, 40-60 dùng 15 mg/kg/36h, 30-40 dùng 15 mg/kg/48h, <30 KHÔNG KHUYẾN CÁO. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi chức năng thận và thính lực." }},
-                            { title: "Ciprofloxacin", desc: "Fluoroquinolone. Y lệnh: 1 chai (400mg) TTM XXX giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn tiết niệu, viêm tuyến tiền liệt, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm, viêm phổi bệnh viện, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Tiêm TM. Thải trừ qua thận và gan. T1/2 ~4 giờ.", lieu: "Người lớn: 400mg mỗi 8-12 giờ.", lieutoida: "1200mg/ngày (TM).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
-                            { title: "Levofloxacin", desc: "Fluoroquinolone. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%. Thải trừ qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 500-750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ viêm gân, kéo dài QT." }},
-                            { title: "Moxifloxacin", desc: "Fluoroquinolone thế hệ 4. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng có biến chứng.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân. Kéo dài QT.", dduochoc: "Sinh khả dụng TM ~90%. Thải trừ qua gan và thận. T1/2 ~12 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ kéo dài QT." }},
-                            { title: "Azithromycin", desc: "Macrolide, tác dụng trên vi khuẩn không điển hình. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm phế quản, nhiễm khuẩn da/mô mềm, nhiễm Chlamydia, Mycoplasma.", chongchidinh: "Dị ứng macrolide. Suy gan nặng.", dduochoc: "Sinh khả dụng uống ~37%. Thải trừ qua mật. T1/2 ~68 giờ.", lieu: "Người lớn: 500mg/ngày x 3 ngày hoặc 500mg ngày 1 rồi 250mg ngày 2-5.", lieutoida: "500mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Kéo dài QT." }},
-                            { title: "Clarithromycin", desc: "Macrolide, ức chế CYP3A4. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Viêm phổi cộng đồng, viêm xoang, nhiễm khuẩn da/mô mềm, nhiễm H. pylori (phối hợp).", chongchidinh: "Dị ứng macrolide. Suy gan nặng. Kéo dài QT. Phối hợp với ergotamine.", dduochoc: "Sinh khả dụng ~55%. Thải trừ qua thận và gan. T1/2 ~3-4 giờ.", lieu: "Người lớn: 250-500mg mỗi 12 giờ.", lieutoida: "1g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Ức chế CYP3A4, tương tác nhiều thuốc." }},
-                            { title: "Clindamycin", desc: "Lincosamide, tác dụng trên vi khuẩn kỵ khí và Gram dương. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng, nhiễm khuẩn răng miệng, viêm phổi do vi khuẩn kỵ khí, nhiễm trùng xương khớp.", chongchidinh: "Dị ứng clindamycin. Tiền sử viêm đại tràng giả mạc.", dduochoc: "Sinh khả dụng uống ~90%. Thải trừ qua gan và thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 300-600mg mỗi 6-8 giờ (uống) hoặc 600-900mg mỗi 8 giờ (TM).", lieutoida: "4,8g/ngày (TM).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU nếu suy gan nặng. ⚠️ Nguy cơ viêm đại tràng giả mạc do C. difficile." }},
-                            { title: "Doxycyclin", desc: "Tetracycline phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn hô hấp, nhiễm Chlamydia, Mycoplasma, Rickettsia, sốt mò, viêm tuyến tiền liệt, mụn trứng cá.", chongchidinh: "Dị ứng tetracycline. Phụ nữ có thai/cho con bú. Trẻ <8 tuổi (nguy cơ vàng răng).", dduochoc: "Sinh khả dụng uống ~93%. Thải trừ qua gan và thận. T1/2 ~18-22 giờ.", lieu: "Người lớn: 100mg mỗi 12 giờ ngày 1, sau đó 100mg mỗi 24 giờ.", lieutoida: "200mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Không dùng cho trẻ <8 tuổi và phụ nữ có thai." }},
-                            { title: "Vancomycin", desc: "Glycopeptide, tác dụng trên MRSA. Y lệnh: 1 lọ pha 20ml nước cất + NaCl 0,9% 250ml TTM XXX giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, viêm màng não. Viêm đại tràng giả mạc do C. difficile (uống).", chongchidinh: "Dị ứng vancomycin. Tiền sử điếc. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~4-6 giờ (tăng ở suy thận).", lieu: "Người lớn: 15-20 mg/kg mỗi 8-12 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >100 không chỉnh, >50-100 dùng 15-20 mg/kg/12h, 20-50 dùng 15-20 mg/kg/24h, <20 dùng 15-20 mg/kg/48h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy 15-20 mcg/mL. ⚠️ Độc thận, độc tai." }},
-                            { title: "Teicoplanin", desc: "Glycopeptide, tác dụng trên MRSA. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng teicoplanin. Tiền sử dị ứng vancomycin nặng.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~70-100 giờ.", lieu: "Người lớn: Liều tải 400-800mg mỗi 12 giờ x 3-5 liều, sau đó 400-800mg mỗi 24 giờ.", lieutoida: "800mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (giảm 50% liều duy trì). ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy >10 mcg/mL (nhiễm khuẩn sâu >20)." }},
-                            { title: "Linezolid", desc: "Oxazolidinone, tác dụng trên MRSA và VRE. Y lệnh: 1 lọ (600mg/300ml) TTM XXX giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn do MRSA và VRE: viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn huyết. Viêm phổi cộng đồng do phế cầu kháng thuốc.", chongchidinh: "Dị ứng linezolid. Đang dùng hoặc đã dùng MAOIs trong 2 tuần. Hội chứng carcinoid. THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~5-7 giờ.", lieu: "Người lớn: 600mg mỗi 12 giờ.", lieutoida: "1200mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi công thức máu (giảm tiểu cầu, thiếu máu). ⚠️ Nguy cơ hội chứng serotonin khi dùng chung SSRI." }},
-                            { title: "Metronidazole", desc: "Nitroimidazole, tác dụng trên vi khuẩn kỵ khí và ký sinh trùng. Chưa có y lệnh cụ thể.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn kỵ khí: nhiễm khuẩn ổ bụng, nhiễm khuẩn phụ khoa, nhiễm khuẩn da/mô mềm, viêm đại tràng giả mạc, nhiễm Trichomonas, amip, Giardia.", chongchidinh: "Dị ứng metronidazole. Phụ nữ có thai 3 tháng đầu. Rối loạn thần kinh trung ương nặng.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~8 giờ.", lieu: "Người lớn: 500mg mỗi 8-12 giờ (uống hoặc TM).", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khi suy gan nặng. ⚠️ Không uống rượu khi dùng thuốc." }},
-                            { title: "Colistin", desc: "Polymyxin, tác dụng trên Gram âm đa kháng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM XXX giọt/phút.", tag: "KS ICU",
-                              detail: { chidinh: "Nhiễm khuẩn do Gram âm đa kháng (MDR): Acinetobacter baumannii, Pseudomonas aeruginosa, Klebsiella pneumoniae kháng carbapenem. Viêm phổi thở máy, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng colistin. Nhược cơ nặng. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~3-6 giờ.", lieu: "Người lớn: Liều tải 9 triệu IU, sau đó 4,5 triệu IU mỗi 12 giờ.", lieutoida: "9-12 triệu IU/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ ĐỘC THẬN và ĐỘC THẦN KINH là tác dụng phụ chính. Theo dõi chức năng thận hàng ngày." }}
+                        name: "Thuốc BV Long An",
+                        icon: "fa-hospital-user",
+                        isGroup: true,
+                        subs: [
+                            {
+                                name: "Kháng sinh ICU",
+                                icon: "fa-syringe",
+                                items: [
+                                    { title: "Amoxicillin", desc: "Kháng sinh beta-lactam, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, da/mô mềm, viêm nội tâm mạc, viêm màng não do vi khuẩn nhạy cảm.", chongchidinh: "Dị ứng penicillin. Tăng bạch cầu đơn nhân nhiễm trùng.", dduochoc: "Hấp thu tốt qua đường uống. Thải trừ chủ yếu qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 8h (uống) hoặc 1g mỗi 6-8h (TM). Trẻ em: 25-50 mg/kg/ngày chia 3 lần.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "500mg mỗi 8 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 10-29", dose: "500mg mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl < 10", dose: "500mg mỗi 24 giờ", note: "Giảm mạnh" }
+                                        ]
+                                      }},
+                                    { title: "Piperacillin–Tazobactam", desc: "Kháng sinh phổ rộng, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn ổ bụng có biến chứng, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng penicillin hoặc cephalosporin. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM, phân bố rộng. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều chuẩn: 3,375g mỗi 6 giờ. Nhiễm trùng nặng: 4,5g mỗi 6 giờ.", lieutoida: "18g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >40 không chỉnh. CrCl 20-40: 2,25g mỗi 6h (NT nặng 3,375g). CrCl <20: 2,25g mỗi 8h (NT nặng 2,25g mỗi 6h). ⚠️ SUY GAN: Thận trọng.",
+                                        crcl: [
+                                            { range: "CrCl > 40", dose: "3,375g mỗi 6 giờ (NT nặng 4,5g)", note: "Liều chuẩn" },
+                                            { range: "CrCl 20-40", dose: "2,25g mỗi 6 giờ (NT nặng 3,375g)", note: "Giảm liều" },
+                                            { range: "CrCl < 20", dose: "2,25g mỗi 8 giờ (NT nặng 2,25g mỗi 6h)", note: "Giảm mạnh" }
+                                        ]
+                                      }},
+                                    { title: "Ceftriaxone", desc: "Cephalosporin thế hệ 3, không cần chỉnh liều theo CrCl.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm màng não, viêm phổi, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn ổ bụng, bệnh lậu.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin. Trẻ sơ sinh vàng da. Phụ nữ có thai 3 tháng cuối.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận và mật. T1/2 ~6-9 giờ.", lieu: "Người lớn: 1-2g mỗi 12-24 giờ. Viêm màng não: 2g mỗi 12 giờ. Trẻ em: 50-75 mg/kg/ngày.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Không pha với dung dịch chứa Calci.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "1-2g mỗi 12-24 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Ceftazidime", desc: "Cephalosporin thế hệ 3, có tác dụng trên Pseudomonas. Cần chỉnh liều theo CrCl.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm, viêm màng não.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1,5-2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh. CrCl 30-50: 1-2g mỗi 12h. CrCl 16-30: 1-2g mỗi 24h. CrCl 6-15: 0,5-1g mỗi 24h. CrCl <5: 0,5g mỗi 24h. ⚠️ SUY GAN: Không cần chỉnh liều.",
+                                        crcl: [
+                                            { range: "CrCl > 50", dose: "1-2g mỗi 8 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 30-50", dose: "1-2g mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 16-30", dose: "1-2g mỗi 24 giờ", note: "Giảm mạnh" },
+                                            { range: "CrCl 6-15", dose: "0,5-1g mỗi 24 giờ", note: "Theo dõi sát" },
+                                            { range: "CrCl < 5", dose: "0,5g mỗi 24 giờ", note: "Nguy cơ độc thần kinh" }
+                                        ]
+                                      }},
+                                    { title: "Cefoperazone + Sulbactam", desc: "Kháng sinh phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml x2 TTM XXX giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn hô hấp, tiết niệu, ổ bụng, da/mô mềm, nhiễm khuẩn huyết, viêm màng não.", chongchidinh: "Dị ứng cephalosporin hoặc sulbactam. Tiền sử sốc phản vệ với beta-lactam. Suy gan nặng.", dduochoc: "Thải trừ chủ yếu qua mật (~70%). T1/2 ~2 giờ.", lieu: "Người lớn: 1-2g mỗi 12 giờ.", lieutoida: "4g/ngày (nếu GFR <18).", luuy: "⚠️ SUY THẬN: GFR <18 → <4g/ngày. ⚠️ SUY GAN: GIẢM LIỀU, thận trọng cao. ⚠️ Nguy cơ chảy máu do giảm prothrombin.",
+                                        crcl: [
+                                            { range: "GFR ≥ 18", dose: "1-2g mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "GFR < 18", dose: "Tối đa < 4g/ngày", note: "Giảm liều" }
+                                        ]
+                                      }},
+                                    { title: "Cefepime", desc: "Cephalosporin thế hệ 4, phổ rộng. Cần chỉnh liều theo CrCl.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi bệnh viện, viêm phổi thở máy, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu, nhiễm khuẩn da/mô mềm, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng cephalosporin. Tiền sử sốc phản vệ với penicillin.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~2 giờ.", lieu: "Liều chuẩn: 1-2g mỗi 8-12 giờ. Nhiễm trùng nặng: 2g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: Liều 1-2g/12h: CrCl >60 không chỉnh, 30-60 dùng 1-2g/24h, 11-29 dùng 0,5-1g/24h, <11 dùng 0,25-0,5g/24h. Liều 2g/8h: CrCl >60 không chỉnh, 30-60 dùng 2g/12h, 11-29 dùng 2g/24h, <11 dùng 1g/24h. ⚠️ SUY GAN: Không cần chỉnh liều.",
+                                        crcl: [
+                                            { range: "CrCl > 60", dose: "2g mỗi 8 giờ (hoặc 1-2g mỗi 12h)", note: "Liều chuẩn" },
+                                            { range: "CrCl 30-60", dose: "2g mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 11-29", dose: "2g mỗi 24 giờ", note: "Giảm mạnh" },
+                                            { range: "CrCl < 11", dose: "1g mỗi 24 giờ", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Imipenem", desc: "Kháng sinh carbapenem, phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: nhiễm khuẩn ổ bụng, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn tiết niệu phức tạp, nhiễm khuẩn da/mô mềm nặng.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Người lớn: 500mg mỗi 6 giờ hoặc 1g mỗi 8 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <70 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ co giật.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 70", dose: "500mg mỗi 6 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 50-69", dose: "500mg mỗi 8 giờ", note: "Giảm tần suất nhẹ" },
+                                            { range: "CrCl 30-49", dose: "500mg mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 15-29", dose: "250mg mỗi 12 giờ", note: "Giảm liều" },
+                                            { range: "CrCl < 15", dose: "Không khuyến cáo", note: "Nguy cơ co giật cao" }
+                                        ]
+                                      }},
+                                    { title: "Meropenem", desc: "Carbapenem phổ rộng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM X giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn nặng đa kháng: viêm màng não, viêm phổi bệnh viện, nhiễm khuẩn huyết, nhiễm khuẩn ổ bụng, nhiễm khuẩn tiết niệu phức tạp, sốt giảm bạch cầu trung tính.", chongchidinh: "Dị ứng carbapenem. Tiền sử sốc phản vệ với beta-lactam.", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~1 giờ.", lieu: "Liều tải: 3g/ngày (tối đa 6g/ngày). Liều chuẩn: 1g mỗi 8 giờ.", lieutoida: "6g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >50 không chỉnh, 26-50 dùng 1g/12h, 10-25 dùng 0,5g/12h, <10 dùng 0,5g/24h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ co giật.",
+                                        crcl: [
+                                            { range: "CrCl > 50", dose: "1g mỗi 8 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 26-50", dose: "1g mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-25", dose: "0,5g mỗi 12 giờ", note: "Giảm liều" },
+                                            { range: "CrCl < 10", dose: "0,5g mỗi 24 giờ", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Amikacin", desc: "Aminoglycoside, có độc tính thận và tai. Cần chỉnh liều theo CrCl.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn nặng do Gram âm hiếu khí: nhiễm khuẩn huyết, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu phức tạp.", chongchidinh: "Dị ứng aminoglycoside. Nhược cơ nặng. Suy thận nặng. Mất thính lực.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 15-20 mg/kg mỗi 24 giờ.", lieutoida: "1,5g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >60 không chỉnh, 40-60 dùng 15 mg/kg/36h, 30-40 dùng 15 mg/kg/48h, <30 KHÔNG KHUYẾN CÁO. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi chức năng thận và thính lực.",
+                                        crcl: [
+                                            { range: "CrCl > 60", dose: "15-20 mg/kg mỗi 24 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 40-60", dose: "15 mg/kg mỗi 36 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 30-40", dose: "15 mg/kg mỗi 48 giờ", note: "Giảm mạnh" },
+                                            { range: "CrCl < 30", dose: "KHÔNG KHUYẾN CÁO", note: "Nguy cơ độc thận, độc tai cao" }
+                                        ]
+                                      }},
+                                    { title: "Ciprofloxacin", desc: "Fluoroquinolone. Y lệnh: 1 chai (400mg) TTM XXX giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn tiết niệu, viêm tuyến tiền liệt, nhiễm khuẩn ổ bụng, nhiễm khuẩn da/mô mềm, viêm phổi bệnh viện, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân do quinolone.", dduochoc: "Tiêm TM. Thải trừ qua thận và gan. T1/2 ~4 giờ.", lieu: "Người lớn: 400mg mỗi 8-12 giờ.", lieutoida: "1200mg/ngày (TM).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ viêm gân, kéo dài QT.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "400mg mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl < 30", dose: "400mg mỗi 24 giờ", note: "Giảm tần suất" }
+                                        ]
+                                      }},
+                                    { title: "Levofloxacin", desc: "Fluoroquinolone. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn tiết niệu có biến chứng, viêm tuyến tiền liệt.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú.", dduochoc: "Sinh khả dụng TM ~99%. Thải trừ qua thận. T1/2 ~6-8 giờ.", lieu: "Người lớn: 500-750mg mỗi 24 giờ.", lieutoida: "750mg/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Nguy cơ viêm gân, kéo dài QT.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "500-750mg mỗi 24 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 20-49", dose: "500-750mg mỗi 48 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 10-19", dose: "500mg mỗi 48 giờ", note: "Giảm liều + tần suất" },
+                                            { range: "CrCl < 10", dose: "500mg mỗi 48 giờ", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Moxifloxacin", desc: "Fluoroquinolone thế hệ 4. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng có biến chứng.", chongchidinh: "Dị ứng quinolone. <18 tuổi. Phụ nữ có thai/cho con bú. Tiền sử viêm gân. Kéo dài QT.", dduochoc: "Sinh khả dụng TM ~90%. Thải trừ qua gan và thận. T1/2 ~12 giờ.", lieu: "Người lớn: 400mg mỗi 24 giờ.", lieutoida: "400mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Nguy cơ kéo dài QT.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "400mg mỗi 24 giờ", note: "Không cần chỉnh liều (thải qua gan)" }
+                                        ]
+                                      }},
+                                    { title: "Azithromycin", desc: "Macrolide, tác dụng trên vi khuẩn không điển hình. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm phế quản, nhiễm khuẩn da/mô mềm, nhiễm Chlamydia, Mycoplasma.", chongchidinh: "Dị ứng macrolide. Suy gan nặng.", dduochoc: "Sinh khả dụng uống ~37%. Thải trừ qua mật. T1/2 ~68 giờ.", lieu: "Người lớn: 500mg/ngày x 3 ngày hoặc 500mg ngày 1 rồi 250mg ngày 2-5.", lieutoida: "500mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: Thận trọng. ⚠️ Kéo dài QT.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "500mg/ngày (không cần chỉnh)", note: "Thải trừ qua mật" }
+                                        ]
+                                      }},
+                                    { title: "Clarithromycin", desc: "Macrolide, ức chế CYP3A4. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Viêm phổi cộng đồng, viêm xoang, nhiễm khuẩn da/mô mềm, nhiễm H. pylori (phối hợp).", chongchidinh: "Dị ứng macrolide. Suy gan nặng. Kéo dài QT. Phối hợp với ergotamine.", dduochoc: "Sinh khả dụng ~55%. Thải trừ qua thận và gan. T1/2 ~3-4 giờ.", lieu: "Người lớn: 250-500mg mỗi 12 giờ.", lieutoida: "1g/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 mL/phút. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Ức chế CYP3A4, tương tác nhiều thuốc.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "250-500mg mỗi 12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl < 30", dose: "Giảm 50% liều", note: "Theo dõi sát" }
+                                        ]
+                                      }},
+                                    { title: "Clindamycin", desc: "Lincosamide, tác dụng trên vi khuẩn kỵ khí và Gram dương. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn da/mô mềm, nhiễm khuẩn ổ bụng, nhiễm khuẩn răng miệng, viêm phổi do vi khuẩn kỵ khí, nhiễm trùng xương khớp.", chongchidinh: "Dị ứng clindamycin. Tiền sử viêm đại tràng giả mạc.", dduochoc: "Sinh khả dụng uống ~90%. Thải trừ qua gan và thận. T1/2 ~2-3 giờ.", lieu: "Người lớn: 300-600mg mỗi 6-8 giờ (uống) hoặc 600-900mg mỗi 8 giờ (TM).", lieutoida: "4,8g/ngày (TM).", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU nếu suy gan nặng. ⚠️ Nguy cơ viêm đại tràng giả mạc do C. difficile.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "300-600mg mỗi 6-8 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Doxycyclin", desc: "Tetracycline phổ rộng. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn hô hấp, nhiễm Chlamydia, Mycoplasma, Rickettsia, sốt mò, viêm tuyến tiền liệt, mụn trứng cá.", chongchidinh: "Dị ứng tetracycline. Phụ nữ có thai/cho con bú. Trẻ <8 tuổi (nguy cơ vàng răng).", dduochoc: "Sinh khả dụng uống ~93%. Thải trừ qua gan và thận. T1/2 ~18-22 giờ.", lieu: "Người lớn: 100mg mỗi 12 giờ ngày 1, sau đó 100mg mỗi 24 giờ.", lieutoida: "200mg/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU. ⚠️ Không dùng cho trẻ <8 tuổi và phụ nữ có thai.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "100mg mỗi 12-24 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Vancomycin", desc: "Glycopeptide, tác dụng trên MRSA. Y lệnh: 1 lọ pha 20ml nước cất + NaCl 0,9% 250ml TTM XXX giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, viêm màng não. Viêm đại tràng giả mạc do C. difficile (uống).", chongchidinh: "Dị ứng vancomycin. Tiền sử điếc. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~4-6 giờ (tăng ở suy thận).", lieu: "Người lớn: 15-20 mg/kg mỗi 8-12 giờ.", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: CrCl >100 không chỉnh, >50-100 dùng 15-20 mg/kg/12h, 20-50 dùng 15-20 mg/kg/24h, <20 dùng 15-20 mg/kg/48h. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy 15-20 mcg/mL. ⚠️ Độc thận, độc tai.",
+                                        crcl: [
+                                            { range: "CrCl > 100", dose: "15-20 mg/kg mỗi 8-12 giờ", note: "Liều chuẩn" },
+                                            { range: "CrCl 50-100", dose: "15-20 mg/kg mỗi 12 giờ", note: "Giảm tần suất" },
+                                            { range: "CrCl 20-50", dose: "15-20 mg/kg mỗi 24 giờ", note: "Giảm mạnh" },
+                                            { range: "CrCl < 20", dose: "15-20 mg/kg mỗi 48 giờ", note: "Theo dõi nồng độ đáy" }
+                                        ]
+                                      }},
+                                    { title: "Teicoplanin", desc: "Glycopeptide, tác dụng trên MRSA. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn do MRSA: viêm phổi bệnh viện, nhiễm khuẩn huyết, viêm nội tâm mạc, nhiễm khuẩn xương khớp, nhiễm khuẩn da/mô mềm.", chongchidinh: "Dị ứng teicoplanin. Tiền sử dị ứng vancomycin nặng.", dduochoc: "Tiêm TM hoặc TB. Thải trừ qua thận. T1/2 ~70-100 giờ.", lieu: "Người lớn: Liều tải 400-800mg mỗi 12 giờ x 3-5 liều, sau đó 400-800mg mỗi 24 giờ.", lieutoida: "800mg/ngày (duy trì).", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <30 (giảm 50% liều duy trì). ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi nồng độ đáy >10 mcg/mL (nhiễm khuẩn sâu >20).",
+                                        crcl: [
+                                            { range: "CrCl ≥ 30", dose: "Liều chuẩn (400-800mg/ngày)", note: "Sau liều tải" },
+                                            { range: "CrCl < 30", dose: "Giảm 50% liều duy trì", note: "Theo dõi nồng độ đáy" }
+                                        ]
+                                      }},
+                                    { title: "Linezolid", desc: "Oxazolidinone, tác dụng trên MRSA và VRE. Y lệnh: 1 lọ (600mg/300ml) TTM XXX giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn do MRSA và VRE: viêm phổi bệnh viện, nhiễm khuẩn da/mô mềm, nhiễm khuẩn huyết. Viêm phổi cộng đồng do phế cầu kháng thuốc.", chongchidinh: "Dị ứng linezolid. Đang dùng hoặc đã dùng MAOIs trong 2 tuần. Hội chứng carcinoid. THA nặng không kiểm soát.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~5-7 giờ.", lieu: "Người lớn: 600mg mỗi 12 giờ.", lieutoida: "1200mg/ngày.", luuy: "⚠️ SUY THẬN: KHÔNG cần chỉnh liều. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ Theo dõi công thức máu (giảm tiểu cầu, thiếu máu). ⚠️ Nguy cơ hội chứng serotonin khi dùng chung SSRI.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "600mg mỗi 12 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Metronidazole", desc: "Nitroimidazole, tác dụng trên vi khuẩn kỵ khí và ký sinh trùng. Chưa có y lệnh cụ thể.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn kỵ khí: nhiễm khuẩn ổ bụng, nhiễm khuẩn phụ khoa, nhiễm khuẩn da/mô mềm, viêm đại tràng giả mạc, nhiễm Trichomonas, amip, Giardia.", chongchidinh: "Dị ứng metronidazole. Phụ nữ có thai 3 tháng đầu. Rối loạn thần kinh trung ương nặng.", dduochoc: "Sinh khả dụng uống ~100%. Thải trừ qua gan và thận. T1/2 ~8 giờ.", lieu: "Người lớn: 500mg mỗi 8-12 giờ (uống hoặc TM).", lieutoida: "4g/ngày.", luuy: "⚠️ SUY THẬN: Không cần chỉnh liều. ⚠️ SUY GAN: GIẢM LIỀU khi suy gan nặng. ⚠️ Không uống rượu khi dùng thuốc.",
+                                        crcl: [
+                                            { range: "Mọi mức CrCl", dose: "500mg mỗi 8-12 giờ", note: "Không cần chỉnh liều" }
+                                        ]
+                                      }},
+                                    { title: "Colistin", desc: "Polymyxin, tác dụng trên Gram âm đa kháng. Y lệnh: 1 lọ pha NaCl 0,9% 100ml TTM XXX giọt/phút.", tag: "KS Long An",
+                                      detail: { chidinh: "Nhiễm khuẩn do Gram âm đa kháng (MDR): Acinetobacter baumannii, Pseudomonas aeruginosa, Klebsiella pneumoniae kháng carbapenem. Viêm phổi thở máy, nhiễm khuẩn huyết.", chongchidinh: "Dị ứng colistin. Nhược cơ nặng. Suy thận nặng (thận trọng).", dduochoc: "Tiêm TM. Thải trừ qua thận. T1/2 ~3-6 giờ.", lieu: "Người lớn: Liều tải 9 triệu IU, sau đó 4,5 triệu IU mỗi 12 giờ.", lieutoida: "9-12 triệu IU/ngày.", luuy: "⚠️ SUY THẬN: GIẢM LIỀU khi CrCl <50 mL/phút. ⚠️ SUY GAN: Không cần chỉnh liều. ⚠️ ĐỘC THẬN và ĐỘC THẦN KINH là tác dụng phụ chính. Theo dõi chức năng thận hàng ngày.",
+                                        crcl: [
+                                            { range: "CrCl ≥ 50", dose: "4,5 triệu IU mỗi 12 giờ", note: "Liều chuẩn (sau tải 9 triệu IU)" },
+                                            { range: "CrCl 30-49", dose: "3 triệu IU mỗi 12 giờ", note: "Giảm liều" },
+                                            { range: "CrCl 10-29", dose: "2,5 triệu IU mỗi 12 giờ", note: "Giảm mạnh" },
+                                            { range: "CrCl < 10", dose: "1,5 triệu IU mỗi 12 giờ", note: "Theo dõi sát độc thận" }
+                                        ]
+                                      }}
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -425,7 +870,140 @@
                     { name: "eGFR (CKD-EPI)", icon: "fa-kidney", type: "calculator", calc: "egfr" },
                     { name: "CrCl (Cockcroft-Gault)", icon: "fa-flask", type: "calculator", calc: "crcl" },
                     { name: "Bù Natri trong HẠ Natri máu", icon: "fa-droplet", type: "calculator", calc: "nacorr" },
-                    { name: "Bù Natri trong TĂNG Natri máu", icon: "fa-fire", type: "calculator", calc: "nahyper" }
+                    { name: "Bù Natri trong TĂNG Natri máu", icon: "fa-fire", type: "calculator", calc: "nahyper" },
+                    { name: "💉 Pha vận mạch - Bơm tiêm điện", icon: "fa-syringe", type: "calculator", calc: "vasopressor" }
+                ]
+            },
+            xetnghiem: {
+                title: "Xét nghiệm",
+                subtitle: "Chọn nhóm xét nghiệm để tra cứu",
+                color: "bg-teal",
+                subs: [
+                    { name: "Công thức máu", icon: "fa-droplet", items: [
+                        { title: "Hồng cầu (RBC)", desc: "Nam: 4,5-5,9 T/L. Nữ: 4,1-5,1 T/L.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá thiếu máu, đa hồng cầu.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↓ thiếu máu, mất máu, suy tủy. ↑ đa hồng cầu, mất nước.", lieu: "Nam: 4,5-5,9 T/L. Nữ: 4,1-5,1 T/L.", lieutoida: "Lưu ý: Thai kỳ giảm nhẹ.", luuy: "⚠️ Thiếu máu: phân loại theo MCV. ⚠️ Đa hồng cầu: nguy cơ huyết khối." }},
+                        { title: "Hemoglobin (Hb)", desc: "Nam: 130-170 g/L. Nữ: 120-150 g/L.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá thiếu máu.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↓ thiếu máu, ↑ đa hồng cầu.", lieu: "Nam: 130-170 g/L. Nữ: 120-150 g/L.", lieutoida: "Lưu ý: Hút thuốc tăng nhẹ.", luuy: "⚠️ Hb <70 g/L: cân nhắc truyền máu. ⚠️ Hb <80 ở BN mạch vành: truyền máu." }},
+                        { title: "Bạch cầu (WBC)", desc: "4-10 G/L.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá nhiễm khuẩn, bệnh máu.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↑ nhiễm khuẩn, leukemia, stress. ↓ giảm BC, suy tủy, virus.", lieu: "4-10 G/L.", lieutoida: "Lưu ý: Thai kỳ tăng nhẹ 10-15.", luuy: "⚠️ BC >20 hoặc <1: nhập viện theo dõi. ⚠️ Neutrophil >70% nghĩ vi khuẩn." }},
+                        { title: "Tiểu cầu (PLT)", desc: "150-400 G/L.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá rối loạn đông máu, xuất huyết.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↓ xuất huyết (Dengue, ITP, DIC). ↑ huyết khối, phản ứng.", lieu: "150-400 G/L.", lieutoida: "Lưu ý: Đa dạng theo tuổi.", luuy: "⚠️ PLT <50: nguy cơ xuất huyết nặng. ⚠️ PLT <20: truyền tiểu cầu. ⚠️ PLT >1000: nguy cơ huyết khối." }},
+                        { title: "Hct (Hematocrit)", desc: "Nam: 0,40-0,50. Nữ: 0,36-0,46.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá mất nước, thiếu máu.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↑ mất nước, sốc. ↓ thiếu máu.", lieu: "Nam: 0,40-0,50. Nữ: 0,36-0,46.", lieutoida: "Lưu ý: Hct ≈ 3x Hb.", luuy: "⚠️ Hct tăng cao trong sốc giảm thể tích." }},
+                        { title: "MCV", desc: "80-100 fL.", tag: "CTM",
+                          detail: { chidinh: "Phân loại thiếu máu.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: <80 thiếu máu nhược sắc (sắt, thalassemia). >100 thiếu máu hồng cầu to (B12, folate).", lieu: "80-100 fL.", lieutoida: "Lưu ý: Trẻ em cao hơn.", luuy: "⚠️ MCV <80: kiểm tra sắt, ferritin. ⚠️ MCV >100: kiểm tra B12, folate, rượu." }},
+                        { title: "MCH", desc: "27-33 pg.", tag: "CTM",
+                          detail: { chidinh: "Đánh giá hồng cầu nhược sắc.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↓ thiếu sắt. ↑ hồng cầu to.", lieu: "27-33 pg.", lieutoida: "Lưu ý: Đi kèm MCV.", luuy: "⚠️ MCH <27: nghĩ thiếu sắt." }},
+                        { title: "MCHC", desc: "320-360 g/L.", tag: "CTM",
+                          detail: { chidinh: "Nồng độ Hb trung bình HC.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: <320 hồng cầu nhược sắc. >360 hồng cầu ưu sắc (bệnh HC hình cầu).", lieu: "320-360 g/L.", lieutoida: "Lưu ý: Đa dạng.", luuy: "⚠️ MCHC >380: bệnh hồng cầu hình cầu di truyền." }}
+                    ]},
+                    { name: "Sinh hóa", icon: "fa-flask", items: [
+                        { title: "Glucose", desc: "Đói: 3,9-5,6 mmol/L. Ngẫu nhiên: <7,8.", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá ĐTĐ, hạ đường huyết.", chongchidinh: "Không áp dụng.", dduochoc: "Ý nghĩa: ↑ ĐTĐ, stress. ↓ hạ đường huyết.", lieu: "Đói: 3,9-5,6 mmol/L (70-100 mg/dL).", lieutoida: "Lưu ý: >7 mmol/L đói 2 lần = ĐTĐ.", luuy: "⚠️ <2,8: hôn mê. ⚠️ >13,9: toan ceton, HHS." }},
+                        { title: "Ure (BUN)", desc: "2,5-7,5 mmol/L (7-20 mg/dL).", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá chức năng thận, mất nước.", chongchidinh: "Không áp dụng.", dduochoc: "↑ suy thận, mất nước, xuất huyết tiêu hóa, dùng corticoid. ↓ suy gan, thai kỳ.", lieu: "2,5-7,5 mmol/L.", lieutoida: "Lưu ý: Ure/BUN thay đổi theo chế độ ăn.", luuy: "⚠️ Ure tăng + Creatinin bình thường: nghĩ mất nước hoặc XHTH." }},
+                        { title: "Creatinin", desc: "Nam: 62-106 µmol/L. Nữ: 44-80 µmol/L.", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá chức năng thận.", chongchidinh: "Không áp dụng.", dduochoc: "↑ suy thận, tắc nghẽn. ↓ suy gan, teo cơ.", lieu: "Nam: 62-106 µmol/L (0,7-1,2 mg/dL). Nữ: 44-80 µmol/L (0,5-0,9 mg/dL).", lieutoida: "Lưu ý: Khác chủng tộc.", luuy: "⚠️ Tăng 0,3 mg/dL trong 48h: AKI. ⚠️ Dùng để tính eGFR, CrCl." }},
+                        { title: "AST (SGOT)", desc: "Nam: <40 U/L. Nữ: <32 U/L.", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá tổn thương gan, cơ tim.", chongchidinh: "Không áp dụng.", dduochoc: "↑ tổn thương gan, NMCT, tiêu cơ, rượu.", lieu: "Nam: <40 U/L. Nữ: <32 U/L.", lieutoida: "Lưu ý: AST tăng khi tập nặng.", luuy: "⚠️ AST/ALT >2: nghĩ do rượu. <1: nghĩ virus, gan nhiễm mỡ." }},
+                        { title: "ALT (SGPT)", desc: "Nam: <41 U/L. Nữ: <33 U/L.", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá tổn thương gan.", chongchidinh: "Không áp dụng.", dduochoc: "↑ viêm gan, gan nhiễm mỡ, thuốc.", lieu: "Nam: <41 U/L. Nữ: <33 U/L.", lieutoida: "Lưu ý: Đặc hiệu gan hơn AST.", luuy: "⚠️ ALT >1000: nghĩ viêm gan cấp, ngộ độc paracetamol." }},
+                        { title: "Bilirubin toàn phần", desc: "5-17 µmol/L (0,3-1,0 mg/dL).", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá vàng da, bệnh gan mật.", chongchidinh: "Không áp dụng.", dduochoc: "↑ vàng da trước gan (tan máu), tại gan (viêm gan), sau gan (tắc mật).", lieu: "5-17 µmol/L.", lieutoida: "Lưu ý: Tăng nhẹ trong hội chứng Gilbert.", luuy: "⚠️ Bilirubin TT >34: vàng da lâm sàng. ⚠️ Bilirubin trực tiếp tăng: tắc mật." }},
+                        { title: "Albumin", desc: "35-50 g/L.", tag: "Sinh hóa",
+                          detail: { chidinh: "Đánh giá dinh dưỡng, suy gan, thận.", chongchidinh: "Không áp dụng.", dduochoc: "↓ suy gan, hội chứng thận, suy dinh dưỡng, viêm. ↑ hiếm.", lieu: "35-50 g/L.", lieutoida: "Lưu ý: T1/2 20 ngày.", luuy: "⚠️ Albumin <25: phù, tiên lượng xấu. ⚠️ Dùng để tính Corrected Ca." }},
+                        { title: "Na⁺", desc: "135-145 mmol/L.", tag: "Điện giải",
+                          detail: { chidinh: "Đánh giá rối loạn điện giải, mất nước.", chongchidinh: "Không áp dụng.", dduochoc: "↓ hạ natri (SIADH, suy tim, xơ gan). ↑ tăng natri (mất nước, đái tháo nhạt).", lieu: "135-145 mmol/L.", lieutoida: "Lưu ý: Phải điều chỉnh từ từ.", luuy: "⚠️ Hạ Na⁺ <120: co giật. ⚠️ Điều chỉnh tăng ≤0,5 mmol/L/giờ." }},
+                        { title: "K⁺", desc: "3,5-5,0 mmol/L.", tag: "Điện giải",
+                          detail: { chidinh: "Đánh giá rối loạn nhịp tim.", chongchidinh: "Không áp dụng.", dduochoc: "↓ mất qua tiêu hóa, thận, kiềm. ↑ suy thận, toan, thuốc.", lieu: "3,5-5,0 mmol/L.", lieutoida: "Lưu ý: K⁺ máu không phản ánh K⁺ toàn cơ thể.", luuy: "⚠️ K⁺ <2,5 hoặc >6,5: nguy cơ loạn nhịp. ⚠️ K⁺ >6,5: cấp cứu." }},
+                        { title: "Cl⁻", desc: "98-107 mmol/L.", tag: "Điện giải",
+                          detail: { chidinh: "Đánh giá toan-kiềm.", chongchidinh: "Không áp dụng.", dduochoc: "↑ toan chuyển hóa tăng Cl. ↓ kiềm chuyển hóa, nôn.", lieu: "98-107 mmol/L.", lieutoida: "Lưu ý: Dùng tính Anion Gap.", luuy: "⚠️ Dùng để phân loại toan chuyển hóa." }},
+                        { title: "Ca²⁺ toàn phần", desc: "2,2-2,6 mmol/L.", tag: "Điện giải",
+                          detail: { chidinh: "Đánh giá hạ canxi, cường cận giáp.", chongchidinh: "Không áp dụng.", dduochoc: "↓ hạ canxi (suy thận, hạ albumin). ↑ cường cận giáp, ung thư.", lieu: "2,2-2,6 mmol/L.", lieutoida: "Lưu ý: Phải điều chỉnh theo albumin.", luuy: "⚠️ Ca²⁺ <1,9: co giật, tetany. ⚠️ Ca²⁺ >3,5: cấp cứu." }}
+                    ]},
+                    { name: "Đông máu", icon: "fa-droplet", items: [
+                        { title: "PT (Prothrombin Time)", desc: "11-13,5 giây.", tag: "Đông máu",
+                          detail: { chidinh: "Đánh giá đường đông máu ngoại sinh.", chongchidinh: "Không áp dụng.", dduochoc: "↑ thiếu vitamin K, suy gan, kháng đông.", lieu: "11-13,5 giây.", lieutoida: "Lưu ý: Thay đổi theo từng labo.", luuy: "⚠️ PT kéo dài: nghĩ thiếu vitamin K, suy gan, DIC." }},
+                        { title: "aPTT", desc: "25-35 giây.", tag: "Đông máu",
+                          detail: { chidinh: "Đánh giá đường đông máu nội sinh.", chongchidinh: "Không áp dụng.", dduochoc: "↑ heparin, hemophilia, kháng thể kháng phospholipid.", lieu: "25-35 giây.", lieutoida: "Lưu ý: Dùng theo dõi heparin.", luuy: "⚠️ aPTT kéo dài gấp 1,5-2,5 lần: đích heparin." }},
+                        { title: "INR", desc: "0,8-1,2.", tag: "Đông máu",
+                          detail: { chidinh: "Theo dõi kháng đông đường uống (Warfarin).", chongchidinh: "Không áp dụng.", dduochoc: "↑ Warfarin, suy gan. ↓ hiếm.", lieu: "0,8-1,2.", lieutoida: "Lưu ý: INR 2-3: đích điều trị kháng đông.", luuy: "⚠️ INR >5: nguy cơ xuất huyết. ⚠️ Dùng Vitamin K để đảo ngược." }},
+                        { title: "Fibrinogen", desc: "2-4 g/L.", tag: "Đông máu",
+                          detail: { chidinh: "Đánh giá DIC, rối loạn đông máu.", chongchidinh: "Không áp dụng.", dduochoc: "↓ DIC, suy gan nặng. ↑ viêm, thai kỳ.", lieu: "2-4 g/L.", lieutoida: "Lưu ý: Cần thiết cho đông máu.", luuy: "⚠️ Fibrinogen <1,5: truyền tủa lạnh (cryoprecipitate)." }},
+                        { title: "D-dimer", desc: "<0,5 mg/L (FEU).", tag: "Đông máu",
+                          detail: { chidinh: "Loại trừ huyết khối (DVT/PE).", chongchidinh: "Không áp dụng.", dduochoc: "↑ DVT, PE, DIC, nhiễm khuẩn, ung thư, thai kỳ.", lieu: "<0,5 mg/L.", lieutoida: "Lưu ý: Độ nhạy cao, độ đặc hiệu thấp.", luuy: "⚠️ D-dimer âm: loại trừ DVT/PE (nguy cơ thấp). ⚠️ D-dimer dương: cần siêu âm/CTPA." }}
+                    ]},
+                    { name: "Khí máu động mạch", icon: "fa-lungs", items: [
+                        { title: "pH", desc: "7,35-7,45.", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá toan-kiềm.", chongchidinh: "Không áp dụng.", dduochoc: "<7,35 toan. >7,45 kiềm.", lieu: "7,35-7,45.", lieutoida: "Lưu ý: Toan hô hấp: PaCO₂ tăng. Toan chuyển hóa: HCO₃⁻ giảm.", luuy: "⚠️ pH <7,20 hoặc >7,60: cấp cứu." }},
+                        { title: "PaO₂", desc: "80-100 mmHg (khí trời).", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá oxy hóa máu.", chongchidinh: "Không áp dụng.", dduochoc: "<60: suy hô hấp. <40: nguy kịch.", lieu: "80-100 mmHg.", lieutoida: "Lưu ý: Giảm theo tuổi.", luuy: "⚠️ PaO₂ <60: thở oxy hoặc thông khí." }},
+                        { title: "PaCO₂", desc: "35-45 mmHg.", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá thông khí.", chongchidinh: "Không áp dụng.", dduochoc: ">45 toan hô hấp (COPD, nhược cơ). <35 kiềm hô hấp (tăng thông khí).", lieu: "35-45 mmHg.", lieutoida: "Lưu ý: Trong COPD mạn, PaCO₂ có thể 50-60 (chấp nhận).", luuy: "⚠️ PaCO₂ >60: hôn mê CO₂." }},
+                        { title: "HCO₃⁻", desc: "22-26 mmol/L.", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá toan-kiềm chuyển hóa.", chongchidinh: "Không áp dụng.", dduochoc: "<22 toan chuyển hóa. >26 kiềm chuyển hóa.", lieu: "22-26 mmol/L.", lieutoida: "Lưu ý: Dùng tính Anion Gap.", luuy: "⚠️ HCO₃⁻ <15: toan nặng, cân nhắc bicarbonate." }},
+                        { title: "Lactate", desc: "0,5-2,2 mmol/L.", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá sốc, giảm tưới máu.", chongchidinh: "Không áp dụng.", dduochoc: ">2: giảm tưới máu. >4: sốc nặng, tiên lượng xấu.", lieu: "0,5-2,2 mmol/L.", lieutoida: "Lưu ý: Đo lại sau 2h để đánh giá đáp ứng.", luuy: "⚠️ Lactate >4: cấp cứu, hồi sức tích cực. ⚠️ Theo dõi độ thanh thải lactate." }},
+                        { title: "BE (Base Excess)", desc: "-2 đến +2.", tag: "Khí máu",
+                          detail: { chidinh: "Đánh giá toan-kiềm chuyển hóa.", chongchidinh: "Không áp dụng.", dduochoc: "<-2 toan chuyển hóa. >+2 kiềm chuyển hóa.", lieu: "-2 đến +2.", lieutoida: "Lưu ý: BE âm nhiều: toan chuyển hóa nặng.", luuy: "⚠️ BE <-6: cần đánh giá nguyên nhân toan." }}
+                    ]},
+                    { name: "Men tim", icon: "fa-heart-pulse", items: [
+                        { title: "Troponin I/T (hs-cTn)", desc: "<14 ng/L (tùy labo).", tag: "Men tim",
+                          detail: { chidinh: "Chẩn đoán NMCT.", chongchidinh: "Không áp dụng.", dduochoc: "↑ NMCT, viêm cơ tim, suy thận, PE.", lieu: "<14 ng/L (hs-cTnT).", lieutoida: "Lưu ý: Đo 0h và 1-3h để loại trừ NMCT.", luuy: "⚠️ Troponin tăng động học: NMCT. ⚠️ Tăng cố định: viêm cơ tim mạn, suy thận." }},
+                        { title: "CK-MB", desc: "<25 U/L.", tag: "Men tim",
+                          detail: { chidinh: "Chẩn đoán NMCT (ít dùng hơn Troponin).", chongchidinh: "Không áp dụng.", dduochoc: "↑ NMCT, tiêu cơ, sau phẫu thuật tim.", lieu: "<25 U/L.", lieutoida: "Lưu ý: Tăng sớm 3-6h sau NMCT.", luuy: "⚠️ CK-MB tăng lại: nghĩ tái NMCT." }},
+                        { title: "NT-proBNP", desc: "<125 pg/mL (<75 tuổi). <450 pg/mL (≥75 tuổi).", tag: "Men tim",
+                          detail: { chidinh: "Chẩn đoán suy tim, khó thở do tim.", chongchidinh: "Không áp dụng.", dduochoc: "↑ suy tim, suy thận, PE, sepsis.", lieu: "<125 pg/mL.", lieutoida: "Lưu ý: Tăng theo tuổi và suy thận.", luuy: "⚠️ NT-proBNP >900: suy tim nặng. ⚠️ Dùng theo dõi điều trị suy tim." }}
+                    ]},
+                    { name: "Nước tiểu", icon: "fa-flask", items: [
+                        { title: "Protein niệu", desc: "Âm tính.", tag: "Nước tiểu",
+                          detail: { chidinh: "Đánh giá bệnh thận.", chongchidinh: "Không áp dụng.", dduochoc: "↑ hội chứng thận, viêm cầu thận, ĐTĐ.", lieu: "Âm tính.", lieutoida: "Lưu ý: Protein niệu 24h >3,5g: hội chứng thận.", luuy: "⚠️ Protein niệu + hồng cầu: viêm cầu thận." }},
+                        { title: "Glucose niệu", desc: "Âm tính.", tag: "Nước tiểu",
+                          detail: { chidinh: "Đánh giá ĐTĐ.", chongchidinh: "Không áp dụng.", dduochoc: "↑ ĐTĐ (khi glucose máu >10 mmol/L).", lieu: "Âm tính.", lieutoida: "Lưu ý: Ngưỡng thận 10 mmol/L.", luuy: "⚠️ Glucose niệu dương: nghĩ ĐTĐ chưa kiểm soát." }},
+                        { title: "Ketone niệu", desc: "Âm tính.", tag: "Nước tiểu",
+                          detail: { chidinh: "Đánh giá toan ceton ĐTĐ.", chongchidinh: "Không áp dụng.", dduochoc: "↑ DKA, đói kéo dài, ăn kiêng.", lieu: "Âm tính.", lieutoida: "Lưu ý: Đo khi glucose >14 mmol/L.", luuy: "⚠️ Ketone + glucose cao: nghĩ DKA." }},
+                        { title: "Tổng phân tích nước tiểu (TPTNT)", desc: "10 thông số.", tag: "Nước tiểu",
+                          detail: { chidinh: "Sàng lọc bệnh thận, nhiễm khuẩn tiết niệu.", chongchidinh: "Không áp dụng.", dduochoc: "Bao gồm: pH, tỷ trọng, protein, glucose, ketone, máu, BC, nitrit, bilirubin, urobilinogen.", lieu: "Tùy chỉ số.", lieutoida: "Lưu ý: Lấy nước tiểu giữa dòng.", luuy: "⚠️ Nitrit + BC cao: nhiễm khuẩn tiết niệu. ⚠️ Máu + protein: viêm cầu thận." }}
+                    ]},
+                    { name: "Vi sinh", icon: "fa-bacteria", items: [
+                        { title: "Cấy máu", desc: "Âm tính. Kết quả sau 24-72h.", tag: "Vi sinh",
+                          detail: { chidinh: "Chẩn đoán nhiễm khuẩn huyết, sốt chưa rõ nguyên nhân.", chongchidinh: "Không áp dụng.", dduochoc: "Lấy 2 cặp (hiếu khí + kỵ khí) trước kháng sinh.", lieu: "Âm tính.", lieutoida: "Lưu ý: Lấy trước kháng sinh 30 phút.", luuy: "⚠️ Cấy dương: điều chỉnh KS theo kháng sinh đồ. ⚠️ Cấy âm nhưng lâm sàng nhiễm khuẩn: vẫn điều trị." }},
+                        { title: "Cấy nước tiểu", desc: "Âm tính (<10^4 CFU/mL).", tag: "Vi sinh",
+                          detail: { chidinh: "Chẩn đoán nhiễm khuẩn tiết niệu.", chongchidinh: "Không áp dụng.", dduochoc: "Lấy nước tiểu giữa dòng, trước kháng sinh.", lieu: "<10^4 CFU/mL.", lieutoida: "Lưu ý: >10^5 CFU/mL: nhiễm khuẩn.", luuy: "⚠️ Nhiễm khuẩn tiết niệu không biến chứng: 3 ngày KS. ⚠️ Có biến chứng: 7-14 ngày." }},
+                        { title: "Procalcitonin (PCT)", desc: "<0,05 ng/mL.", tag: "Vi sinh",
+                          detail: { chidinh: "Phân biệt nhiễm khuẩn và virus. Theo dõi đáp ứng KS.", chongchidinh: "Không áp dụng.", dduochoc: "↑ nhiễm khuẩn nặng, sepsis. Bình thường trong virus.", lieu: "<0,05 ng/mL.", lieutoida: "Lưu ý: <0,5: ít khả năng nhiễm khuẩn. 0,5-2: có thể. >2: nhiễm khuẩn nặng. >10: sốc nhiễm khuẩn.", luuy: "⚠️ PCT >2 + lâm sàng sepsis: KS ngay. ⚠️ PCT giảm 80%: cân nhắc ngừng KS." }}
+                    ]}
+                ]
+            },
+            ichtruyen: {
+                title: "Dịch truyền",
+                subtitle: "Chọn loại dịch để tra cứu thành phần",
+                color: "bg-orange",
+                subs: [
+                    { name: "NaCl 0,9% & 0,45%", icon: "fa-droplet", items: [
+                        { title: "NaCl 0,9%", desc: "Na⁺ 154, Cl⁻ 154 mEq/L. Osmolality 308 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Bù dịch đẳng trương (mất nước, sốc giảm thể tích), pha thuốc, rửa.", chongchidinh: "Tăng natri máu, suy tim nặng, phù phổi.", dduochoc: "Phân bố ngoài tế bào, không vào trong tế bào.", lieu: "Tùy chỉ định. 500-1000ml bolus trong sốc.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Dùng nhiều: toan chuyển hóa tăng Cl. ⚠️ Tránh trong suy tim nặng. ⚠️ Không dùng chung với dịch chứa Calci (Ceftriaxone)." }},
+                        { title: "NaCl 0,45%", desc: "Na⁺ 77, Cl⁻ 77 mEq/L. Osmolality 154 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Bù nước nhược trương (tăng natri máu, tăng đường huyết).", chongchidinh: "Hạ natri máu, phù não.", dduochoc: "Phân bố cả ngoài và trong tế bào.", lieu: "Tùy chỉ định.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Không dùng trong phù não. ⚠️ Nguy cơ hạ natri nếu dùng quá nhiều." }}
+                    ]},
+                    { name: "Ringer Lactate", icon: "fa-droplet", items: [
+                        { title: "Ringer Lactate", desc: "Na⁺ 130, K⁺ 4, Ca²⁺ 3, Cl⁻ 109, Lactate 28 mEq/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Bù dịch đẳng trương (sốc, mất máu, bỏng), cân bằng điện giải tốt hơn NaCl 0,9%.", chongchidinh: "Tăng kali máu, suy thận nặng, toan chuyển hóa nặng.", dduochoc: "Chuyển hóa lactate thành bicarbonate ở gan.", lieu: "Tùy chỉ định.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Tránh ở BN suy gan, tăng kali. ⚠️ Không dùng chung với Ceftriaxone. ⚠️ Không dùng để pha thuốc (trừ khi cho phép)." }}
+                    ]},
+                    { name: "Glucose & ưu trương", icon: "fa-droplet", items: [
+                        { title: "Glucose 5% (D5W)", desc: "Glucose 50 g/L. Không có điện giải. Osmolality 278 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Bù nước tự do (tăng natri máu), năng lượng, pha thuốc.", chongchidinh: "Tăng đường huyết, hạ natri máu.", dduochoc: "Glucose chuyển hóa → nước tự do phân bố cả trong và ngoài tế bào.", lieu: "Tùy chỉ định.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Không dùng trong sốc (chỉ cấp nước tự do). ⚠️ Không phù hợp BN ĐTĐ." }},
+                        { title: "Glucose 10%", desc: "Glucose 100 g/L. Osmolality 556 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Hạ đường huyết, năng lượng cho BN không ăn được.", chongchidinh: "Tăng đường huyết nặng.", dduochoc: "Cấp nước + glucose.", lieu: "Tùy chỉ định.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Theo dõi đường huyết. ⚠️ Truyền qua mạch lớn." }},
+                        { title: "Glucose 30%", desc: "Glucose 300 g/L. Osmolality 1666 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Hạ đường huyết nặng (khi không có Glucose 50%).", chongchidinh: "Tăng đường huyết nặng, xuất huyết nội sọ.", dduochoc: "Cấp glucose nhanh.", lieu: "25-50ml TM chậm khi hạ đường huyết.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Truyền qua mạch lớn. ⚠️ Nguy cơ hoại tử mô nếu truyền ngoài mạch." }},
+                        { title: "NaCl 3%", desc: "Na⁺ 513 mEq/L. Osmolality 1026 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Hạ natri máu có triệu chứng (co giật, hôn mê).", chongchidinh: "Tăng natri máu, suy tim nặng.", dduochoc: "Cấp natri ưu trương, rút nước từ nội bào.", lieu: "100-150ml bolus trong hạ natri có triệu chứng. Sau đó điều chỉnh từ từ.", lieutoida: "Theo dõi Na⁺ mỗi 2-4 giờ.", luuy: "⚠️ Không tăng Na⁺ >10 mEq/L/24h (nguy cơ ODS). ⚠️ Truyền qua mạch lớn." }},
+                        { title: "NaCl 5%", desc: "Na⁺ 855 mEq/L. Osmolality 1710 mOsm/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Hạ natri máu nặng có triệu chứng.", chongchidinh: "Tăng natri máu, suy tim nặng, phù phổi.", dduochoc: "Cấp natri ưu trương mạnh.", lieu: "Rất hiếm dùng. Nếu dùng: 30-60ml bolus.", lieutoida: "Theo dõi sát.", luuy: "⚠️ CHỈ DÙNG QUA ĐƯỜNG TRUNG TÂM. ⚠️ Nguy cơ hủy myelin cầu não nếu tăng Na⁺ quá nhanh." }},
+                        { title: "Albumin 20%", desc: "Albumin 200 g/L.", tag: "Dịch truyền",
+                          detail: { chidinh: "Hạ albumin nặng, xơ gan có cổ trướng, hội chứng thận, bỏng.", chongchidinh: "Suy tim nặng, tăng huyết áp không kiểm soát.", dduochoc: "Tăng áp lực keo, giữ nước trong lòng mạch.", lieu: "Tùy chỉ định. Thường 25-100g/ngày.", lieutoida: "Tùy lâm sàng.", luuy: "⚠️ Truyền chậm, có thể gây phù phổi. ⚠️ Đắt tiền, dùng có chọn lọc." }}
+                    ]}
                 ]
             }
         };
@@ -743,48 +1321,21 @@
                     var sex = v.sex;
                     var na_f = parseFloat(v.fluid);
                     var target = parseFloat(v.target_rate);
-                    
                     if (!na_c || !w || !age || !sex || !na_f || !target) return null;
-                    
                     var factor;
-                    if (sex === "female") {
-                        factor = age >= 65 ? 0.45 : 0.50;
-                    } else {
-                        factor = age >= 65 ? 0.50 : 0.60;
-                    }
+                    if (sex === "female") { factor = age >= 65 ? 0.45 : 0.50; }
+                    else { factor = age >= 65 ? 0.50 : 0.60; }
                     var tbw = w * factor;
-                    
                     var deltaNaPerLiter = (na_f - na_c) / (tbw + 1);
-                    
                     if (deltaNaPerLiter <= 0) {
-                        return {
-                            value: "—",
-                            unit: "mL/giờ",
-                            interpret: "Không thể bù",
-                            level: "high",
-                            note: "⚠️ Dịch truyền có nồng độ Na⁺ thấp hơn hoặc bằng Na⁺ máu. Không thể làm tăng Na⁺ máu. Chọn NaCl 3% hoặc 5%."
-                        };
+                        return { value: "—", unit: "mL/giờ", interpret: "Không thể bù", level: "high", note: "⚠️ Dịch truyền có nồng độ Na⁺ thấp hơn hoặc bằng Na⁺ máu. Không thể làm tăng Na⁺ máu. Chọn NaCl 3% hoặc 5%." };
                     }
-                    
                     var rate = 1000 * (target / deltaNaPerLiter);
-                    
-                    var warning = "";
-                    var level = "low";
-                    
-                    if (target > 1.0) {
-                        level = "high";
-                        warning = "⚠️ NGUY HIỂM: Mục tiêu tăng Na⁺ >1 mEq/L/giờ, nguy cơ hủy myelin cầu não (ODS)!";
-                    } else if (target > 0.5) {
-                        level = "mid";
-                        warning = "⚠️ THẬN TRỌNG: Tốc độ tăng >0.5 mEq/L/giờ. Tối đa 8-10 mEq/L/24h. Theo dõi Na⁺ mỗi 2-4 giờ.";
-                    } else {
-                        warning = "✅ Tốc độ an toàn (≤0.5 mEq/L/giờ). Theo dõi Na⁺ mỗi 4-6 giờ.";
-                    }
-                    
-                    if (rate > 100) {
-                        warning += " ⚠️ Tốc độ truyền khá cao (" + rate.toFixed(1) + " mL/giờ). Kiểm tra lại.";
-                    }
-                    
+                    var warning = ""; var level = "low";
+                    if (target > 1.0) { level = "high"; warning = "⚠️ NGUY HIỂM: Mục tiêu tăng Na⁺ >1 mEq/L/giờ, nguy cơ hủy myelin cầu não (ODS)!"; }
+                    else if (target > 0.5) { level = "mid"; warning = "⚠️ THẬN TRỌNG: Tốc độ tăng >0.5 mEq/L/giờ. Tối đa 8-10 mEq/L/24h. Theo dõi Na⁺ mỗi 2-4 giờ."; }
+                    else { warning = "✅ Tốc độ an toàn (≤0.5 mEq/L/giờ). Theo dõi Na⁺ mỗi 4-6 giờ."; }
+                    if (rate > 100) { warning += " ⚠️ Tốc độ truyền khá cao (" + rate.toFixed(1) + " mL/giờ). Kiểm tra lại."; }
                     var note = "📐 Công thức Adrogué-Madias (HẠ Natri máu):\n\n" +
                                "Bước 1: TBW = " + w + " × " + factor + " = " + tbw.toFixed(1) + " L (hệ số " + factor + " cho " + (sex === "female" ? "nữ" : "nam") + " " + (age >= 65 ? "≥65" : "<65") + " tuổi)\n\n" +
                                "Bước 2: Δ[Na⁺] khi truyền 1 LÍT dịch = [(Na⁺ dịch) − (Na⁺ máu)] / (TBW + 1)\n" +
@@ -796,12 +1347,10 @@
                                "= " + rate.toFixed(1) + " mL/giờ\n\n" +
                                "📊 Mục tiêu: Tăng Na⁺ " + target + " mEq/L/giờ → " + (target * 24).toFixed(1) + " mEq/L/24h.\n\n" +
                                warning;
-                    
                     var interpret;
                     if (target > 1.0) interpret = "Nguy hiểm — ODS";
                     else if (target > 0.5) interpret = "Thận trọng — tăng nhanh";
                     else interpret = "An toàn — theo dõi sát";
-                    
                     return { value: rate.toFixed(1), unit: "mL/giờ", interpret: interpret, level: level, note: note };
                 }
             },
@@ -829,50 +1378,25 @@
                     var na_t = parseFloat(v.na_target);
                     var hrs = parseFloat(v.hours);
                     var na_f = parseFloat(v.fluid);
-                    
                     if (!na_c || !w || !age || !sex || !na_t || !hrs) return null;
                     if (isNaN(na_f)) na_f = 0;
-                    
                     if (na_t >= na_c) {
-                        return {
-                            value: "—",
-                            unit: "mL/giờ",
-                            interpret: "Mục tiêu không hợp lệ",
-                            level: "high",
-                            note: "⚠️ Na⁺ mục tiêu phải NHỎ HƠN Na⁺ hiện tại (đây là bù trong TĂNG Natri máu)."
-                        };
+                        return { value: "—", unit: "mL/giờ", interpret: "Mục tiêu không hợp lệ", level: "high", note: "⚠️ Na⁺ mục tiêu phải NHỎ HƠN Na⁺ hiện tại (đây là bù trong TĂNG Natri máu)." };
                     }
-                    
                     var factor;
-                    if (sex === "female") {
-                        factor = age >= 65 ? 0.45 : 0.50;
-                    } else {
-                        factor = age >= 65 ? 0.50 : 0.60;
-                    }
+                    if (sex === "female") { factor = age >= 65 ? 0.45 : 0.50; }
+                    else { factor = age >= 65 ? 0.50 : 0.60; }
                     var tbw = w * factor;
-                    
                     var fwd = tbw * ((na_c / na_t) - 1);
                     var dropRate = (na_c - na_t) / hrs;
                     var fluidFactor = (na_f - na_c) / (tbw + 1);
-                    
                     var rateLPerHour;
-                    if (fluidFactor === 0) {
-                        rateLPerHour = fwd / hrs;
-                    } else {
-                        rateLPerHour = dropRate / Math.abs(fluidFactor);
-                    }
+                    if (fluidFactor === 0) { rateLPerHour = fwd / hrs; }
+                    else { rateLPerHour = dropRate / Math.abs(fluidFactor); }
                     var rateMlPerHour = rateLPerHour * 1000;
-                    
-                    var warning = "";
-                    var level = "low";
-                    
-                    if (dropRate > 0.5) {
-                        level = "high";
-                        warning = "⚠️ NGUY HIỂM: Tốc độ hạ Na⁺ >0.5 mEq/L/giờ, nguy cơ PHÙ NÃO!";
-                    } else {
-                        warning = "✅ Tốc độ an toàn (≤0.5 mEq/L/giờ). Theo dõi Na⁺ mỗi 2-4 giờ.";
-                    }
-                    
+                    var warning = ""; var level = "low";
+                    if (dropRate > 0.5) { level = "high"; warning = "⚠️ NGUY HIỂM: Tốc độ hạ Na⁺ >0.5 mEq/L/giờ, nguy cơ PHÙ NÃO!"; }
+                    else { warning = "✅ Tốc độ an toàn (≤0.5 mEq/L/giờ). Theo dõi Na⁺ mỗi 2-4 giờ."; }
                     var note = "📐 Công thức Free Water Deficit (TĂNG Natri máu):\n\n" +
                                "Bước 1: TBW = " + w + " × " + factor + " = " + tbw.toFixed(1) + " L (hệ số " + factor + " cho " + (sex === "female" ? "nữ" : "nam") + " " + (age >= 65 ? "≥65" : "<65") + " tuổi)\n\n" +
                                "Bước 2: FWD (Lượng nước thiếu) = TBW × [(Na⁺ hiện tại / Na⁺ mục tiêu) − 1]\n" +
@@ -884,13 +1408,73 @@
                                "Bước 4: Tốc độ truyền dịch = " + rateMlPerHour.toFixed(0) + " mL/giờ\n\n" +
                                "📊 Tổng lượng dịch ≈ " + fwd.toFixed(2) + " L trong " + hrs + " giờ.\n\n" +
                                warning;
-                    
                     var interpret;
                     if (dropRate > 0.5) interpret = "Nguy hiểm — hạ quá nhanh";
                     else interpret = "An toàn — theo dõi sát";
-                    
                     return { value: rateMlPerHour.toFixed(0), unit: "mL/giờ", interpret: interpret, level: level, note: note };
                 }
+            },
+            vasopressor: {
+                name: "💉 Pha vận mạch - Bơm tiêm điện",
+                desc: "Tính nhanh tốc độ bơm tiêm (mL/giờ) và liều thực tế cho các thuốc vận mạch",
+                custom: true,
+                drugs: [
+                    { key: "noradrenaline", name: "Noradrenaline", unit: "mcg/kg/phút", unitType: "kg",
+                      concentrations: [
+                        { label: "4mg/50ml (80 mcg/ml)", value: 80 },
+                        { label: "8mg/50ml (160 mcg/ml)", value: 160 },
+                        { label: "16mg/50ml (320 mcg/ml)", value: 320 },
+                        { label: "20mg/50ml (400 mcg/ml)", value: 400 }
+                      ],
+                      range: "0,05 - 3 mcg/kg/phút" },
+                    { key: "adrenaline", name: "Adrenaline", unit: "mcg/kg/phút", unitType: "kg",
+                      concentrations: [
+                        { label: "1mg/50ml (20 mcg/ml)", value: 20 },
+                        { label: "5mg/50ml (100 mcg/ml)", value: 100 },
+                        { label: "10mg/50ml (200 mcg/ml)", value: 200 }
+                      ],
+                      range: "0,01 - 0,5 mcg/kg/phút" },
+                    { key: "dobutamin", name: "Dobutamin", unit: "mcg/kg/phút", unitType: "kg",
+                      concentrations: [
+                        { label: "250mg/50ml (5000 mcg/ml)", value: 5000 },
+                        { label: "500mg/50ml (10000 mcg/ml)", value: 10000 }
+                      ],
+                      range: "2,5 - 20 mcg/kg/phút" },
+                    { key: "dopamin", name: "Dopamin", unit: "mcg/kg/phút", unitType: "kg",
+                      concentrations: [
+                        { label: "200mg/50ml (4000 mcg/ml)", value: 4000 },
+                        { label: "400mg/50ml (8000 mcg/ml)", value: 8000 }
+                      ],
+                      range: "2 - 20 mcg/kg/phút" },
+                    { key: "milrinone", name: "Milrinone", unit: "mcg/kg/phút", unitType: "kg",
+                      concentrations: [
+                        { label: "20mg/100ml (200 mcg/ml)", value: 200 },
+                        { label: "10mg/50ml (200 mcg/ml)", value: 200 },
+                        { label: "20mg/50ml (400 mcg/ml)", value: 400 }
+                      ],
+                      range: "0,125 - 0,75 mcg/kg/phút" },
+                    { key: "vasopressin", name: "Vasopressin", unit: "UI/giờ", unitType: "fixed",
+                      concentrations: [
+                        { label: "40UI/40ml (1 UI/ml)", value: 1 },
+                        { label: "20UI/50ml (0,4 UI/ml)", value: 0.4 },
+                        { label: "40UI/50ml (0,8 UI/ml)", value: 0.8 }
+                      ],
+                      range: "0,01 - 0,04 UI/phút (= 0,6 - 2,4 UI/giờ)" },
+                    { key: "nitroglycerin", name: "Nitroglycerin", unit: "mcg/phút", unitType: "fixed",
+                      concentrations: [
+                        { label: "10mg/50ml (200 mcg/ml)", value: 200 },
+                        { label: "25mg/50ml (500 mcg/ml)", value: 500 },
+                        { label: "50mg/50ml (1000 mcg/ml)", value: 1000 }
+                      ],
+                      range: "5 - 200 mcg/phút" },
+                    { key: "nicardipine", name: "Nicardipine", unit: "mg/giờ", unitType: "fixed",
+                      concentrations: [
+                        { label: "10mg/50ml (0,2 mg/ml)", value: 0.2 },
+                        { label: "20mg/50ml (0,4 mg/ml)", value: 0.4 },
+                        { label: "25mg/50ml (0,5 mg/ml)", value: 0.5 }
+                      ],
+                      range: "5 - 15 mg/giờ (khởi đầu 5 mg/giờ)" }
+                ]
             }
         };
 
@@ -901,6 +1485,23 @@
         let toolSelections = {};
         let currentCalcKey = null;
         let currentUnit = {};
+        let favorites = JSON.parse(localStorage.getItem('medtools_favorites') || '[]');
+        let currentFavFilter = false;
+
+        function saveFavorites() { localStorage.setItem('medtools_favorites', JSON.stringify(favorites)); }
+        function isFavorite(title) { return favorites.indexOf(title) !== -1; }
+        function toggleFavorite(title, evt) {
+            if (evt) evt.stopPropagation();
+            var idx = favorites.indexOf(title);
+            if (idx === -1) { favorites.push(title); } else { favorites.splice(idx, 1); }
+            saveFavorites();
+            document.querySelectorAll('.fav-btn').forEach(function(btn) {
+                if (btn.dataset.title === title) {
+                    btn.classList.toggle('active');
+                    btn.innerHTML = btn.classList.contains('active') ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+                }
+            });
+        }
 
         function showPage(id) {
             document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
@@ -908,11 +1509,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function goHome() {
-            showPage('page-home');
-            currentCategory = null;
-            currentSub = null;
-        }
+        function goHome() { showPage('page-home'); currentCategory = null; currentSub = null; }
 
         function openCategory(catKey) {
             currentCategory = catKey;
@@ -941,28 +1538,64 @@
             var cat = DATA[currentCategory];
             var sub = cat.subs.find(function(s) { return s.name === subName; });
             if (sub.type === "calculator") { openCalculator(sub.calc); return; }
+            if (sub.isGroup && sub.subs) {
+                document.getElementById('sub-title').textContent = sub.name;
+                document.getElementById('sub-subtitle').textContent = 'Chọn chuyên khoa';
+                document.getElementById('breadcrumb-current').textContent = cat.title + ' → ' + sub.name;
+                var grid = document.getElementById('sub-grid');
+                grid.innerHTML = '';
+                sub.subs.forEach(function(subsub) {
+                    var card = document.createElement('div');
+                    card.className = 'sub-card';
+                    card.onclick = function() { openSubSub(subsub.name); };
+                    card.innerHTML = '<div class="sub-card-icon ' + cat.color + '"><i class="fa-solid ' + subsub.icon + '"></i></div><span>' + subsub.name + '</span>';
+                    grid.appendChild(card);
+                });
+                return;
+            }
             document.getElementById('bc-parent').textContent = cat.title;
             document.getElementById('bc-current').textContent = subName;
             document.getElementById('search-title').textContent = subName;
-            document.getElementById('search-subtitle').textContent = 'Tra cứu ' + sub.items.length + ' mục trong chuyên khoa ' + subName;
+            document.getElementById('search-subtitle').textContent = 'Tra cứu ' + sub.items.length + ' mục';
             document.getElementById('search-input').value = '';
             currentItems = sub.items;
             renderResults(sub.items);
             showPage('page-search');
         }
 
-        function goBack() {
-            if (currentCategory) { openCategory(currentCategory); } else { goHome(); }
+        function openSubSub(subSubName) {
+            var cat = DATA[currentCategory];
+            var group = cat.subs.find(function(s) { return s.isGroup && s.subs.some(function(ss) { return ss.name === subSubName; }); });
+            if (!group) return;
+            var sub = group.subs.find(function(ss) { return ss.name === subSubName; });
+            document.getElementById('bc-parent').textContent = group.name;
+            document.getElementById('bc-current').textContent = subSubName;
+            document.getElementById('search-title').textContent = subSubName;
+            document.getElementById('search-subtitle').textContent = 'Tra cứu ' + sub.items.length + ' mục';
+            document.getElementById('search-input').value = '';
+            currentItems = sub.items;
+            renderResults(sub.items);
+            showPage('page-search');
         }
+
+        function goBack() { if (currentCategory) { openCategory(currentCategory); } else { goHome(); } }
 
         function renderResults(items) {
             var list = document.getElementById('results-list');
-            if (items.length === 0) {
-                list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-magnifying-glass"></i><p>Không tìm thấy kết quả phù hợp</p></div>';
+            var displayItems = items;
+            if (currentFavFilter) {
+                displayItems = items.filter(function(item) { return isFavorite(item.title); });
+            }
+            if (displayItems.length === 0) {
+                if (currentFavFilter) {
+                    list.innerHTML = '<div class="empty-state"><i class="fa-regular fa-star"></i><p>Chưa có mục yêu thích nào</p></div>';
+                } else {
+                    list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-magnifying-glass"></i><p>Không tìm thấy kết quả phù hợp</p></div>';
+                }
                 return;
             }
             var html = '';
-            items.forEach(function(item, idx) {
+            displayItems.forEach(function(item, idx) {
                 var toolBtn = '';
                 if (item.tool) {
                     toolBtn = '<button class="open-tool-btn" onclick="openTool(\'' + item.tool + '\', \'' + item.title.replace(/'/g, "\\'") + '\', event)"><i class="fa-solid fa-calculator"></i> Mở công cụ tính điểm</button>';
@@ -971,6 +1604,16 @@
                 var toggleBtn = '';
                 if (item.detail) {
                     var d = item.detail;
+                    var crclHtml = '';
+                    if (d.crcl && d.crcl.length > 0) {
+                        var rows = '';
+                        d.crcl.forEach(function(r) {
+                            rows += '<tr><td><strong>' + r.range + '</strong></td><td>' + r.dose + '</td><td><em>' + r.note + '</em></td></tr>';
+                        });
+                        crclHtml = '<div class="detail-row" style="flex-direction:column;align-items:flex-start"><span class="detail-label">📊 Chỉnh liều theo CrCl:</span>' +
+                            '<div class="crcl-table"><table><thead><tr><th>CrCl (mL/phút)</th><th>Liều dùng</th><th>Ghi chú</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+                            '<div class="crcl-note">💡 CrCl tính theo công thức Cockcroft-Gault. Xem máy tính CrCl ở mục "Máy tính lâm sàng".</div></div>';
+                    }
                     detailHtml = '<div class="result-detail" id="detail-' + idx + '">' +
                         '<div class="detail-row"><span class="detail-label">Chỉ định:</span><span class="detail-value">' + d.chidinh + '</span></div>' +
                         '<div class="detail-row"><span class="detail-label">Chống chỉ định:</span><span class="detail-value">' + d.chongchidinh + '</span></div>' +
@@ -978,10 +1621,15 @@
                         '<div class="detail-row"><span class="detail-label">Liều dùng:</span><span class="detail-value">' + d.lieu + '</span></div>' +
                         '<div class="detail-row"><span class="detail-label">Liều tối đa/ngày:</span><span class="detail-value">' + d.lieutoida + '</span></div>' +
                         '<div class="detail-row"><span class="detail-label">Lưu ý:</span><span class="detail-value warn">' + d.luuy + '</span></div>' +
+                        crclHtml +
                     '</div>';
                     toggleBtn = '<button class="toggle-detail-btn" onclick="toggleDetail(' + idx + ', event)"><i class="fa-solid fa-chevron-down"></i> Xem chi tiết</button>';
                 }
+                var favActive = isFavorite(item.title);
+                var favIcon = favActive ? 'fa-solid fa-star' : 'fa-regular fa-star';
+                var favClass = favActive ? 'fav-btn active' : 'fav-btn';
                 html += '<div class="result-item' + (item.tool ? ' has-tool' : '') + '">' +
+                            '<button class="' + favClass + '" data-title="' + item.title.replace(/"/g, '&quot;') + '" onclick="toggleFavorite(\'' + item.title.replace(/'/g, "\\'") + '\', event)" title="Đánh dấu yêu thích"><i class="' + favIcon + '"></i></button>' +
                             '<h4>' + item.title + '</h4>' +
                             '<p>' + item.desc + '</p>' +
                             '<span class="tag">' + item.tag + '</span>' +
@@ -1006,16 +1654,21 @@
 
         function handleSearch() {
             var keyword = document.getElementById('search-input').value.toLowerCase().trim();
-            if (keyword === '') { renderResults(currentItems); return; }
-            var filtered = currentItems.filter(function(item) {
-                var inMain = item.title.toLowerCase().includes(keyword) || item.desc.toLowerCase().includes(keyword) || item.tag.toLowerCase().includes(keyword);
-                var inDetail = false;
-                if (item.detail) {
-                    var d = item.detail;
-                    inDetail = (d.chidinh + d.chongchidinh + d.dduochoc + d.lieu + d.lieutoida + d.luuy).toLowerCase().includes(keyword);
-                }
-                return inMain || inDetail;
-            });
+            var filtered = currentItems;
+            if (keyword !== '') {
+                filtered = currentItems.filter(function(item) {
+                    var inMain = item.title.toLowerCase().includes(keyword) || item.desc.toLowerCase().includes(keyword) || item.tag.toLowerCase().includes(keyword);
+                    var inDetail = false;
+                    if (item.detail) {
+                        var d = item.detail;
+                        inDetail = (d.chidinh + d.chongchidinh + d.dduochoc + d.lieu + d.lieutoida + d.luuy).toLowerCase().includes(keyword);
+                    }
+                    return inMain || inDetail;
+                });
+            }
+            if (currentFavFilter) {
+                filtered = filtered.filter(function(item) { return isFavorite(item.title); });
+            }
             renderResults(filtered);
         }
 
@@ -1061,8 +1714,7 @@
 
         function updateToolScore() {
             var tool = TOOLS[currentToolKey];
-            var total = 0;
-            var answered = 0;
+            var total = 0; var answered = 0;
             Object.keys(toolSelections).forEach(function(k) { total += toolSelections[k]; answered++; });
             if (answered === tool.questions.length) {
                 var result = tool.interpret(total);
@@ -1082,15 +1734,21 @@
             currentUnit = {};
             var calc = CALCULATORS[calcKey];
             var cat = DATA[currentCategory];
+            // Nếu là công cụ đặc biệt (pha vận mạch)
+            if (calc.custom && calcKey === 'vasopressor') {
+                document.getElementById('calc-bc-parent').textContent = cat.title;
+                document.getElementById('calc-bc-current').textContent = calc.name;
+                document.getElementById('calc-title').textContent = calc.name;
+                document.getElementById('calc-subtitle').textContent = calc.desc;
+                renderVasopressorTool(calc);
+                showPage('page-calc');
+                return;
+            }
             document.getElementById('calc-bc-parent').textContent = cat.title;
             document.getElementById('calc-bc-current').textContent = calc.name;
             document.getElementById('calc-title').textContent = calc.name;
             document.getElementById('calc-subtitle').textContent = calc.desc;
-            
-            if (calc.unitConverter) {
-                currentUnit[calc.unitConverter.fieldId] = calc.unitConverter.units[0].code;
-            }
-            
+            if (calc.unitConverter) { currentUnit[calc.unitConverter.fieldId] = calc.unitConverter.units[0].code; }
             var container = document.getElementById('calc-content');
             var fieldsHtml = '';
             calc.fields.forEach(function(f) {
@@ -1110,7 +1768,6 @@
                     fieldsHtml += '<div class="calc-field"><label>' + f.label + '</label><input type="' + f.type + '" id="calc-' + f.id + '" placeholder="' + (f.placeholder || '') + '" min="' + (f.min || '') + '" max="' + (f.max || '') + '" step="' + (f.step || 'any') + '">' + unitHtml + '</div>';
                 }
             });
-            
             container.innerHTML = 
                 '<div class="calc-header"><div class="calc-header-icon bg-purple"><i class="fa-solid fa-calculator"></i></div><div class="calc-header-text"><h3>Nhập thông số</h3><p>Kết quả sẽ tự động hiển thị khi bạn nhập đủ</p></div></div>' +
                 '<div class="calc-form">' + fieldsHtml + '</div>' +
@@ -1119,7 +1776,6 @@
                     '<div class="assess-score-row"><div class="calc-big-number" id="calc-value">0</div><div class="assess-score-info"><div class="label" id="calc-unit">-</div><span class="assess-verdict verdict-low" id="calc-interpret">-</span></div></div>' +
                     '<div class="calc-note" id="calc-note">-</div>' +
                 '</div>';
-            
             setTimeout(function() {
                 calc.fields.forEach(function(f) {
                     var el = document.getElementById('calc-' + f.id);
@@ -1129,9 +1785,208 @@
                     }
                 });
             }, 50);
-            
             document.getElementById('calc-result-box').classList.remove('show');
             showPage('page-calc');
+        }
+        /* ============ CÔNG CỤ PHA VẬN MẠCH - BƠM TIÊM ĐIỆN ============ */
+        let vpCurrentDrug = null;
+        let vpCurrentConc = null;
+        let vpWeight = 60;
+        let vpMode = 'dose2rate'; // 'dose2rate' hoặc 'rate2dose'
+
+        function renderVasopressorTool(calc) {
+            vpCurrentDrug = calc.drugs[0].key;
+            vpCurrentConc = calc.drugs[0].concentrations[0].value;
+            var container = document.getElementById('calc-content');
+
+            var drugButtons = calc.drugs.map(function(d) {
+                return '<button class="vp-drug' + (d.key === vpCurrentDrug ? ' active' : '') + '" data-key="' + d.key + '" onclick="vpSelectDrug(\'' + d.key + '\')"><i class="fa-solid fa-syringe"></i>' + d.name + '</button>';
+            }).join('');
+
+            container.innerHTML = 
+                '<div class="calc-header"><div class="calc-header-icon bg-purple"><i class="fa-solid fa-syringe"></i></div><div class="calc-header-text"><h3>Chọn thuốc & nhập thông số</h3><p>Tự động tính tốc độ bơm tiêm hoặc liều thực tế</p></div></div>' +
+                '<div class="vp-selector">' + drugButtons + '</div>' +
+                '<div id="vp-form-area"></div>' +
+                '<div id="vp-result-area"></div>';
+
+            vpRenderForm();
+        }
+
+        function vpSelectDrug(key) {
+            vpCurrentDrug = key;
+            var drug = CALCULATORS.vasopressor.drugs.find(function(d) { return d.key === key; });
+            vpCurrentConc = drug.concentrations[0].value;
+            document.querySelectorAll('.vp-drug').forEach(function(b) {
+                b.classList.toggle('active', b.dataset.key === key);
+            });
+            vpRenderForm();
+        }
+
+        function vpRenderForm() {
+            var drug = CALCULATORS.vasopressor.drugs.find(function(d) { return d.key === vpCurrentDrug; });
+            var concOptions = drug.concentrations.map(function(c) {
+                return '<option value="' + c.value + '"' + (c.value === vpCurrentConc ? ' selected' : '') + '>' + c.label + '</option>';
+            }).join('');
+
+            var formArea = document.getElementById('vp-form-area');
+            formArea.innerHTML =
+                '<div class="vp-info">' +
+                    '<strong>📌 Khoảng liều khuyến cáo:</strong> ' + drug.range + ' • ' +
+                    '<strong>Đơn vị:</strong> ' + drug.unit +
+                '</div>' +
+                '<div class="vp-tabs">' +
+                    '<button class="vp-tab' + (vpMode === 'dose2rate' ? ' active' : '') + '" onclick="vpSetMode(\'dose2rate\')"><i class="fa-solid fa-arrow-right"></i> Liều → Tốc độ</button>' +
+                    '<button class="vp-tab' + (vpMode === 'rate2dose' ? ' active' : '') + '" onclick="vpSetMode(\'rate2dose\')"><i class="fa-solid fa-arrow-left"></i> Tốc độ → Liều</button>' +
+                '</div>' +
+                '<div class="calc-form">' +
+                    '<div class="calc-field"><label>Cân nặng BN (kg)</label><input type="number" id="vp-weight" placeholder="VD: 60" min="1" max="300" step="0.1" value="' + vpWeight + '" oninput="vpUpdateWeight(this.value)"></div>' +
+                    '<div class="calc-field"><label>Nồng độ pha (bơm tiêm 50ml)</label><select id="vp-conc" onchange="vpUpdateConc(this.value)">' + concOptions + '</select></div>' +
+                    (vpMode === 'dose2rate' 
+                        ? '<div class="calc-field"><label>Liều mong muốn (' + drug.unit + ')</label><input type="number" id="vp-dose" placeholder="VD: 0.1" min="0" step="0.001" value="0.1" oninput="vpCalculate()"></div>'
+                        : '<div class="calc-field"><label>Tốc độ bơm hiện tại (mL/giờ)</label><input type="number" id="vp-rate" placeholder="VD: 5" min="0" step="0.1" value="5" oninput="vpCalculate()"></div>'
+                    ) +
+                '</div>';
+
+            vpCalculate();
+        }
+
+        function vpSetMode(mode) {
+            vpMode = mode;
+            vpRenderForm();
+        }
+
+        function vpUpdateWeight(val) {
+            vpWeight = parseFloat(val) || 0;
+            vpCalculate();
+        }
+
+        function vpUpdateConc(val) {
+            vpCurrentConc = parseFloat(val);
+            vpCalculate();
+        }
+
+        function vpCalculate() {
+            var drug = CALCULATORS.vasopressor.drugs.find(function(d) { return d.key === vpCurrentDrug; });
+            var weightInput = document.getElementById('vp-weight');
+            var concInput = document.getElementById('vp-conc');
+            var weight = parseFloat(weightInput.value) || 0;
+            var conc = parseFloat(concInput.value) || 0;
+
+            if (!weight || !conc) {
+                document.getElementById('vp-result-area').innerHTML = '';
+                return;
+            }
+
+            var resultHtml = '';
+            var formulaText = '';
+            var rate = 0;
+            var dose = 0;
+
+            if (vpMode === 'dose2rate') {
+                var doseInput = document.getElementById('vp-dose');
+                dose = parseFloat(doseInput.value) || 0;
+                if (dose <= 0) { document.getElementById('vp-result-area').innerHTML = ''; return; }
+
+                // Công thức:
+                // Với đơn vị mcg/kg/phút: mL/giờ = (liều × CN × 60) / nồng độ (mcg/ml)
+                // Với đơn vị mcg/phút: mL/giờ = (liều × 60) / nồng độ
+                // Với đơn vị mg/giờ: mL/giờ = (liều × 1000) / (nồng độ mg/ml × 1000) = liều / nồng độ (mg/ml)
+                // Với đơn vị UI/giờ: mL/giờ = liều / nồng độ (UI/ml)
+                if (drug.unitType === 'kg') {
+                    rate = (dose * weight * 60) / conc;
+                    formulaText = 'mL/giờ = (Liều × CN × 60) / Nồng độ\n= (' + dose + ' × ' + weight + ' × 60) / ' + conc + '\n= ' + rate.toFixed(2) + ' mL/giờ';
+                } else if (drug.unit === 'mcg/phút') {
+                    rate = (dose * 60) / conc;
+                    formulaText = 'mL/giờ = (Liều × 60) / Nồng độ\n= (' + dose + ' × 60) / ' + conc + '\n= ' + rate.toFixed(2) + ' mL/giờ';
+                } else if (drug.unit === 'mg/giờ') {
+                    rate = dose / conc;
+                    formulaText = 'mL/giờ = Liều / Nồng độ\n= ' + dose + ' / ' + conc + '\n= ' + rate.toFixed(2) + ' mL/giờ';
+                } else if (drug.unit === 'UI/giờ') {
+                    rate = dose / conc;
+                    formulaText = 'mL/giờ = Liều / Nồng độ\n= ' + dose + ' / ' + conc + '\n= ' + rate.toFixed(2) + ' mL/giờ';
+                }
+
+                resultHtml = 
+                    '<div class="vp-result">' +
+                        '<div class="vp-result-label">Tốc độ bơm tiêm cần đặt</div>' +
+                        '<div class="vp-result-value">' + rate.toFixed(1) + '</div>' +
+                        '<div class="vp-result-unit">mL/giờ</div>' +
+                        '<div class="vp-result-sub">≈ ' + (rate / 60).toFixed(3) + ' mL/phút • Tức ' + (rate * 20).toFixed(0) + ' giọt/phút (dây 20 giọt/ml)</div>' +
+                    '</div>';
+            } else {
+                var rateInput = document.getElementById('vp-rate');
+                rate = parseFloat(rateInput.value) || 0;
+                if (rate <= 0) { document.getElementById('vp-result-area').innerHTML = ''; return; }
+
+                if (drug.unitType === 'kg') {
+                    dose = (rate * conc) / (weight * 60);
+                    formulaText = 'Liều = (Tốc độ × Nồng độ) / (CN × 60)\n= (' + rate + ' × ' + conc + ') / (' + weight + ' × 60)\n= ' + dose.toFixed(4) + ' ' + drug.unit;
+                } else if (drug.unit === 'mcg/phút') {
+                    dose = (rate * conc) / 60;
+                    formulaText = 'Liều = (Tốc độ × Nồng độ) / 60\n= (' + rate + ' × ' + conc + ') / 60\n= ' + dose.toFixed(2) + ' ' + drug.unit;
+                } else if (drug.unit === 'mg/giờ') {
+                    dose = rate * conc;
+                    formulaText = 'Liều = Tốc độ × Nồng độ\n= ' + rate + ' × ' + conc + '\n= ' + dose.toFixed(2) + ' ' + drug.unit;
+                } else if (drug.unit === 'UI/giờ') {
+                    dose = rate * conc;
+                    formulaText = 'Liều = Tốc độ × Nồng độ\n= ' + rate + ' × ' + conc + '\n= ' + dose.toFixed(2) + ' ' + drug.unit;
+                }
+
+                resultHtml = 
+                    '<div class="vp-result">' +
+                        '<div class="vp-result-label">Liều thực tế đang truyền</div>' +
+                        '<div class="vp-result-value">' + dose.toFixed(3) + '</div>' +
+                        '<div class="vp-result-unit">' + drug.unit + '</div>' +
+                        '<div class="vp-result-sub">Với tốc độ bơm ' + rate + ' mL/giờ • Nồng độ ' + conc + ' • CN ' + weight + ' kg</div>' +
+                    '</div>';
+            }
+
+            // Bảng tra cứu nhanh
+            var tableHtml = vpBuildTable(drug, weight, conc);
+
+            document.getElementById('vp-result-area').innerHTML = 
+                resultHtml + 
+                tableHtml + 
+                '<div class="vp-formula"><strong>📐 Công thức kiểm tra:</strong>\n' + formulaText + '</div>';
+        }
+
+        function vpBuildTable(drug, weight, conc) {
+            if (!weight || !conc) return '';
+            var rows = [];
+            var dosesToShow = [];
+
+            if (drug.unitType === 'kg') {
+                dosesToShow = [0.05, 0.1, 0.2, 0.3, 0.5, 1, 2, 3];
+            } else if (drug.unit === 'mcg/phút') {
+                dosesToShow = [5, 10, 20, 40, 60, 80, 100, 150, 200];
+            } else if (drug.unit === 'mg/giờ') {
+                dosesToShow = [2.5, 5, 7.5, 10, 15, 20];
+            } else if (drug.unit === 'UI/giờ') {
+                dosesToShow = [0.6, 1.2, 1.8, 2.4, 3, 3.6];
+            }
+
+            var currentDose = 0;
+            if (vpMode === 'dose2rate') {
+                var di = document.getElementById('vp-dose');
+                currentDose = di ? parseFloat(di.value) : 0;
+            }
+
+            dosesToShow.forEach(function(d) {
+                var r = 0;
+                if (drug.unitType === 'kg') {
+                    r = (d * weight * 60) / conc;
+                } else if (drug.unit === 'mcg/phút') {
+                    r = (d * 60) / conc;
+                } else if (drug.unit === 'mg/giờ') {
+                    r = d / conc;
+                } else if (drug.unit === 'UI/giờ') {
+                    r = d / conc;
+                }
+                var isHighlight = (Math.abs(d - currentDose) < 0.001) && currentDose > 0;
+                rows.push('<tr' + (isHighlight ? ' class="highlight"' : '') + '><td><strong>' + d + '</strong> ' + drug.unit + '</td><td><strong>' + r.toFixed(2) + '</strong> mL/giờ</td><td>' + (r * 20).toFixed(0) + ' giọt/phút</td></tr>');
+            });
+
+            return '<div class="vp-table-wrap"><table class="vp-table"><thead><tr><th>Liều</th><th>Tốc độ bơm tiêm</th><th>Tương đương</th></tr></thead><tbody>' + rows.join('') + '</tbody></table></div>';
         }
 
         function switchUnit(btn) {
@@ -1139,30 +1994,20 @@
             var newUnit = btn.dataset.unit;
             var oldUnit = currentUnit[fieldId];
             if (oldUnit === newUnit) return;
-            
             var input = document.getElementById('calc-' + fieldId);
             var calc = CALCULATORS[currentCalcKey];
             var converter = calc.unitConverter;
             var oldUnitObj = converter.units.find(function(u) { return u.code === oldUnit; });
             var newUnitObj = converter.units.find(function(u) { return u.code === newUnit; });
-            
             if (input.value && oldUnitObj && newUnitObj) {
                 var valBase = oldUnitObj.toBase(parseFloat(input.value));
                 var valNew = newUnitObj.fromBase(valBase);
                 input.value = valNew.toFixed(2);
             }
-            
             currentUnit[fieldId] = newUnit;
-            
-            document.querySelectorAll('.unit-convert button[data-field="' + fieldId + '"]').forEach(function(b) {
-                b.classList.remove('active');
-            });
+            document.querySelectorAll('.unit-convert button[data-field="' + fieldId + '"]').forEach(function(b) { b.classList.remove('active'); });
             btn.classList.add('active');
-            
-            if (newUnitObj && input) {
-                input.placeholder = newUnitObj.hint;
-            }
-            
+            if (newUnitObj && input) { input.placeholder = newUnitObj.hint; }
             runCalc();
         }
 
@@ -1172,20 +2017,15 @@
             calc.fields.forEach(function(f) {
                 var el = document.getElementById('calc-' + f.id);
                 var val = el ? el.value : '';
-                
                 if (calc.unitConverter && calc.unitConverter.fieldId === f.id && val) {
                     var currentUnitCode = currentUnit[f.id];
                     var unitObj = calc.unitConverter.units.find(function(u) { return u.code === currentUnitCode; });
-                    if (unitObj) {
-                        val = unitObj.toBase(parseFloat(val));
-                    }
+                    if (unitObj) { val = unitObj.toBase(parseFloat(val)); }
                 }
                 values[f.id] = val;
             });
-            
             var result = calc.calculate(values);
             if (!result) return;
-            
             document.getElementById('calc-value').textContent = result.value;
             document.getElementById('calc-unit').textContent = result.unit;
             var verdict = document.getElementById('calc-interpret');
@@ -1206,6 +2046,14 @@
                 icon.classList.add('fa-moon');
             }
         }
+
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) { btn.classList.add('show'); }
+            else { btn.classList.remove('show'); }
+        });
     </script>
 </body>
 </html>
